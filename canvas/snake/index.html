@@ -39,7 +39,7 @@
     function initCanvas() {
         cxt = document.getElementById('snake').getContext('2d');
         cxt.fillStyle = '#eee';
-        cxt.fillRect(0, 0, 800, 600);
+        cxt.fillRect(0, 0, 800, 500);
 
         let subBox = new SubBox(cxt);
         subBox.drawBox();//画小格子
@@ -75,12 +75,12 @@
         }
         stopAnimate();
         interval = setInterval(function () {
-
+            //
             for (let i = 0; i < snakes.length; i++) {
                 let snake = snakes[i];
                 snake.remove();
             }
-            console.log('snakes qian', snakes);
+
             // debugger
             let len = snakes.length;//缓存数组的长度
             snakes[len - 1].x = snakes[0].x + speedX;
@@ -121,12 +121,13 @@
         scoreDom.innerText = score;
     }
 
-
     function gameOver(interval) {
         if (interval) {
             clearInterval(interval);
         }
         console.log('game over');
+        alert('Game Over!');
+
     }
 
     //碰撞检测 食物与snake
@@ -154,7 +155,7 @@
         let headSnake = snakes[0];
         for (let i = 1; i < snakes.length; i++) {
             let snake = snakes[i];
-            if (!((headSnake.x > snake.x+ 18 ) || (headSnake.y < snake.y) || (headSnake.y > snake.y + 18) || (headSnake.x < snake.x))) {
+            if (!((headSnake.x > snake.x + 18) || (headSnake.y < snake.y) || (headSnake.y > snake.y + 18) || (headSnake.x < snake.x))) {
                 isHit = true;
                 break;
             }
@@ -210,7 +211,6 @@
             this.context.fillRect(x, y, width, width);
             this.context.save();
         }
-
 
         //涉及到转弯  有个转弯点  所有的小方块过了转弯点type 才会改变
         move(type) {
@@ -331,24 +331,18 @@
         switch (keyCode) {
             case 37:
                 //左
-                // stopAnimate();
                 startAnimate(4);
-
                 break;
             case 38:
                 //上
-                // stopAnimate();
                 startAnimate(1);
                 break;
             case 39:
                 //右
-                console.log('111');
-                // stopAnimate();
                 startAnimate(2);
                 break;
             case 40:
                 //下
-                // stopAnimate();
                 startAnimate(3);
                 break;
         }
