@@ -50,6 +50,7 @@
         let snake = new Snake(cxt, 20, 20);
         snakes.push(snake);
         food = new Food();
+        food.getRandPlace();
         // 区分一下requestAnimationFrame（会自动计算动画间隔）和setInterval（自己设定） 两个动画的区别
         // window.requestAnimationFrame(function () {
         //     startAnimate(snake);
@@ -65,6 +66,13 @@
         }
     }
 
+    function restore() {
+        cxt.fillStyle = '#eee';
+        cxt.fillRect(0, 0, 800, 500);
+        let subBox = new SubBox(cxt);
+        subBox.drawBox();//画小格子
+        food.draw();
+    }
     function startAnimate(type) {
         // window.requestAnimationFrame(function () {
         //     startAnimate(snake);
@@ -75,11 +83,12 @@
         }
         stopAnimate();
         interval = setInterval(function () {
-            //
-            for (let i = 0; i < snakes.length; i++) {
-                let snake = snakes[i];
-                snake.remove();
-            }
+            //循环调用多次canvas Api 会比较耗性能  换个方式
+            // for (let i = 0; i < snakes.length; i++) {
+            //     let snake = snakes[i];
+            //     snake.remove();
+            // }
+            restore();
 
             // debugger
             let len = snakes.length;//缓存数组的长度
@@ -101,11 +110,13 @@
                 stopAnimate();
                 addSnake();
                 startAnimate(type);
+                food.getRandPlace();
                 food.draw();
                 score++;
                 updateScore();
             }
         }, 200);
+
     }
 
     function addSnake() {
@@ -283,9 +294,7 @@
             //食物随机生成
             this.x = 0;
             this.y = 100;
-
             this.color = '#000f43';
-            this.draw();
         }
 
         getInteger(number) {
@@ -308,11 +317,14 @@
             }
             return isSnakeLoc;
         }
-
-        draw() {
+        getRandPlace(){
             this.x = this.getInteger(parseInt(Math.random() * 780));
             this.y = this.getInteger(parseInt(Math.random() * 480));
+        }
+
+        draw() {
             if (this.isOverlap()) {
+                this.getRandPlace();
                 this.draw();
             } else {
                 cxt.fillStyle = this.color;
