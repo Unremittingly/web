@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="firework" width="800" height="500"> </canvas>
+
+<script>
+    let cxt;
+    initCanvas();
+    function initCanvas() {
+        cxt = document.getElementById('firework').getContext('2d');
+        cxt.strokeStyle = '#000';
+        cxt.fillRect(0,0,800,500);
+
+    }
+</script>
+</body>
+</html>
