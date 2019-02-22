@@ -5,17 +5,176 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="firework" width="800" height="500"> </canvas>
+<canvas id="firework" width="800" height="500"></canvas>
 
 <script>
     let cxt;
-    initCanvas();
+    let start = {
+        x: 10,
+        y: 300
+    };
+    let end = {
+        x: 200,
+        y: 50,
+    };
+    let percent = 0;
+
     function initCanvas() {
         cxt = document.getElementById('firework').getContext('2d');
-        cxt.strokeStyle = '#000';
-        cxt.fillRect(0,0,800,500);
+        cxt.fillRect(0, 0, 800, 500);
+        /*****
+         * 过程
+         * 一束烟花从地面发射
+         * 烟花以一定的加速度向某个方向飞去
+         * 飞行一定时间后爆炸
+         * 爆炸产生一定数量的小火花
+         * 小火花向四周散开，并逐渐变暗
+         */
+        beforeBoom();
+        // speedUp();
+        arriveEnd();
+        boomGenerateSpark();
+        sparkAnimation();
+
 
     }
+
+    class PathForSmall {
+        constructor(cxt) {
+            this.width = 5;
+            this.x = 10;
+            this.y = 300;
+            this.cxt = cxt;
+            this.cxt.fillStyle = '#fff';
+            this.percent = 0;
+            this.index = 0;
+
+        }
+
+        setPosition(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        draw() {
+            this.cxt.fillRect(this.x, this.y, this.width, this.width);
+            this.cxt.save();
+        }
+
+        move() {
+            this.animation();
+        }
+        animation(){
+
+            this.drawPath1();
+            // debugger;
+            this.percent = (this.percent+1)%18;
+            if(this.percent!=0){
+                let that = this;
+                requestAnimationFrame(function () {
+                    that.animation();
+                });
+            }else{
+                console.log('index',this.index);
+            }
+
+        }
+        drawPath1(){
+            cxt.beginPath();
+            cxt.strokeStyle = '#fff';
+            cxt.moveTo(start.x, start.y);
+
+
+
+            // console.log('percent',cp);
+            for (let i = 0; i < this.percent / 18; i = i + 0.001) {
+                let x = quadraticBezierOne(start.x,  end.x, i);
+                let y = quadraticBezierOne(start.y,  end.y, i);
+
+                cxt.lineTo(x, y);
+                if(i>=this.percent/36){
+                //    模糊淡出
+
+                }
+                this.index++;
+            }
+
+            cxt.stroke();
+        }
+
+    }
+
+    class Spark {
+        constructor() {
+
+        }
+    }
+
+    function beforeBoom() {
+
+        let path = new PathForSmall(cxt);
+        path.move();
+    }
+
+    function speedUp() {
+        //    贝塞尔曲线 运动
+
+
+        console.log('percent',percent);
+        drawPath(percent);
+        percent = (percent + 1) % 100;
+        if(percent != 0){
+            requestAnimationFrame(speedUp);
+        }
+
+    }
+
+    function drawPath(percent) {
+        cxt.beginPath();
+        cxt.strokeStyle = '#fff';
+        cxt.moveTo(start.x, start.y);
+
+
+
+        // console.log('percent',cp);
+        for (let i = 0; i < percent / 100; i = i + 0.01) {
+            let x = quadraticBezier(start.x, start.x + 50, end.x, i);
+            let y = quadraticBezier(start.y, end.x - 50, end.y, i);
+            cxt.lineTo(x, y);
+        }
+
+        cxt.stroke();
+    }
+
+    function quadraticBezierOne(p0,p1,t) {
+        return (1-t)*p0+t*p1;
+    }
+
+    //贝塞尔曲线获取点坐标  二次贝赛尔曲线方程
+    function quadraticBezier(p0, p1, p2, t) {
+        let k = 1 - t;
+        return k * k * p0 + 2 * k * t * p1 + t * t * p2;
+    }
+
+    //烟花散开需要三次贝塞尔曲线方程
+    function quadraticBezierThree(p0, p1, p2, p3, t) {
+        let k = 1 - t;
+        return k * k * k * p0 + 3 * t * k * k * p1 + 3 * t * 2 * k * p2 + 3 * t * p3;
+    }
+
+    function arriveEnd() {
+
+    }
+
+    function boomGenerateSpark() {
+
+    }
+
+    function sparkAnimation() {
+
+    }
+
+    initCanvas();
 </script>
 </body>
 </html>
