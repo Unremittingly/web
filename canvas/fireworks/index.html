@@ -17,11 +17,18 @@
         x: 200,
         y: 200,
     };
-    let percent = 0;
     let sparks = [];
-    let sparkIsEnd = false;
     let sparkEndLength = 0;
+    let sparkColor = ['red', 'blue', 'green', 'yellow', '#fff'];
 
+    let requestAnimation = null;
+    let index = 0;
+
+    window.requestAnimFrame = function () {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (a) {
+            window.setTimeout(a, 1E3 / 60)
+        }
+    }();
 
     function initCanvas() {
         cxt = document.getElementById('firework').getContext('2d');
@@ -35,14 +42,16 @@
          * 小火花向四周散开，并逐渐变暗
          */
 
-        //todo 这里如果直接这样写的话（顺序写动画）会存在问题   不是异步执行的（js是单线程的），
-        //todo 换个思路：一直轮询，几个操作同时执行，完全不知道那个先，那个后不就实现了动画同时执行（这里还包括爆炸分散开的动画）
+            //todo 这里如果直接这样写的话（顺序写动画）会存在问题   不是异步执行的（js是单线程的），
+            //todo 换个思路：一直轮询，几个操作同时执行，完全不知道那个先，那个后不就实现了动画同时执行（这里还包括爆炸分散开的动画）
 
-        beforeBoom();
-
-        boomGenerateSpark();
-        sparkAnimation();
-
+        let p = new Promise(function (resolve, reject) {
+                beforeBoom(resolve);
+            }).then(function () {
+                boomGenerateSpark();
+            }).catch(function (e) {
+                console.log('error', e);
+            });
 
     }
 
@@ -66,22 +75,23 @@
             this.cxt.save();
         }
 
-        move() {
+        move(resolve) {
             this.initPath();
 
-            this.animation();
+            this.animation(resolve);
         }
 
-        animation() {
+        animation(resolve) {
 
             this.drawPath();
             this.percent = (this.percent + 1) % this.pathPosLength;
             if (this.percent != 0) {
                 let that = this;
                 requestAnimationFrame(function () {
-                    that.animation();
+                    that.animation(resolve);
                 });
             } else {
+                resolve();
                 console.log('index', this.index);
             }
 
@@ -122,9 +132,9 @@
 
     }
 
-    function beforeBoom() {
+    function beforeBoom(resolve) {
         let path = new PathForSmall(cxt);
-        path.move();
+        path.move(resolve);
     }
 
     function quadraticBezierOne(p0, p1, t) {
@@ -154,44 +164,48 @@
                 x: 0,
                 y: 0
             };
+            this.lineWidth = 3;
             this.pathPosLength = 18;
             this.sparksPaths = [];
-            this.percent = 2;
+            this.percent = 0;
+            this.color = sparkColor[parseInt(Math.random() * 5)];
+            this.isEnd = false;
         }
 
         initSparksPath() {
             let start = this.start;
             let end = this.end;
             for (let i = 0; i < this.pathPosLength; i++) {
-                let x = Math.abs(end.x - start.x) / this.pathPosLength * i + start.x;
-                let y = Math.abs(start.y - Math.abs(start.y - end.y) / this.pathPosLength * (i));
+                let x = (end.x - start.x) / this.pathPosLength * i + start.x;
+                let y = (start.y + (end.y - start.y) / this.pathPosLength * (i));
                 this.sparksPaths.push({
                     x: x,
                     y: y,
                     opacity: i / this.pathPosLength
                 })
             }
-            console.log('tttt',this.sparksPaths);
         }
 
 
         drawPath() {
+            cxt.save();
             cxt.fillStyle = '#000';
             cxt.fillRect(0, 0, 800, 500);
             cxt.beginPath();
-            cxt.strokeStyle = '#fff';
+            cxt.strokeStyle = this.color;
 
+            cxt.lineWidth = this.lineWidth;
             cxt.globalAlpha = this.sparksPaths[this.percent - 1].opacity;
             cxt.moveTo(this.sparksPaths[this.percent].x, this.sparksPaths[this.percent].y);
             //这里用这么多次循环是为了动画  percent 只是为了拿取数组   操作都是拿去数组中的东西
             for (let i = 0; i < 1 / this.pathPosLength; i = i + 0.001) {
-
                 let x = quadraticBezierOne(this.sparksPaths[this.percent - 1].x, this.sparksPaths[this.percent].x, i);
                 let y = quadraticBezierOne(this.sparksPaths[this.percent - 1].y, this.sparksPaths[this.percent].y, i);
                 cxt.lineTo(x, y);
 
             }
 
+            cxt.closePath();
             cxt.stroke();
         }
     }
@@ -201,11 +215,13 @@
         initSparkAttr();
 
 
+        console.log('sparks', sparks);
         sparkAnimation();
     }
 
     function initSparkAttr() {
-        for (let i = 0; i < 20; i++) {
+        //
+        for (let i = 0; i < 50; i++) {
 
             let spark = new Spark();
 
@@ -215,44 +231,103 @@
         }
     }
 
-    function getRandomEndPoint(center, type) {
-        let radius = 200;
-        let x = type ? Math.random() * radius : -Math.random() * radius;
-        let y = type ? -Math.random() * radius : Math.random() * radius;
-        return {
-            x: center.x + x,
-            y: center.y + y
+    function getIsSamePoint(point) {
+        let isSame = false;
+        for (let i = 0; i < sparks.length; i++) {
+            let spark = sparks[i];
+            if ((spark.x == point.x) && (spark.y == point.y)) {
+                isSame = true;
+                break;
+            }
+
         }
+
+        return isSame;
+    }
+
+    function getRandomEndPoint(center, type) {
+        //保证随机性
+        let radius = 150;
+        //type true  false
+        let x = center.x + (type ? Math.random() * radius : -Math.random() * radius);
+        let y = center.y + (type ? -Math.random() * radius : Math.random() * radius);
+        switch (parseInt(Math.random() * 3)) {
+            case 0:
+                x = center.x + (type ? -Math.random() * radius : Math.random() * radius);
+                y = center.y + (type ? -Math.random() * radius : Math.random() * radius);
+                break;
+            case 1:
+                x = center.x + (type ? -Math.random() * radius : Math.random() * radius);
+                y = center.y + (type ? -Math.random() * radius : -Math.random() * radius);
+                break;
+            case 2:
+                x = center.x + (type ? -Math.random() * radius : -Math.random() * radius);
+                y = center.y + (type ? Math.random() * radius : -Math.random() * radius);
+                break;
+        }
+        if (getIsSamePoint({
+            x: x,
+            y: y
+        })) {
+            getRandomEndPoint(center, type);
+        } else {
+            return {
+                x: x,
+                y: y
+            }
+        }
+
     }
 
     function sparkAnimation() {
 
 
         for (let i = 0; i < sparks.length; i++) {
+            // console.log('33333333');
             let spark = sparks[i];
             spark.percent = (spark.percent + 1) % spark.pathPosLength;
-            spark.initSparksPath();
-            // console.log('this.', this.sparksPaths);
-            spark.drawPath();
-            // debugger
+            if (spark.percent != 0) {
+                if (spark.sparksPaths.length == 0) {
+                    spark.initSparksPath();
+                }
+                spark.drawPath();
 
+            }
+            // console.log('spark',spark.percent);
             if (spark.percent <= 0) {
-                sparkEndLength++;
-                break;
+                sparks[i].isEnd = true;
             }
 
-
-
-
         }
-        if (sparkEndLength >= sparks.length) {
+
+
+        for (let i = 0; i < sparks.length; i++) {
+            if (sparks[i].isEnd) {
+                sparkEndLength++;
+            }
+        }
+
+
+        if (sparkEndLength > sparks.length) {
             console.log('end');
+
         } else {
-            requestAnimationFrame(function () {
+            // debugger
+            // console.log('1');
+            requestAnimFrame(function () {
                 sparkAnimation();
             });
+
         }
 
+
+    }
+
+    function clearCanvas() {
+        // cxt.clearRect(0,0,800,500);
+        setTimeout(function () {
+            cxt.fillRect(0, 0, 800, 500);
+        }, 200)
 
     }
 
