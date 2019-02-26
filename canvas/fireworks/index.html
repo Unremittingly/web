@@ -15,9 +15,13 @@
     };
     let end = {
         x: 200,
-        y: 50,
+        y: 200,
     };
     let percent = 0;
+    let sparks = [];
+    let sparkIsEnd = false;
+    let sparkEndLength = 0;
+
 
     function initCanvas() {
         cxt = document.getElementById('firework').getContext('2d');
@@ -30,14 +34,18 @@
          * 爆炸产生一定数量的小火花
          * 小火花向四周散开，并逐渐变暗
          */
+
+        //todo 这里如果直接这样写的话（顺序写动画）会存在问题   不是异步执行的（js是单线程的），
+        //todo 换个思路：一直轮询，几个操作同时执行，完全不知道那个先，那个后不就实现了动画同时执行（这里还包括爆炸分散开的动画）
+
         beforeBoom();
-        // speedUp();
-        arriveEnd();
+
         boomGenerateSpark();
         sparkAnimation();
 
 
     }
+
 
     class PathForSmall {
         constructor(cxt) {
@@ -46,14 +54,11 @@
             this.y = 300;
             this.cxt = cxt;
             this.cxt.fillStyle = '#fff';
-            this.percent = 0;
+            this.percent = 1;
             this.index = 0;
+            this.pathPosLength = 30;
+            this.paths = [];
 
-        }
-
-        setPosition(x, y) {
-            this.x = x;
-            this.y = y;
         }
 
         draw() {
@@ -62,92 +67,68 @@
         }
 
         move() {
+            this.initPath();
+
             this.animation();
         }
-        animation(){
 
-            this.drawPath1();
-            // debugger;
-            this.percent = (this.percent+1)%18;
-            if(this.percent!=0){
+        animation() {
+
+            this.drawPath();
+            this.percent = (this.percent + 1) % this.pathPosLength;
+            if (this.percent != 0) {
                 let that = this;
                 requestAnimationFrame(function () {
                     that.animation();
                 });
-            }else{
-                console.log('index',this.index);
+            } else {
+                console.log('index', this.index);
             }
 
         }
-        drawPath1(){
+
+        initPath() {
+            for (let i = 0; i < this.pathPosLength; i++) {
+                let x = Math.abs(end.x - start.x) / this.pathPosLength * i + start.x;
+                let y = start.y - Math.abs(start.y - end.y) / this.pathPosLength * (i);
+                this.paths.push({
+                    x: x,
+                    y: y,
+                    opacity: i / this.pathPosLength
+                })
+            }
+        }
+
+        //绘制线条动画
+        drawPath() {
+            cxt.fillStyle = '#000';
+            cxt.fillRect(0, 0, 800, 500);
             cxt.beginPath();
             cxt.strokeStyle = '#fff';
-            cxt.moveTo(start.x, start.y);
+            cxt.globalAlpha = this.paths[this.percent - 1].opacity;
+            cxt.moveTo(this.paths[this.percent].x, this.paths[this.percent].y);
+            //这里用这么多次循环是为了动画  percent 只是为了拿取数组   操作都是拿去数组中的东西
+            for (let i = 0; i < 1 / this.pathPosLength; i = i + 0.001) {
 
-
-
-            // console.log('percent',cp);
-            for (let i = 0; i < this.percent / 18; i = i + 0.001) {
-                let x = quadraticBezierOne(start.x,  end.x, i);
-                let y = quadraticBezierOne(start.y,  end.y, i);
-
+                let x = quadraticBezierOne(this.paths[this.percent - 1].x, this.paths[this.percent].x, i);
+                let y = quadraticBezierOne(this.paths[this.percent - 1].y, this.paths[this.percent].y, i);
                 cxt.lineTo(x, y);
-                if(i>=this.percent/36){
-                //    模糊淡出
-
-                }
                 this.index++;
             }
 
             cxt.stroke();
         }
 
-    }
 
-    class Spark {
-        constructor() {
-
-        }
     }
 
     function beforeBoom() {
-
         let path = new PathForSmall(cxt);
         path.move();
     }
 
-    function speedUp() {
-        //    贝塞尔曲线 运动
-
-
-        console.log('percent',percent);
-        drawPath(percent);
-        percent = (percent + 1) % 100;
-        if(percent != 0){
-            requestAnimationFrame(speedUp);
-        }
-
-    }
-
-    function drawPath(percent) {
-        cxt.beginPath();
-        cxt.strokeStyle = '#fff';
-        cxt.moveTo(start.x, start.y);
-
-
-
-        // console.log('percent',cp);
-        for (let i = 0; i < percent / 100; i = i + 0.01) {
-            let x = quadraticBezier(start.x, start.x + 50, end.x, i);
-            let y = quadraticBezier(start.y, end.x - 50, end.y, i);
-            cxt.lineTo(x, y);
-        }
-
-        cxt.stroke();
-    }
-
-    function quadraticBezierOne(p0,p1,t) {
-        return (1-t)*p0+t*p1;
+    function quadraticBezierOne(p0, p1, t) {
+        return (1 - t) * p0 + t * p1;
     }
 
     //贝塞尔曲线获取点坐标  二次贝赛尔曲线方程
@@ -162,17 +143,119 @@
         return k * k * k * p0 + 3 * t * k * k * p1 + 3 * t * 2 * k * p2 + 3 * t * p3;
     }
 
-    function arriveEnd() {
+    class Spark {
+        constructor(x, y) {
+            this.sparks = [];
+            this.start = {
+                x: x || end.x,
+                y: y || end.y
+            };
+            this.end = {
+                x: 0,
+                y: 0
+            };
+            this.pathPosLength = 18;
+            this.sparksPaths = [];
+            this.percent = 2;
+        }
 
+        initSparksPath() {
+            let start = this.start;
+            let end = this.end;
+            for (let i = 0; i < this.pathPosLength; i++) {
+                let x = Math.abs(end.x - start.x) / this.pathPosLength * i + start.x;
+                let y = Math.abs(start.y - Math.abs(start.y - end.y) / this.pathPosLength * (i));
+                this.sparksPaths.push({
+                    x: x,
+                    y: y,
+                    opacity: i / this.pathPosLength
+                })
+            }
+            console.log('tttt',this.sparksPaths);
+        }
+
+
+        drawPath() {
+            cxt.fillStyle = '#000';
+            cxt.fillRect(0, 0, 800, 500);
+            cxt.beginPath();
+            cxt.strokeStyle = '#fff';
+
+            cxt.globalAlpha = this.sparksPaths[this.percent - 1].opacity;
+            cxt.moveTo(this.sparksPaths[this.percent].x, this.sparksPaths[this.percent].y);
+            //这里用这么多次循环是为了动画  percent 只是为了拿取数组   操作都是拿去数组中的东西
+            for (let i = 0; i < 1 / this.pathPosLength; i = i + 0.001) {
+
+                let x = quadraticBezierOne(this.sparksPaths[this.percent - 1].x, this.sparksPaths[this.percent].x, i);
+                let y = quadraticBezierOne(this.sparksPaths[this.percent - 1].y, this.sparksPaths[this.percent].y, i);
+                cxt.lineTo(x, y);
+
+            }
+
+            cxt.stroke();
+        }
     }
 
     function boomGenerateSpark() {
 
+        initSparkAttr();
+
+
+        sparkAnimation();
+    }
+
+    function initSparkAttr() {
+        for (let i = 0; i < 20; i++) {
+
+            let spark = new Spark();
+
+            spark.end = getRandomEndPoint(spark.start, i % 2);
+            // console.log('spark',spark.end);
+            sparks.push(spark);
+        }
+    }
+
+    function getRandomEndPoint(center, type) {
+        let radius = 200;
+        let x = type ? Math.random() * radius : -Math.random() * radius;
+        let y = type ? -Math.random() * radius : Math.random() * radius;
+        return {
+            x: center.x + x,
+            y: center.y + y
+        }
     }
 
     function sparkAnimation() {
 
+
+        for (let i = 0; i < sparks.length; i++) {
+            let spark = sparks[i];
+            spark.percent = (spark.percent + 1) % spark.pathPosLength;
+            spark.initSparksPath();
+            // console.log('this.', this.sparksPaths);
+            spark.drawPath();
+            // debugger
+
+            if (spark.percent <= 0) {
+                sparkEndLength++;
+                break;
+            }
+
+
+
+
+        }
+        if (sparkEndLength >= sparks.length) {
+            console.log('end');
+        } else {
+            requestAnimationFrame(function () {
+                sparkAnimation();
+            });
+        }
+
+
     }
+
 
     initCanvas();
 </script>
