@@ -235,12 +235,18 @@
 
     function initSparkAttr() {
         //
-        for (let i = 0; i < 50; i++) {
+        let length = 50;
+        for (let i = 0; i < length; i++) {
 
             let spark = new Spark();
-
-            spark.end = getRandomEndPoint(spark.start, i % 2);
+            let degree = 360/length * i;//角度数
+            // debugger
+            //1.这个是获取圆上的点为end点
+            // spark.end = getEndPointForCircle(spark.start,degree);
+            //2.随机获取点为end点  在圆内
+            spark.end = getRandomEndPoint(spark.start,i%2);
             // console.log('spark',spark.end);
+            // debugger
             sparks.push(spark);
         }
     }
@@ -257,6 +263,18 @@
         }
 
         return isSame;
+    }
+    function getEndPointForCircle(center,degree){
+        let radius = 150;
+
+        let x = center.x +  Math.cos(Math.PI * 2 / 360 * degree) * radius;
+        let y = center.y+ Math.sin(Math.PI * 2 / 360 * degree) * radius;
+
+        return{
+            x:x,
+            y:y
+        }
+
     }
 
     function getRandomEndPoint(center, type) {
