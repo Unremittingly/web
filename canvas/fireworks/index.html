@@ -201,10 +201,10 @@
             let index = 0;
             //todo 这里清掉了所有 所以看起来就很稀少  留下来得都是运气好得最后几个  需要考虑怎么清除
             // cxt.fillStyle = '#000';
-            cxt.fillRect(0,0,800,500);
+            // cxt.fillRect(0,0,800,500);
             cxt.beginPath();
             cxt.strokeStyle = this.color;
-
+            cxt.strokeStyle = 'hsla('+this.color+',100%,'+rand(50,100)+'%,1)';
             cxt.lineWidth = this.lineWidth;
             cxt.globalAlpha = this.sparksPaths[this.percent - 1].opacity;
             cxt.moveTo(this.sparksPaths[this.percent].x, this.sparksPaths[this.percent].y);
@@ -212,7 +212,7 @@
             for (let i = 0; i < 1 / this.pathPosLength; i = i + 0.001) {
                 // console.log('1',i*10);
 
-                cxt.strokeStyle = 'hsla('+this.color+',100%,'+rand(50,100)+'%,1)';
+
                 let x = quadraticBezierOne(this.sparksPaths[this.percent - 1].x, this.sparksPaths[this.percent].x, i);
                 let y = quadraticBezierOne(this.sparksPaths[this.percent - 1].y, this.sparksPaths[this.percent].y, i);
                 cxt.lineTo(x, y);
@@ -221,6 +221,7 @@
 
             cxt.closePath();
             cxt.stroke();
+            cxt.restore();
         }
     }
 
