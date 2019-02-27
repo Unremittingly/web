@@ -19,20 +19,28 @@
     };
     let sparks = [];
     let sparkEndLength = 0;
-    let sparkColor = ['red', 'blue', 'green', 'yellow', '#fff'];
+    let sparkColor = [0, 100, 160, 220, 280];
 
     let requestAnimation = null;
     let index = 0;
 
+    //统一一下兼容性
     window.requestAnimFrame = function () {
         return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (a) {
             window.setTimeout(a, 1E3 / 60)
         }
     }();
+    function rand(min,max) {
+        //~~运算符是取整 按位取整
+        return ~~Math.random()*(max-min)+min;
+    }
 
     function initCanvas() {
         cxt = document.getElementById('firework').getContext('2d');
         cxt.fillRect(0, 0, 800, 500);
+
+
+
         /*****
          * 过程
          * 一束烟花从地面发射
@@ -46,7 +54,8 @@
             //todo 换个思路：一直轮询，几个操作同时执行，完全不知道那个先，那个后不就实现了动画同时执行（这里还包括爆炸分散开的动画）
 
         let p = new Promise(function (resolve, reject) {
-                beforeBoom(resolve);
+                // beforeBoom(resolve);
+                boomGenerateSpark();
             }).then(function () {
                 boomGenerateSpark();
             }).catch(function (e) {
@@ -181,7 +190,7 @@
                 this.sparksPaths.push({
                     x: x,
                     y: y,
-                    opacity: i / this.pathPosLength
+                    opacity: i / this.pathPosLength + (i*10)/this.pathPosLength
                 })
             }
         }
@@ -189,16 +198,21 @@
 
         drawPath() {
             cxt.save();
-            cxt.fillStyle = '#000';
-            cxt.fillRect(0, 0, 800, 500);
+            let index = 0;
+            //todo 这里清掉了所有 所以看起来就很稀少  留下来得都是运气好得最后几个  需要考虑怎么清除
+            // cxt.fillStyle = '#000';
+            cxt.fillRect(0,0,800,500);
             cxt.beginPath();
             cxt.strokeStyle = this.color;
 
             cxt.lineWidth = this.lineWidth;
             cxt.globalAlpha = this.sparksPaths[this.percent - 1].opacity;
             cxt.moveTo(this.sparksPaths[this.percent].x, this.sparksPaths[this.percent].y);
-            //这里用这么多次循环是为了动画  percent 只是为了拿取数组   操作都是拿去数组中的东西
+            //这里用这么多次循环是为了动画  percent 只是为了拿取数组   操作都是拿去数组中的东西 试一下二次曲线
             for (let i = 0; i < 1 / this.pathPosLength; i = i + 0.001) {
+                // console.log('1',i*10);
+
+                cxt.strokeStyle = 'hsla('+this.color+',100%,'+rand(50,100)+'%,1)';
                 let x = quadraticBezierOne(this.sparksPaths[this.percent - 1].x, this.sparksPaths[this.percent].x, i);
                 let y = quadraticBezierOne(this.sparksPaths[this.percent - 1].y, this.sparksPaths[this.percent].y, i);
                 cxt.lineTo(x, y);
@@ -293,6 +307,7 @@
                 spark.drawPath();
 
             }
+
             // console.log('spark',spark.percent);
             if (spark.percent <= 0) {
                 sparks[i].isEnd = true;
@@ -310,24 +325,24 @@
 
         if (sparkEndLength > sparks.length) {
             console.log('end');
-
+            // clearCanvas();
         } else {
             // debugger
             // console.log('1');
             requestAnimFrame(function () {
                 sparkAnimation();
             });
-
         }
-
 
     }
 
     function clearCanvas() {
         // cxt.clearRect(0,0,800,500);
-        setTimeout(function () {
-            cxt.fillRect(0, 0, 800, 500);
-        }, 200)
+        console.log('clear');
+        cxt.save();
+        // cxt.clearRect(0,0,800,500);
+        cxt.fillStyle = '#000';
+        cxt.fillRect(0, 0, 800, 500);
 
     }
 
