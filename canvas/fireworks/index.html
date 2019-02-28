@@ -54,8 +54,8 @@
             //todo 换个思路：一直轮询，几个操作同时执行，完全不知道那个先，那个后不就实现了动画同时执行（这里还包括爆炸分散开的动画）
 
         let p = new Promise(function (resolve, reject) {
-                // beforeBoom(resolve);
-                boomGenerateSpark();
+                beforeBoom(resolve);
+                // boomGenerateSpark();
             }).then(function () {
                 boomGenerateSpark();
             }).catch(function (e) {
@@ -199,7 +199,7 @@
         drawPath() {
             cxt.save();
             let index = 0;
-            //todo 这里清掉了所有 所以看起来就很稀少  留下来得都是运气好得最后几个  需要考虑怎么清除
+            //todo 这里加fillRect会清掉其他的  会有问题  因为这里的动画是每一条线 独立出来的，这样的话维度和逻辑有问题搞不了，维度不同，维度应该改成 一圈一圈的往外扩散
             // cxt.fillStyle = '#000';
             // cxt.fillRect(0,0,800,500);
             cxt.beginPath();
@@ -221,7 +221,7 @@
 
             cxt.closePath();
             cxt.stroke();
-            cxt.restore();
+            // cxt.restore();
         }
     }
 
@@ -344,6 +344,8 @@
 
         if (sparkEndLength > sparks.length) {
             console.log('end');
+            initCanvas();
+
             // clearCanvas();
         } else {
             // debugger
