@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="clock" width="800" height="500"></canvas>
+</body>
+<script>
+    let rand = function (rMi, rMa) {
+        return ~~((Math.random() * (rMa - rMi + 1)) + rMi);
+    };
+
+    let a = rand(10, 20);
+    console.log('1', a);
+    //    获取圆上的点
+    let center = {
+        x: 250,
+        y: 250
+    };
+    let radius = 150;
+    let cxt = null;
+    let clockCanvas = null;
+
+    function initCanvas() {
+        cxt = document.getElementById('clock').getContext('2d');
+        clockCanvas = new ClockCanvas();
+        clockCanvas.drawCirclePoint(center,radius);
+    }
+    class ClockCanvas{
+        constructor(){
+            this.fillStyle = '#000';
+            this.degree = rand(0, 360);
+            this.init()
+        }
+        init(){
+            cxt.fillStyle = this.fillStyle;
+            cxt.fillRect(0, 0, 800, 500);
+        }
+        clear(){
+            this.fillStyle = '#fff';
+            cxt.fillRect(0,0,800,500);
+        }
+        drawCirclePoint(center, radius) {
+            let ce = center;
+            let r = radius;
+            let points = [];
+            let degree = this.degree;
+            cxt.arc(ce.x,ce.y,r,0,360);
+            cxt.strokeStyle = '#fff';
+            cxt.stroke();
+            cxt.save();
+            for (let i = 0; i < 12; i++) {
+                degree = i*30;
+                //通过数学函数获取点
+                console.log('Math.PI * 2 / 360 * degree',Math.PI * 2 / 360 * degree);
+                let x = ce.x +  Math.cos(Math.PI * 2 / 360 * degree) * r;
+                let y = ce.y+ Math.sin(Math.PI * 2 / 360 * degree) * r;
+                points.push({
+                    x:x,
+                    y:y
+                });
+                cxt.beginPath();
+                cxt.arc(x,y,2,0,360);
+                cxt.strokeStyle = '#fff';
+                cxt.stroke();
+                cxt.closePath();
+                cxt.save();
+            }
+        }
+    }
+    //模拟一个比外层小20的圆，时分秒  针的终点落在这个圆上
+
+
+    class Time{
+        constructor(){
+            this.date = new Date();
+
+        }
+        getHours(){
+            return this.date.getHours();
+        }
+        getSecond(){
+            return this.date.getSeconds();
+        }
+        getMinute(){
+            return this.date.getMinutes();
+        }
+    }
+
+    initCanvas();
+
+    let t = new Time();
+    console.log('t',t.getHours());
+</script>
+</html>
