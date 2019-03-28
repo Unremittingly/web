@@ -21,8 +21,8 @@
     let sparkEndLength = 0;
     let sparkColor = [0, 100, 160, 220, 280];
 
-    let requestAnimation = null;
-    let index = 0;
+    let animateLength = 0;//统计requestAnimationFrame动画次数   在中间的时候需要清除一下
+
 
     //统一一下兼容性
     window.requestAnimFrame = function () {
@@ -38,8 +38,6 @@
     function initCanvas() {
         cxt = document.getElementById('firework').getContext('2d');
         cxt.fillRect(0, 0, 800, 500);
-
-
 
         /*****
          * 过程
@@ -101,7 +99,7 @@
                 });
             } else {
                 resolve();
-                console.log('index', this.index);
+                // console.log('index', this.index);
             }
 
         }
@@ -174,7 +172,7 @@
                 y: 0
             };
             this.lineWidth = 3;
-            this.pathPosLength = 18;
+            this.pathPosLength = 30;//平分为多少个段 进行动画  这个参数 还需要优化跳转
             this.sparksPaths = [];
             this.percent = 0;
             this.color = sparkColor[parseInt(Math.random() * 5)];
@@ -190,18 +188,19 @@
                 this.sparksPaths.push({
                     x: x,
                     y: y,
-                    opacity: i / this.pathPosLength + (i*10)/this.pathPosLength
+                    opacity: i / this.pathPosLength + (i*5)/this.pathPosLength
                 })
+            }
+        }
+        clearSparksPath(){
+            if(this.sparksPaths.length > 1){
+                this.sparksPaths = [];
             }
         }
 
 
         drawPath() {
             cxt.save();
-            let index = 0;
-            //todo 这里加fillRect会清掉其他的  会有问题  因为这里的动画是每一条线 独立出来的，这样的话维度和逻辑有问题搞不了，维度不同，维度应该改成 一圈一圈的往外扩散
-            // cxt.fillStyle = '#000';
-            // cxt.fillRect(0,0,800,500);
             cxt.beginPath();
             cxt.strokeStyle = this.color;
             cxt.strokeStyle = 'hsla('+this.color+',100%,'+rand(50,100)+'%,1)';
@@ -211,8 +210,6 @@
             //这里用这么多次循环是为了动画  percent 只是为了拿取数组   操作都是拿去数组中的东西 试一下二次曲线
             for (let i = 0; i < 1 / this.pathPosLength; i = i + 0.001) {
                 // console.log('1',i*10);
-
-
                 let x = quadraticBezierOne(this.sparksPaths[this.percent - 1].x, this.sparksPaths[this.percent].x, i);
                 let y = quadraticBezierOne(this.sparksPaths[this.percent - 1].y, this.sparksPaths[this.percent].y, i);
                 cxt.lineTo(x, y);
@@ -221,7 +218,7 @@
 
             cxt.closePath();
             cxt.stroke();
-            // cxt.restore();
+            cxt.restore();
         }
     }
 
@@ -230,13 +227,13 @@
         initSparkAttr();
 
 
-        console.log('sparks', sparks);
+        // console.log('sparks', sparks);
         sparkAnimation();
     }
 
     function initSparkAttr() {
         //
-        let length = 50;
+        let length = 40;
         for (let i = 0; i < length; i++) {
 
             let spark = new Spark();
@@ -318,14 +315,14 @@
         for (let i = 0; i < sparks.length; i++) {
             // console.log('33333333');
             let spark = sparks[i];
-            spark.percent = (spark.percent + 1) % spark.pathPosLength;
+            spark.percent = (spark.percent + 1) % 18;
             if (spark.percent != 0) {
                 if (spark.sparksPaths.length == 0) {
                     spark.initSparksPath();
                 }
                 spark.drawPath();
-
             }
+
 
             // console.log('spark',spark.percent);
             if (spark.percent <= 0) {
@@ -341,16 +338,24 @@
             }
         }
 
-
         if (sparkEndLength > sparks.length) {
             console.log('end');
-            initCanvas();
+            // initCanvas();
 
+            clearCanvas();
+            // debugger
             // clearCanvas();
         } else {
             // debugger
             // console.log('1');
             requestAnimFrame(function () {
+                animateLength++;
+                // cxt.fillStyle = '#000';
+                //这里给个变量进行中途清除  然动画的视觉效果看起来是向外扩散的  不清除的话会看见一整条线  清除了就只有单独的某几段啦
+                if(animateLength%10){
+                    console.log('1',animateLength);
+                    cxt.fillRect(0,0,800,500);
+                }
                 sparkAnimation();
             });
         }
@@ -359,11 +364,18 @@
 
     function clearCanvas() {
         // cxt.clearRect(0,0,800,500);
+        for (let i = 0; i < sparks.length; i++) {
+            let spark = sparks[i];
+            spark.clearSparksPath();
+        }
+        sparks = [];
         console.log('clear');
-        cxt.save();
-        // cxt.clearRect(0,0,800,500);
-        cxt.fillStyle = '#000';
-        cxt.fillRect(0, 0, 800, 500);
+        // cxt.save();
+        // cxt.fillStyle = '#000';
+        // cxt.fillStyle(0,0,800,500);
+
+
+
 
     }
 
