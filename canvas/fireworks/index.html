@@ -10,8 +10,8 @@
 <script>
     let cxt;
     let start = {
-        x: 10,
-        y: 300
+        x: 400,
+        y: 400
     };
     let end = {
         x: 200,
@@ -30,9 +30,10 @@
             window.setTimeout(a, 1E3 / 60)
         }
     }();
-    function rand(min,max) {
+
+    function rand(min, max) {
         //~~运算符是取整 按位取整
-        return ~~Math.random()*(max-min)+min;
+        return (Math.random() * (max - min)) + min;
     }
 
     function initCanvas() {
@@ -48,20 +49,44 @@
          * 小火花向四周散开，并逐渐变暗
          */
 
-            //todo 这里如果直接这样写的话（顺序写动画）会存在问题   不是异步执行的（js是单线程的），
-            //todo 换个思路：一直轮询，几个操作同时执行，完全不知道那个先，那个后不就实现了动画同时执行（这里还包括爆炸分散开的动画）
 
-        let p = new Promise(function (resolve, reject) {
-                beforeBoom(resolve);
-                // boomGenerateSpark();
-            }).then(function () {
-                boomGenerateSpark();
-            }).catch(function (e) {
-                console.log('error', e);
-            });
+        startAnimate();
+
 
     }
 
+    function getRandEnd() {
+
+        end = {
+            x: rand(200, 600),
+            y: 200
+        };
+        console.log('end', end);
+    }
+
+    function startAnimate() {
+        getRandEnd();
+        initVariate();
+        //todo 这里如果直接这样写的话（顺序写动画）会存在问题   不是异步执行的（js是单线程的），
+        //todo 换个思路：一直轮询，几个操作同时执行，完全不知道那个先，那个后不就实现了动画同时执行（这里还包括爆炸分散开的动画）
+
+        let p = new Promise(function (resolve, reject) {
+            beforeBoom(resolve);
+            // boomGenerateSpark();
+        }).then(function () {
+            boomGenerateSpark();
+        }).catch(function (e) {
+            console.log('error', e);
+        });
+    }
+
+    function initVariate() {
+        sparks = [];
+        sparkEndLength = 0;
+        sparkColor = [0, 100, 160, 220, 280];
+
+        animateLength = 0;//统计requestAnimationFrame动画次数   在中间的时候需要清除一下
+    }
 
     class PathForSmall {
         constructor(cxt) {
@@ -106,8 +131,8 @@
 
         initPath() {
             for (let i = 0; i < this.pathPosLength; i++) {
-                let x = Math.abs(end.x - start.x) / this.pathPosLength * i + start.x;
-                let y = start.y - Math.abs(start.y - end.y) / this.pathPosLength * (i);
+                let x = (end.x - start.x) / this.pathPosLength * i + start.x;
+                let y = start.y - (start.y - end.y) / this.pathPosLength * (i);
                 this.paths.push({
                     x: x,
                     y: y,
@@ -188,12 +213,13 @@
                 this.sparksPaths.push({
                     x: x,
                     y: y,
-                    opacity: i / this.pathPosLength + (i*5)/this.pathPosLength
+                    opacity: i / this.pathPosLength + (i * 5) / this.pathPosLength
                 })
             }
         }
-        clearSparksPath(){
-            if(this.sparksPaths.length > 1){
+
+        clearSparksPath() {
+            if (this.sparksPaths.length > 1) {
                 this.sparksPaths = [];
             }
         }
@@ -203,7 +229,7 @@
             cxt.save();
             cxt.beginPath();
             cxt.strokeStyle = this.color;
-            cxt.strokeStyle = 'hsla('+this.color+',100%,'+rand(50,100)+'%,1)';
+            cxt.strokeStyle = 'hsla(' + this.color + ',100%,' + rand(50, 100) + '%,1)';
             cxt.lineWidth = this.lineWidth;
             cxt.globalAlpha = this.sparksPaths[this.percent - 1].opacity;
             cxt.moveTo(this.sparksPaths[this.percent].x, this.sparksPaths[this.percent].y);
@@ -233,16 +259,16 @@
 
     function initSparkAttr() {
         //
-        let length = 40;
+        let length = 50;
         for (let i = 0; i < length; i++) {
 
             let spark = new Spark();
-            let degree = 360/length * i;//角度数
+            let degree = 360 / length * i;//角度数
             // debugger
             //1.这个是获取圆上的点为end点
             // spark.end = getEndPointForCircle(spark.start,degree);
             //2.随机获取点为end点  在圆内
-            spark.end = getRandomEndPoint(spark.start,i%2);
+            spark.end = getRandomEndPoint(spark.start, i % 2);
             // console.log('spark',spark.end);
             // debugger
             sparks.push(spark);
@@ -262,15 +288,16 @@
 
         return isSame;
     }
-    function getEndPointForCircle(center,degree){
+
+    function getEndPointForCircle(center, degree) {
         let radius = 150;
 
-        let x = center.x +  Math.cos(Math.PI * 2 / 360 * degree) * radius;
-        let y = center.y+ Math.sin(Math.PI * 2 / 360 * degree) * radius;
+        let x = center.x + Math.cos(Math.PI * 2 / 360 * degree) * radius;
+        let y = center.y + Math.sin(Math.PI * 2 / 360 * degree) * radius;
 
-        return{
-            x:x,
-            y:y
+        return {
+            x: x,
+            y: y
         }
 
     }
@@ -339,7 +366,7 @@
         }
 
         if (sparkEndLength > sparks.length) {
-            console.log('end');
+            // console.log('end');
             // initCanvas();
 
             clearCanvas();
@@ -352,9 +379,9 @@
                 animateLength++;
                 // cxt.fillStyle = '#000';
                 //这里给个变量进行中途清除  然动画的视觉效果看起来是向外扩散的  不清除的话会看见一整条线  清除了就只有单独的某几段啦
-                if(animateLength%10){
-                    console.log('1',animateLength);
-                    cxt.fillRect(0,0,800,500);
+                if (animateLength % 10) {
+                    // console.log('1',animateLength);
+                    cxt.fillRect(0, 0, 800, 500);
                 }
                 sparkAnimation();
             });
@@ -375,7 +402,10 @@
         // cxt.fillStyle(0,0,800,500);
 
 
+        // initCanvas();
 
+
+        startAnimate();
 
     }
 
