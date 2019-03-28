@@ -104,6 +104,9 @@
         if (interval) {
             clearInterval(interval);
         }
+        cxt.font = '30px Verdana';
+        cxt.fillText("GAME  OVER",300,200);
+
         console.log('game over');
     }
 
