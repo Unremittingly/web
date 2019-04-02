@@ -8,6 +8,9 @@
 <div id="test">
 
 </div>
+<div class="aa" id="escape">
+
+</div>
 
 </body>
 <script>
@@ -32,7 +35,23 @@
             console.log('this',this.x);
         }
     };
-    a.bar()
+    a.bar();
+
+
+    function htmlEscape(text){
+        return text.replace(/[<>"&]/g, function(match, pos, originalText){
+            switch(match){
+                case "<": return "&lt;";
+                case ">":return "&gt;";
+                case "&":return "&amp;";
+                case "\"":return "&quot;";
+            }
+        });
+    }
+
+    let text1 = '<p><img src="http://localhost:3009/image/googlelogo_color_272x92dp.png" style="max-width:100%;"><br></p><p>图片测试</p>';
+    let escape = document.getElementById('escape');
+    escape.innerHTML=htmlEscape(text1);
 </script>
 
 </html>

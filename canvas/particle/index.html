@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="particle" width="800" height="500"></canvas>
+
+</body>
+<script>
+    const [minX, minY, maxX, maxY] = [0, 0, 700, 480];
+    //统一一下兼容性
+    window.requestAnimFrame = function () {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (a) {
+            window.setTimeout(a, 1E3 / 60)
+        }
+    }();
+
+    let ctx = null;
+    let particles = [];
+
+    function rand(min, max) {
+        //~~运算符是取整 按位取整
+        return (Math.random() * (max - min)) + min;
+    }
+
+    function init() {
+        ctx = document.getElementById('particle').getContext('2d');
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, 800, 500);
+
+
+        /**********
+         * 1.生成随机点
+         * 2.随机点直接随机连续   连过的线去重
+         * 3.随机点开始动画
+         */
+        particles = generateRandomPoint();
+
+        // ligature();
+
+
+        startAnimate();
+        // console.log('particles',particles);
+    }
+
+    function startAnimate() {
+
+        ctx.clearRect(0, 0, 800, 500);
+
+        //给个目标点 让 每一个粒子朝目标点移动
+        //位移 点 和线
+        for (let i = 0; i < particles.length; i++) {
+            let particle = particles[i];
+            console.log('222');
+            ctx.clearRect(0,0,800,500);
+            particle.moveAnimation();
+            // ctx.clearRect(0, 0, 800, 500);
+        }
+
+
+        // requestAnimFrame(startAnimate);
+
+    }
+
+    function getDirection(value, num) {
+        //    反方向位移还是正方向位移
+        return value + (parseInt(rand(0, 2)) === 0 ? (-num) : num);
+    }
+
+    function ligature() {
+        // console.log('particles',particles);
+        for (let i = 0; i < particles.length - 1; i++) {
+            let particle = particles[i];
+            particle.lineToB(particles[i + 1]);
+            particle.draw(1);
+        }
+
+        particles[particles.length - 1].lineToB(particles[0]);
+
+    }
+
+    function isSameForArr(particle) {
+        let isSame = false;
+        for (let j = 0; j < particles.length; j++) {
+            let particle1 = particles[j];
+            if (particle1.x === particle.x && particle1.y === particle.y) {
+                isSame = true;
+                break;
+            }
+        }
+        return isSame;
+    }
+
+    function generateRandomPoint() {
+
+
+        let particles = [];
+        for (let i = 0; i < 20; i++) {
+            let particle = new Particle();
+            //去重
+            if (!isSameForArr(particle)) {
+                particles.push(particle);
+            }
+        }
+
+        return particles;
+
+    }
+
+    class Particle {
+        constructor() {
+            this.x = rand(minX, maxX);
+            this.y = rand(minY, maxY);
+            this.color = 'red';
+            this.radius = 3;
+            this.pre = 20;//移动片段
+
+            this.targetPoint = {
+                x: this.x,
+                y: this.y,
+            };
+            this.interval = null;
+            //透明度
+            this.opacity = 1;
+            //判断这个点是否移动啦
+            this.draw();
+            this.buildTargetPoint();
+            this.speed = this.getSpeed();//向目标点移动的速度
+
+        }
+
+        buildTargetPoint() {
+
+            this.targetPoint = {
+                x: getDirection(this.x, 80),
+                y: getDirection(this.y, 100)
+            };
+
+            if((this.targetPoint.x<=0||this.targetPoint.x>=799)||(this.targetPoint.y<=0||this.targetPoint.y>=499)){
+                this.buildTargetPoint();
+            }
+        }
+
+        isToTarget() {
+            return parseInt(this.x) === parseInt(this.targetPoint.x) && parseInt(this.y) === parseInt(this.targetPoint.y);
+        }
+
+        getSpeed() {
+            return {
+                x: (this.targetPoint.x - this.x) / this.pre,
+                y: (this.targetPoint.y - this.y) / this.pre
+            }
+        }
+        getOpacity(){
+
+        }
+
+        moveAnimation() {
+            console.log('2');
+            ctx.clearRect(0, 0, 800, 500);
+
+            ligature();
+            let that = this;
+
+            this.x = this.x + this.speed.x;
+            this.y = this.y + this.speed.y;
+
+            //如果到达了目标点 就重新生成目标点
+            if (this.isToTarget()) {
+                // console.log('1');
+                ctx.clearRect(0, 0, 800, 500);
+                this.buildTargetPoint();
+                this.speed =  this.getSpeed();
+                this.moveAnimation();
+
+
+
+            } else {
+
+                requestAnimationFrame(function () {
+                    that.moveAnimation();
+
+                })
+
+            }
+
+
+        }
+
+        lineToB(particle) {
+            ctx.beginPath();
+            ctx.strokeStyle = 'green';
+            ctx.lineWidth = 2;
+            ctx.globalAlpha = 0.1;
+            ctx.moveTo(this.x, this.y);
+            ctx.lineTo(particle.x, particle.y);
+            ctx.stroke();
+            ctx.save();
+        }
+
+
+        draw(opacity) {
+            ctx.beginPath();
+            ctx.strokeStyle = this.color;
+            ctx.globalAlpha = 0.8;
+            ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+    }
+
+    init();
+
+</script>
+</html>
