@@ -19,6 +19,7 @@
 
     let ctx = null;
     let particles = [];
+    let requestA = [];//requestAnimation 的对象
 
     function rand(min, max) {
         //~~运算符是取整 按位取整
@@ -29,17 +30,12 @@
         ctx = document.getElementById('particle').getContext('2d');
         ctx.fillStyle = '#000';
         ctx.fillRect(0, 0, 800, 500);
-
-
         /**********
          * 1.生成随机点
          * 2.随机点直接随机连续   连过的线去重
          * 3.随机点开始动画
          */
         particles = generateRandomPoint();
-
-        // ligature();
-
 
         startAnimate();
         // console.log('particles',particles);
@@ -53,14 +49,10 @@
         //位移 点 和线
         for (let i = 0; i < particles.length; i++) {
             let particle = particles[i];
-            console.log('222');
-            ctx.clearRect(0,0,800,500);
+            // console.log('222');
+            ctx.clearRect(0, 0, 800, 500);
             particle.moveAnimation();
-            // ctx.clearRect(0, 0, 800, 500);
         }
-
-
-        // requestAnimFrame(startAnimate);
 
     }
 
@@ -74,7 +66,7 @@
         for (let i = 0; i < particles.length - 1; i++) {
             let particle = particles[i];
             particle.lineToB(particles[i + 1]);
-            particle.draw(1);
+            particle.draw();
         }
 
         particles[particles.length - 1].lineToB(particles[0]);
@@ -95,7 +87,6 @@
 
     function generateRandomPoint() {
 
-
         let particles = [];
         for (let i = 0; i < 20; i++) {
             let particle = new Particle();
@@ -104,19 +95,23 @@
                 particles.push(particle);
             }
         }
-
         return particles;
 
     }
 
     class Particle {
-        constructor() {
-            this.x = rand(minX, maxX);
-            this.y = rand(minY, maxY);
+        constructor(point) {
+            if(point&& point.x && point.y){
+                this.x = point.x;
+                this.y = point.y;
+            }else{
+                this.x = rand(minX, maxX);
+                this.y = rand(minY, maxY);
+            }
+
             this.color = 'red';
             this.radius = 3;
             this.pre = 20;//移动片段
-
             this.targetPoint = {
                 x: this.x,
                 y: this.y,
@@ -138,7 +133,7 @@
                 y: getDirection(this.y, 100)
             };
 
-            if((this.targetPoint.x<=0||this.targetPoint.x>=799)||(this.targetPoint.y<=0||this.targetPoint.y>=499)){
+            if ((this.targetPoint.x <= 0 || this.targetPoint.x >= 799) || (this.targetPoint.y <= 0 || this.targetPoint.y >= 499)) {
                 this.buildTargetPoint();
             }
         }
@@ -153,12 +148,9 @@
                 y: (this.targetPoint.y - this.y) / this.pre
             }
         }
-        getOpacity(){
-
-        }
 
         moveAnimation() {
-            console.log('2');
+            // console.log('2');
             ctx.clearRect(0, 0, 800, 500);
 
             ligature();
@@ -172,36 +164,35 @@
                 // console.log('1');
                 ctx.clearRect(0, 0, 800, 500);
                 this.buildTargetPoint();
-                this.speed =  this.getSpeed();
+                this.speed = this.getSpeed();
                 this.moveAnimation();
-
-
 
             } else {
 
-                requestAnimationFrame(function () {
+                requestA.push(requestAnimationFrame(function () {
                     that.moveAnimation();
 
-                })
+                }))
 
             }
-
-
         }
 
         lineToB(particle) {
             ctx.beginPath();
             ctx.strokeStyle = 'green';
             ctx.lineWidth = 2;
-            ctx.globalAlpha = 0.1;
+            ctx.globalAlpha = 0.2;
             ctx.moveTo(this.x, this.y);
             ctx.lineTo(particle.x, particle.y);
             ctx.stroke();
             ctx.save();
         }
 
-
-        draw(opacity) {
+        draw( point) {
+            if (point && point.x && point.y) {
+                this.x = point.x;
+                this.y = point.y;
+            }
             ctx.beginPath();
             ctx.strokeStyle = this.color;
             ctx.globalAlpha = 0.8;
@@ -210,9 +201,80 @@
             ctx.restore();
         }
 
+        setRadius(radius){
+            this.radius = radius;
+        }
     }
 
     init();
+
+    document.getElementById('particle').addEventListener('mousedown', function (e) {
+        e = e || window.event;
+        let moveX = e.pageX;
+        let moveY = e.pageY;
+        //获取附近最近的两个点
+        let ePoint = {
+            x:moveX,
+            y:moveY
+        };
+
+        sortForPoint(ePoint);
+
+        let p = new Particle(ePoint);
+        p.setRadius(8);
+        particles.push(p);
+        particles.shift();
+
+
+        if(requestA){
+            for (let i = 0; i < requestA.length; i++) {
+                let pElement = requestA[i];
+                cancelAnimationFrame(pElement);
+            }
+            requestA = [];
+            startAnimate();
+        }
+
+
+        console.log('ePoint',ePoint);
+
+
+    });
+
+    //
+
+    function sortForPoint(point){
+
+        for (let i = 0; i < particles.length; i++) {
+            let particle = particles[i];
+            particle.offsetX = Math.abs(particle.x - point.x);
+            particle.offsetY = Math.abs(particle.y - point.y);
+            particle.offset = particle.offsetX + particle.offsetY;
+        }
+
+
+        particles.sort(function (item, item1) {
+            return item1.offset - item.offset;
+        });
+    }
+    function getNearPoint(point) {
+        let particles_map = Object.assign(particles);
+
+        for (let i = 0; i < particles_map.length; i++) {
+            let particle = particles_map[i];
+            particle.offsetX = Math.abs(particle.x - point.x);
+            particle.offsetY = Math.abs(particle.y - point.y);
+            particle.offset = particle.offsetX + particle.offsetY;
+        }
+
+
+        particles_map.sort(function (item, item1) {
+            return item.offset - item1.offset;
+        });
+
+
+        return [particles_map[0], particles_map[1]];
+    }
 
 </script>
 </html>
