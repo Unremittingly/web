@@ -131,6 +131,7 @@ class PathForSmall {
         //这里用这么多次循环是为了动画  percent 只是为了拿取数组   操作都是拿去数组中的东西
         for (let i = 0; i < 1 / this.pathPosLength; i = i + 0.001) {
 
+            //todo 优化：这里用贝塞尔二次曲线的话 我们需要知道最后一个下落的终点坐标   这里测试一下 最后一个点坐标 这里的每次是小距离
             let x = quadraticBezierOne(this.paths[this.percent - 1].x, this.paths[this.percent].x, i);
             let y = quadraticBezierOne(this.paths[this.percent - 1].y, this.paths[this.percent].y, i);
             cxt.lineTo(x, y);

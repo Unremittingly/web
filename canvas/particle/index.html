@@ -241,7 +241,6 @@
 
     });
 
-    //
 
     function sortForPoint(point){
 
@@ -257,24 +256,24 @@
             return item1.offset - item.offset;
         });
     }
-    function getNearPoint(point) {
-        let particles_map = Object.assign(particles);
-
-        for (let i = 0; i < particles_map.length; i++) {
-            let particle = particles_map[i];
-            particle.offsetX = Math.abs(particle.x - point.x);
-            particle.offsetY = Math.abs(particle.y - point.y);
-            particle.offset = particle.offsetX + particle.offsetY;
-        }
-
-
-        particles_map.sort(function (item, item1) {
-            return item.offset - item1.offset;
-        });
-
-
-        return [particles_map[0], particles_map[1]];
-    }
+    // function getNearPoint(point) {
+    //     let particles_map = Object.assign(particles);
+    //
+    //     for (let i = 0; i < particles_map.length; i++) {
+    //         let particle = particles_map[i];
+    //         particle.offsetX = Math.abs(particle.x - point.x);
+    //         particle.offsetY = Math.abs(particle.y - point.y);
+    //         particle.offset = particle.offsetX + particle.offsetY;
+    //     }
+    //
+    //
+    //     particles_map.sort(function (item, item1) {
+    //         return item.offset - item1.offset;
+    //     });
+    //
+    //
+    //     return [particles_map[0], particles_map[1]];
+    // }
 
 </script>
 </html>
