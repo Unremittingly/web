@@ -11,17 +11,30 @@
 
 </body>
 <script>
-    let test = document.getElementById('test');
-    let text = '';
-    for (let i = 0; i < 100; i++) {
-        console.log('1111');
-        text=i+''+text;
-        test.innerHTML = text;
-        test.innerHTML = text;
-        test.innerHTML = text;
-    }
+    // let test = document.getElementById('test');
+    // let text = '';
+    // for (let i = 0; i < 100; i++) {
+    //     console.log('1111');
+    //     text=i+''+text;
+    //     test.innerHTML = text;
+    //     test.innerHTML = text;
+    //     test.innerHTML = text;
+    // }
+    //
+    // console.log('1111');
+    //
+    // var global = (function () {
+    //     return this || (0, eval)('this');
+    // }());
+    (function () {
+        "use strict";
+        //严格模式下this  问题
+        console.log((eval)(this));
+        console.log((eval)('this'));
+        console.log((1, eval)('this'))
+    })()
 
-    console.log('1111');
+
 </script>
 
 </html>
