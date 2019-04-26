@@ -114,7 +114,7 @@
 					}
 					if (m && m > 0 && this._events[type].length > m) {
 						this._events[type].warned = true;
-						console.error("(node) warning: possible EventEmitter memory " + "leak detected. %d listeners added. " + "Use emitter.setMaxListeners() to increase limit.", this._events[type].length);
+						console.error("(server) warning: possible EventEmitter memory " + "leak detected. %d listeners added. " + "Use emitter.setMaxListeners() to increase limit.", this._events[type].length);
 						if (typeof console.trace === "function") {
 							console.trace()
 						}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="a">test111</div>
+<input placeholder="bind" id="ipt">
+<div id="result">test222</div>
+</body>
+<script src="index.js"></script>
+<script>
+
+    let d={
+        val:2,
+        name:'test'
+    };
+    //t 是个观察者 观察d
+    let t = new TwoWayBind(d);
+
+    setTimeout(function () {
+        t.name = 'success';
+        console.log('this',d);
+    },2000);
+    document.getElementById('ipt').addEventListener('keyup', function (e) {
+        t.val = e.target.value;
+
+        document.getElementById('result').innerText = d.val;
+    });
+
+    // })
+
+
+</script>
+</html>

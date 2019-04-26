@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .start {
+            display: inline-block;
+            margin: 20px;
+            padding: 5px 20px;
+            color: #fff;
+            background: #999;
+            border-radius: 5px;
+        }
+
+        .input {
+            height: 40px;
+            width: 120px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+
+        }
+
+        .result {
+            margin: 20px 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="text" id="input" class="input" value="1">
+    <span id="send" class="start">start</span>
+</div>
+<div class="result"></div>
+</body>
+<script type="text/javascript">
+    let ws = null;
+
+    function WebSocketTest() {
+        if ("WebSocket" in window) {
+            console.log("您的浏览器支持 WebSocket!");
+
+            // 打开一个 web socket
+            ws = new WebSocket("ws://localhost:8003");
+
+            ws.onopen = function () {
+                // Web Socket 已连接上，使用 send() 方法发送数据
+                // ws.send("发送数据");
+                //这里需要有一个用户名 userName  唯一的 活这说这里有个id  唯一的
+                console.log("数据发送中...");
+            };
+
+            ws.onmessage = function (evt) {
+                let received_msg = evt.data;
+                console.log("数据已接收...", received_msg, evt);
+            };
+
+            ws.onclose = function () {
+                // 关闭 websocket
+                console.log("连接已关闭...");
+            };
+            setTimeout(function () {
+                ws.send('test');
+            }, 1000)
+
+        } else {
+            // 浏览器不支持 WebSocket
+            alert("您的浏览器不支持 WebSocket!");
+        }
+    }
+
+    WebSocketTest();
+
+
+    document.getElementById('send').addEventListener('click', function (e) {
+        if (ws) {
+            // console.log('this.',document.getElementById('input').value);
+            ws.send(document.getElementById('input').value);
+        }
+    });
+
+</script>
+</html>

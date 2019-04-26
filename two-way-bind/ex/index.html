@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>self-vue</title>
+</head>
+<style>
+    #name {
+        text-align: center;
+    }
+</style>
+<body>
+<h1 id="name">{{name}}</h1>
+</body>
+<script src="./observer.js"></script>
+<script src="./watcher.js"></script>
+<script src="./index.js"></script>
+<script type="text/javascript">
+    var ele = document.querySelector('#name');
+    let data = {
+        name: 'hello world'
+    };
+    var selfVue = new SelfVue(data, ele, 'name');
+    window.setTimeout(function () {
+        console.log('name值改变了');
+        selfVue.name = 'canfoo';
+
+        console.log('data',data);
+    }, 2000);
+</script>
+</html>
