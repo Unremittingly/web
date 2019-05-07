@@ -3,12 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        /**css*/
+        .top {
+            position: absolute;
+        }
+
+        .top:before, .top:after {
+            position: absolute;
+            content: '';
+            border-top: 10px transparent dashed;
+            border-left: 10px transparent dashed;
+            border-right: 10px transparent dashed;
+            border-bottom: 10px #fff solid;
+        }
+
+        .top:before {
+            border-bottom: 10px #0099CC solid;
+        }
+
+        .top:after {
+            top: 1px; /*覆盖并错开1px*/
+            border-bottom: 10px #fff solid;
+        }
+
+
+
+
+        .bottom {
+            position: absolute;
+        }
+
+        .bottom:before, .bottom:after {
+            position: absolute;
+            content: '';
+            border-top: 10px #fff  dashed;
+            border-left: 10px transparent dashed;
+            border-right: 10px transparent dashed;
+            border-bottom: 10px #fff solid;
+        }
+
+        .bottom:before {
+            border-top: 10px #0099CC solid;
+        }
+
+        .bottom:after {
+            bottom: 1px; /*覆盖并错开1px*/
+            border-top: 10px #fff solid;
+        }
+
+
+        .left {
+            position: absolute;
+        }
+
+        .left:before, .left:after {
+            position: absolute;
+            content: '';
+            border-top: 10px transparent dashed;
+            border-left: 10px transparent dashed;
+            border-right: 10px #fff dashed;
+            border-bottom: 10px transparent solid;
+        }
+
+        .left:before {
+            border-right: 10px #0099CC solid;
+        }
+
+        .left:after {
+            left: 1px; /*覆盖并错开1px*/
+            border-right: 10px #fff solid;
+        }
+
+
+        .right {
+            position: absolute;
+        }
+
+        .right:before, .right:after {
+            position: absolute;
+            content: '';
+            border-top: 10px transparent dashed;
+            border-left: 10px #fff dashed;
+            border-right: 10px transparent dashed;
+            border-bottom: 10px transparent solid;
+        }
+
+        .right:before {
+            border-left: 10px #0099CC solid;
+        }
+
+        .right:after {
+            right: 1px; /*覆盖并错开1px*/
+            border-left: 10px #fff solid;
+        }
+
+
+        .item {
+            width: 200px;
+            height: 100px;
+            margin: 30px;
+        }
+    </style>
 </head>
 <body>
 <div id="test">
 
 </div>
-
+/**html*/
+<div class="item"><i class="top"></i></div>
+<div class="item"><i class="bottom"></i></div>
+<div class="item"><i class="left"></i></div>
+<div class="item"><i class="right"></i></div>
 </body>
 <script>
     // let test = document.getElementById('test');
