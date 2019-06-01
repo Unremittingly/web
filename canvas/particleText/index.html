@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<canvas height="300" width="500" id="PT"></canvas>
+</body>
+<script>
+
+    let ptDom = document.getElementById('PT');
+    let ctx = ptDom.getContext('2d');
+    let imageData = {};
+    ctx.fillStyle= '#000';
+    ctx.fillRect(0,0,ptDom.width,ptDom.height);
+
+    function drawText() {
+        ctx.fillStyle = '#000';
+        ctx.strokeStyle = '#fff';
+        ctx.font = '50px Verdana';
+        ctx.strokeText('Hello world',80,80);
+        ctx.save();
+    }
+    function random() {
+        return Math.random()*255;
+    }
+    function getData() {
+        return ctx.getImageData(0,0,500,300);
+    }
+    function drawParticle(){
+        for (let  i = 0; i < imageData.data.length; i+=4) {
+            let r =  imageData.data[i];
+            let g =  imageData.data[i+1];
+            let b =  imageData.data[i+2];
+            if(r||g||b){
+
+                imageData.data[i] = random();
+                imageData.data[i+1] = random();
+                imageData.data[i+2] = random();
+            }
+        }
+        ctx.putImageData(imageData,0,0);
+    }
+
+    drawText();
+    imageData= getData();
+    setInterval(function () {
+        drawParticle();
+    },100)
+
+</script>
+</html>
