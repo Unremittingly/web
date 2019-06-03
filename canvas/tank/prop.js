@@ -14,19 +14,13 @@ class Prop extends Base{
         this.type = 1;
         this.pos = {x:0,y:0};
     }
-    setPosition(pos){
-        this.pos = pos;
-    }
     setVisible(visible){
         this.visible = visible;
     }
     getImageForType(type){
 
     }
-    create(ctx,type){
-        if(this.visible){
-            ctx.drawImage()
-        }
+    clean(){
 
     }
 }

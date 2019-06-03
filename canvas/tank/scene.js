@@ -8,17 +8,23 @@ class Scene {
         this.createScene(1);
     }
     getType(){
-        return this.elementArr[parseInt(Math.random()*this.elementArr.length-1)]
+
     }
     createScene(level){
-        let arr = [];
-        for (let i = 0; i < 10; i++) {
-            let arr1 = [];
-            for (let j = 0; j < 10; j++) {
-                arr1.push(this.getType())
+        let arr =LEVEL_ALL[level-1];
+        for (let i = 0; i < arr.length; i++) {
+            let cross = arr[i];
+            for (let j = 0; j < cross.length; j++) {
+                let vertical = cross[j];
+                this.draw(vertical);
             }
-            arr.push(arr1);
         }
-        console.log('arr',arr);
+    }
+    draw(type){
+        let position = mapPosToElement[type];
+        this.ctx.drawImage({},position.x,position.y,20,20);
+
+
+        this.ctx.save();
     }
 }

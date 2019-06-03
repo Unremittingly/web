@@ -14,6 +14,12 @@ class Main {
          */
         this.ctx = Main.init();
         this.image = '';
+        this.level = 1;
+        this.enemys = 20;
+        this.tanks = 3;
+        this.remainingEnemys = this.enemys;
+        this.remainingTanks = this.tanks;
+
 
     }
     static init(){
@@ -24,8 +30,15 @@ class Main {
         ctx.save();
         return ctx;
     }
+    start(level){
+        //主线程
+        //初始化场景
+        scene.createScene()
+        //主角出现
+        //敌机出现  敌机达到一定数量就不出现啦
+    }
     draw(){
-        this.ctx.drawImage(this.image,0,0,20,20,0,0);
+
 
     }
 }
@@ -33,9 +46,11 @@ class Main {
 
 
 function startGame() {
-    gameObject = new Main();
+
     tank = new Tank();
     scene = new Scene();
+    gameObject = new Main();
 
+    gameObject.start(1);
 }
 startGame();
