@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let as = [];
+
+    let a = new Promise(resolve => {
+        // console.log('1',g);
+         resolve('aaa')
+    }).catch((err)=>{
+        console.log('a',err);
+        as.push(err)
+    })
+
+    let b = new Promise(resolve => {
+        console.log('1',e);
+         resolve('bbb')
+    }).catch((err)=>{
+        console.log('b',err);
+        as.push(err)
+    }).then(()=>{
+        return a;
+    }).catch((err)=>{
+        console.log('aaaaerr',err);
+    }).then((data)=>{
+        console.log('aaa',data);
+    })
+    let d = new Promise(resolve => {
+        // console.log('dddd');
+        resolve('bbb')
+    })
+    
+    
+
+    // let c = Promise.all([a,b]).then((data)=>{
+    //     console.log('data',data);
+    // }).catch((err)=>{
+    //     console.log('err',err);
+    //     return Promise.reject(as)
+    // })
+    let arr =[1,2,3,4];
+
+    console.log('a',arr.filter((item)=>{
+        return item===2;
+    }));
+
+
+</script>
+</html>
