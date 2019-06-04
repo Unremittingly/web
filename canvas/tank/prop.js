@@ -13,6 +13,10 @@ class Prop extends Base{
         this.visible = false;
         this.type = 1;
         this.pos = {x:0,y:0};
+        this.start = {
+            x:10,
+            y:10
+        }
     }
     setVisible(visible){
         this.visible = visible;

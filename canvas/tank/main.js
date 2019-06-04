@@ -3,6 +3,7 @@
 let gameObject = null;
 let tank = null;
 let scene = null;
+let ctx = null;
 class Main {
     constructor(props) {
         //初始化
@@ -12,7 +13,7 @@ class Main {
          * 2.loading界面
          * 3.场景背景
          */
-        this.ctx = Main.init();
+
         this.image = '';
         this.level = 1;
         this.enemys = 20;
@@ -33,12 +34,16 @@ class Main {
     start(level){
         //主线程
         //初始化场景
-        scene.createScene()
+        // scene.createScene()
         //主角出现
         //敌机出现  敌机达到一定数量就不出现啦
+        this.draw();
     }
     draw(){
-
+        // const IMG = document.getElementById('enemy');
+        let enemy = new Enemy();
+        enemy.draw();
+        tank.draw('./img/p_sprites.png');
 
     }
 }
@@ -46,8 +51,8 @@ class Main {
 
 
 function startGame() {
-
-    tank = new Tank();
+    ctx = Main.init();
+    tank = new Protagonist();
     scene = new Scene();
     gameObject = new Main();
 

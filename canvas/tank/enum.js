@@ -13,6 +13,7 @@ const STEEL = 4;
 const H_ROAD = 5;
 const ROAD = 6;
 
+const OFFSET = 10;
 //大图对象
 const IMG = new Image();
 IMG.src = '';

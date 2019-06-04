@@ -14,4 +14,12 @@ class Enemy extends Tank {
         this.isRed = false;//是否标红可以出道具
     }
 
+    draw() {
+        const IMG = new Image();
+        IMG.src = './img/enemy.jpg';
+        console.log('this.ctx', this.ctx, IMG);
+        ctx.drawImage(IMG, 0, 0, 28, 28, 30, 30, 30, 30);
+
+    }
+
 }

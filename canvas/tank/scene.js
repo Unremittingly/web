@@ -5,7 +5,7 @@ class Scene {
         this.ctx = ctx;
         this.elementArr = [ROAD,RIVER,H_ROAD,GRASS,ADOBE,STEEL];
 
-        this.createScene(1);
+        // this.createScene(1);
     }
     getType(){
 
@@ -22,9 +22,9 @@ class Scene {
     }
     draw(type){
         let position = mapPosToElement[type];
-        this.ctx.drawImage({},position.x,position.y,20,20);
+        // this.ctx.drawImage({},position.x,position.y,20,20);
 
 
-        this.ctx.save();
+        // this.ctx.save();
     }
 }

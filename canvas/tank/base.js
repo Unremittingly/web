@@ -6,21 +6,27 @@
  * 4.碰撞
  */
 class Base {
-    constructor(ctx) {
+    constructor() {
         this.pos = {x: 0, y: 0};
+        this.start = {x: 0, y: 0};
         this.imageData = null;
         this.ctx = ctx;
-        this.width = 20;
-        this.height = 20;
+        this.clipWidth = 28;
+        this.clipHeight = 28;
+
     }
 
     setPosition(pos) {
         this.pos = pos;
     }
 
-    getImage() {
-
+    getImage(src) {
+        let img = new Image();
+        src = src ? src : './img/enemy.jpg';
+        img.src = src;
+        return img;
     }
+
 
     move() {
 
@@ -38,9 +44,15 @@ class Base {
         //碰撞检测
     }
 
-    draw() {
-        this.ctx.drawImage(this.getImage(),
-            this.pos.x, this.pos.y,
-            this.width, this.height);
+    draw(src) {
+
+        console.log('ctx',this.start);
+        ctx.drawImage(this.getImage(src),
+            this.start.x, this.start.y,
+            this.clipWidth, this.clipHeight, this.pos.x, this.pos.y, this.clipWidth, this.clipHeight);
+
+
+        // ctx.drawImage(this.getImage(src), 0, 0, 28, 28, 30, 30, 30, 30);
+
     }
 }
