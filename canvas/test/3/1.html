@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html>
+
+<head lang="en">
+
+    <meta charset="UTF-8">
+
+    <title></title>
+
+    <style>
+
+        body {
+
+            margin: 0;
+
+            padding: 0;
+
+            overflow: hidden;
+
+            background-color: #f0f0f0;
+
+        }
+
+    </style>
+
+
+
+
+
+</head>
+
+<body>
+
+<p id="cas"></p>
+
+
+
+<script>
+
+    var width = window.innerWidth;
+
+    var height = window.innerHeight;
+
+    //创建舞台
+
+    var stage = new Konva.Stage({
+
+        container: "cas",
+
+        width: width,
+
+        height: height
+
+    });
+
+    //创建层
+
+    var layer = new Konva.Layer();
+
+    //创建组1
+
+    var group = new Konva.Group({
+
+        x: stage.width() / 2,
+
+        y: stage.height() / 2,
+
+    });
+
+    //最外层圆
+
+    var circle1 = new Konva.Circle({
+
+        x: 0,
+
+        y: 0,
+
+        radius: 250,
+
+        stroke: "#ccc",
+
+        strokeWidth: 1,
+
+        dash: [6, 3]
+
+    });
+
+    group.add(circle1);
+
+    //第二个圆
+
+    var circle2 = new Konva.Circle({
+
+        x: 0,
+
+        y: 0,
+
+        radius: 150,
+
+        stroke: "#ccc",
+
+        strokeWidth: 1,
+
+        dash: [6, 3]
+
+    });
+
+    group.add(circle2);
+
+    //第三个圆
+
+    var circle3 = new Konva.Circle({
+
+        x: 0,
+
+        y: 0,
+
+        radius: 135,
+
+        stroke: "blue",
+
+        strokeWidth: 2,
+
+        dash: [10, 5]
+
+    });
+
+    group.add(circle3);
+
+    //第四个圆
+
+    var circle4 = new Konva.Circle({
+
+        x: 0,
+
+        y: 0,
+
+        radius: 105,
+
+        fill: "#ccc",
+
+        opacity: 0.4
+
+    });
+
+    group.add(circle4);
+
+    //第五个圆
+
+    var circle5 = new Konva.Circle({
+
+        x: 0,
+
+        y: 0,
+
+        radius: 80,
+
+        fill: "#74A2F0"
+
+
+
+    });
+
+    group.add(circle5);
+
+    //添加文字
+
+    var text = new Konva.Text({
+
+        x: -80,
+
+        y: -12,
+
+        text: "WEB全栈",
+
+        fill: "white",
+
+        fontSize: 24,
+
+        width: 160,
+
+        align: "center"
+
+    });
+
+    group.add(text);
+
+    layer.add(group);
+
+    //*****************************************************
+
+    //创建组2
+
+    var outGroup = new Konva.Group({
+
+        x: stage.width() / 2,
+
+        y: stage.height() / 2,
+
+    });
+
+    var arrColor = ["red", "green", "blue", "orange", "purple"];
+
+    var arrText = ["web", "node.js", "ajax", "html5", "css"];
+
+    for(var i = 0; i < 5; i++) {
+
+        var cir = new Circle({
+
+            x : 250 * Math.cos(72 * i * Math.PI / 180), //圆心x轴的坐标
+
+            y : 250 * Math.sin(72 * i * Math.PI / 180), //圆心y轴的坐标
+
+            outR : 60, //外圆的半径
+
+            inR : 50, //内圆的半径
+
+            fill : arrColor[i], //填充颜色
+
+            text: arrText[i], //文字
+
+            outOpacity : 0.3, //外圆的透明度
+
+            inOpacity : 0.6  //内圆的透明度
+
+        });
+
+        cir.drawCircle(outGroup);
+
+    }
+
+    layer.add(outGroup);
+
+
+
+    //***********************************************
+
+    //创建组3
+
+    var inGroup = new Konva.Group({
+
+        x: stage.width() / 2,
+
+        y: stage.height() / 2,
+
+    });
+
+    var arrColor = ["red", "green", "blue", "orange", "purple"];
+
+    var arrText = ["web", "node.js", "ajax", "html5", "css"];
+
+    for(var i = 0; i < 5; i++) {
+
+        var cir = new Circle({
+
+            x : 135 * Math.cos(90 * i * Math.PI / 180), //圆心x轴的坐标
+
+            y : 135 * Math.sin(90 * i * Math.PI / 180), //圆心y轴的坐标
+
+            outR : 45, //外圆的半径
+
+            inR : 35, //内圆的半径
+
+            fill : arrColor[i], //填充颜色
+
+            text: arrText[i], //文字
+
+            outOpacity : 0.3, //外圆的透明度
+
+            inOpacity : 0.6  //内圆的透明度
+
+        });
+
+        cir.drawCircle(inGroup);
+
+    }
+
+    layer.add(inGroup);
+
+
+
+    //************************************************
+
+    //运动动画
+
+    var step = 1; //转动的角度
+
+    var anim = new Konva.Animation(function() {
+
+        outGroup.rotate(step);
+
+        outGroup.getChildren().each(function (ele, index) {
+
+            ele.rotate(-step);
+
+        });
+
+        inGroup.rotate(-step);
+
+        inGroup.getChildren().each(function (ele, index) {
+
+            ele.rotate(step);
+
+        });
+
+    }, layer);
+
+    anim.start();
+
+    stage.add(layer);
+
+
+
+    stage.on("mouseover", function () {
+
+        step = 0.3;
+
+    });
+
+    stage.on("mouseout", function () {
+
+        step = 1;
+
+    });
+
+</script>
+<script src="circle.js"></script>
+</body>
+
+</html>

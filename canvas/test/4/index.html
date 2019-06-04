@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="600" height="500" id="ct"></canvas>
+</body>
+<script>
+    let ctx = document.getElementById('ct').getContext('2d');
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, 600, 500);
+    let rand = function (rMi, rMa) {
+        return ~~((Math.random() * (rMa - rMi + 1)) + rMi);
+    };
+
+    function drawSquare() {
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(100, 100, 40, 40);
+        ctx.save();
+    }
+
+    function drawLine(start, end) {
+
+    }
+    function quadraticBezier(p0, p1, p2, t) {
+        let k = 1 - t;
+        return k * k * p0 + 2 * k * t * p1 + t * t * p2;
+    }
+
+    function getCirclePoint(ce, squareWidth,angle) {
+        let x = squareWidth / Math.sin(45 * Math.PI / 360);//外切圆半径
+        let r = x / 2;
+        let points = [];
+        for (let i = 0; i < 360/angle; i++) {
+            let degree = i * angle;
+            //通过数学函数获取点
+            let x = ce.x + Math.cos(Math.PI * 2 / 360 * degree) * r;
+            let y = ce.y + Math.sin(Math.PI * 2 / 360 * degree) * r;
+            points.push({
+                x: x,
+                y: y
+            });
+            ctx.beginPath();
+            ctx.arc(x, y, 2, 0, 360);
+            ctx.strokeStyle = '#fff';
+            ctx.stroke();
+            ctx.closePath();
+            ctx.save();
+        }
+        return points;
+    }
+
+    function drawWave(start, end, height, color) {
+
+        drawLine(start, {
+            x: start.x + height,
+        });
+
+
+        requestAnimationFrame(function () {
+            drawWave(start, end, height, color)
+        })
+    }
+
+    function animation() {
+        drawWave({x: 100, y: 100}, {x: 140, y: 140}, 5, 'red')
+    }
+
+    drawSquare();
+    // animation();
+    let ce = {
+        x: 120,
+        y: 120
+    };
+    let squareWidth = 20;
+
+    getCirclePoint(ce,squareWidth,30);
+    getCirclePoint(ce,squareWidth+10,30);
+</script>
+</html>
