@@ -23,4 +23,9 @@ class Prop extends Base{
     clean(){
 
     }
+    change(pos){
+        this.clean();
+        this.setVisible(true);
+        this.setPosition(pos);
+    }
 }

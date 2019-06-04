@@ -1,13 +1,15 @@
-//主角
+//tank基类
 
-class Tank {
-    constructor(ctx) {
+class Tank  extends Base{
+    constructor() {
+        super();
         console.log('tank');
-        this.ctx = ctx;
         this.bullets = [];
+        this.width = 20;
+        this.height = 20;
     }
     move(){
-        //清除后再换个地方绘制
+        //移动
 
     }
     shooting(){
