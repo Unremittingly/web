@@ -45,17 +45,17 @@ class Main {
         enemy.draw();
         tank.draw('./img/p_sprites.png');
 
+        let prop = new Prop(3);
+        prop.draw()
+
+        let prop1 = new Prop(6);
+        prop1.draw();
+        prop1.animate();
+
+
+
     }
 }
 
 
 
-function startGame() {
-    ctx = Main.init();
-    tank = new Protagonist();
-    scene = new Scene();
-    gameObject = new Main();
-
-    gameObject.start(1);
-}
-startGame();

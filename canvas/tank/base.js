@@ -7,17 +7,23 @@
  */
 class Base {
     constructor() {
-        this.pos = {x: 0, y: 0};
-        this.start = {x: 0, y: 0};
+        this.pos = {x: 0, y: 0};//物品在场景中的位置
+        this.start = {x: 0, y: 0};//物品在img中的位置
+
         this.imageData = null;
         this.ctx = ctx;
         this.clipWidth = 28;
         this.clipHeight = 28;
+        this.url = null;
 
     }
 
     setPosition(pos) {
         this.pos = pos;
+    }
+
+    setStart(start) {
+        this.start = start;
     }
 
     getImage(src) {
@@ -44,13 +50,17 @@ class Base {
         //碰撞检测
     }
 
+    //绘制物品 通用
     draw(src) {
-
-        console.log('ctx',this.start);
-        ctx.drawImage(this.getImage(src),
+        let imgSrc = src;
+        if (this.url) {
+            imgSrc = this.url;
+        }
+        console.log('ctx', this.start);
+        console.log('pos', this.pos);
+        ctx.drawImage(this.getImage(imgSrc),
             this.start.x, this.start.y,
             this.clipWidth, this.clipHeight, this.pos.x, this.pos.y, this.clipWidth, this.clipHeight);
-
 
         // ctx.drawImage(this.getImage(src), 0, 0, 28, 28, 30, 30, 30, 30);
 

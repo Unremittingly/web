@@ -16,5 +16,19 @@
 <script src="tank.js" ></script>
 <script  src="protagonist.js"></script>
 <script src="enemy.js"></script>
+<script src="prop.js"></script>
 <script  src="main.js"></script>
+<script>
+    (function () {
+        function startGame() {
+            ctx = Main.init();
+            tank = new Protagonist();
+            scene = new Scene();
+            gameObject = new Main();
+
+            gameObject.start(1);
+        }
+        startGame();
+    })()
+</script>
 </html>
