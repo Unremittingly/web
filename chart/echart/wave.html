@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .rq {
+            position: relative;
+        }
+
+        #y {
+            display: inline-block;
+            height: 190px;
+            width: 400px;
+            vertical-align: top;
+            padding-top: 10px;
+        }
+
+        #chart {
+            display: inline-block;
+            position: relative;
+            left: -360px;
+            height: 160px;
+            width: 400px;
+            vertical-align: bottom;
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="rq">
+    <div id="y"></div>
+    <div id="chart"></div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.min.js"></script>
+<script src="echarts-liquidfill.js"></script>
+<!--<script src="http://echarts.baidu.com/resource/echarts-liquidfill-1.0.4/dist/echarts-liquidfill.js"></script>-->
+<script>
+
+    var value = 0.12
+    var data = []
+    data.push(value)
+    data.push(value)
+    data.push(value)
+    data.push(value)
+    data.push(value)
+    var option = {
+        series: [{
+            type: 'liquidFill',
+            data: [{
+                value: 0.5,
+                itemStyle: {
+                    color:'#f9f0bd'
+                }
+            }],
+            radius: '100%',
+            shape: 'container',
+            outline: {
+                show: false
+            },
+            itemStyle: {
+                opacity: 0.8,
+            },
+            label: {
+                show: false,
+                position: ['10%', '20%']
+            },
+            backgroundStyle:{
+                color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    { offset: 0,  color: 'rgba(61,234,255, 0.0)'},
+                    { offset: 1,  color: 'rgba(61,234,255, 1)'}
+                ], false),
+
+            }
+        }],
+    };
+
+
+    let e = echarts.init(document.getElementById('chart'));
+    e.setOption(option);
+
+
+    let option1 = {
+
+        title: {
+            text: "OCTOBER 2015",
+            left: "center",
+            bottom: "5%",
+            textStyle: {
+                color: "#fff",
+                fontSize: 16
+            }
+        },
+        grid: {
+
+            top: '10',
+            left: '0',
+            // bottom:'0',
+            bottom: '0',
+            // height:'240',
+            containLabel: true,
+        },
+        xAxis: {
+            // type: 'category',
+            show: false
+        },
+        yAxis: [{
+            type: 'value',
+            position: 'left',
+            max: '100',
+            // splitNumber:'20',
+            interval: 20,
+            lineStyle: {
+                show: false
+            },
+            splitLine: {
+                "show": false
+            },
+            axisLabel: {
+                formatter: '{value}%',
+            }
+
+
+        }],
+        series: [{
+            name: '注册总量',
+            type: 'line',
+            show: false,
+            itemStyle: {
+                color: "#fff",
+                borderColor: "#fff",
+                borderWidth: 3
+            },
+            data: [20]
+        }]
+    };
+
+    let e1 = echarts.init(document.getElementById('y'));
+    e1.setOption(option1);
+</script>
+</html>

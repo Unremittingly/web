@@ -18,7 +18,7 @@ class Prop extends Base {
         this.url = './img/css_sprites.png';
         this.isAnimate = true;
         this.time = new Date().getTime();
-        console.log('time',this.time);
+        console.log('time', this.time);
     }
 
     stopAnimate() {
@@ -36,11 +36,11 @@ class Prop extends Base {
                 this.pos = {x: 50, y: 100};
                 break;
             case 6:
-                this.start = {x: 100, y: 112};
+                this.start = {x: 95, y: 110};
                 this.pos = {x: 100, y: 100};
                 break;
             case 7:
-                this.start = {x: 100, y: 112};
+                this.start = {x: 126, y: 141};
                 this.pos = {x: 100, y: 100};
                 break;
         }
@@ -49,21 +49,24 @@ class Prop extends Base {
     animate() {
 
 
-        let curTime = new Date().getTime();
+        let self = this;
 
-        if (this.type === 6) {
-            this.type = 7;
-            this.setValueForType(this.type);
-        } else {
-            this.type = 6;
-            this.setValueForType(this.type);
-        }
-        console.log('curTime-this.time<3000',curTime-this.time);
+        //这里用settimeout 更好
+        let interval = setInterval(function () {
+            if (self.type === 6) {
+                self.type = 7;
+            } else {
+                self.type = 6;
+            }
+            self.setValueForType(this.type);
+            // self.draw();
 
+            let curTime = new Date().getTime();
+            if (curTime - self.time > 2000) {
+                clearInterval(interval);
+            }
+        }, 500);
 
-        if (curTime-this.time<500) {
-            this.animate()
-        }
 
     }
 

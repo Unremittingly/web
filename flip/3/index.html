@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数字滚动效果 jQuery插件</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            background-color: #F6F6F6;
+            font-weight: normal;
+            font-family: "Microsoft YaHei";
+            color: #333333;
+        }
+        .runNum{
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+            position: relative;
+        }
+        .runNum>li{
+            list-style: none;
+            width: 40px;
+            float: left;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div style="margin: 50px auto;width: 320px;font-size:44px;">
+    <ul class="runNum" id="test"></ul>
+</div>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="flip.js"></script>
+
+<script type="text/javascript">
+    $("#test").runNum(52013141);
+</script>
+</body>
+</html>

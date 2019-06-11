@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .codeLog {
+            position: relative;
+        }
+
+        #chart {
+            height: 150px;
+            width: 300px;
+            border-right: 1px dashed #eee;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div class="codeLog">
+    <div id="chart"></div>
+    <div class="line"></div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.min.js"></script>
+<script>
+    option = {
+        // backgroundColor: "#05224d",
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: 'rgba(255,255,255,0.7)',
+            textStyle: {
+                fontSize: '14px',
+                color: '#666'
+            },
+            formatter: '{b}',
+            // padding: [8, 10, 8, 10],
+            position: function (pos) {
+                return pos;
+            },
+            confine: true,
+            axisPointer: {
+                type: 'none'
+            }
+        },
+        grid: {
+            top: '0',
+            left: '0',
+            right: '0',
+            bottom: '0',
+            // containLabel: true,
+            show: false
+        },
+        xAxis: [{
+            type: 'category',
+            boundaryGap: false,
+            data: ['本年', '本月', '本周', '今日'],
+
+        }],
+        yAxis: [{
+            name: 'Revenue(10k)',
+            type: 'value',
+            show: false
+        },
+            {
+                name: 'Growing\nRate (%)',
+                //nameLocation: 'start',
+                splitLine: {                // 网格线 y轴对应的是否显示
+                    show: false
+                },
+                min: 0,
+                max: 200,                       // growing rate upper limit
+                type: 'value',
+                //top:10,
+                inverse: false,
+                axisLine: {
+                    lineStyle: {
+                        color: '#2f4554'
+
+                    }
+                }
+
+            }
+        ],
+        series: [{
+            name: 'test',
+            type: 'line',
+            lineStyle: {
+                normal: {
+                    color: "#8be2f3", // 线条颜色
+                },
+            },
+            yAxisIndex: 1,
+            symbol: 'circle',
+            symbolSize: 5,
+            itemStyle: {
+                color: "#fff",
+                borderColor: "#fff",
+                borderWidth: 2
+            },
+            smooth: true,
+
+            areaStyle: { //区域填充样式
+                normal: {
+                    //线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        {offset: 0, color: 'rgba(61,234,255, 1)'},
+                        {offset: 0.9, color: 'rgba(61,234,255, 0.1)'}
+                    ], false),
+
+                    shadowColor: 'rgba(53,142,215, 0.9)', //阴影颜色
+                    shadowBlur: 20 //shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
+                }
+            },
+
+            markPoint: {
+                symbol:'rect',
+                symbolSize:[50,30],
+                data: [
+                    {type: 'max', name: '今日'},
+                    //{type : 'min', name : '最小值'}
+                ],
+                symbolOffset:[-40,0],
+                label: {
+                    show: true,
+                    color: '#fff',
+                    formatter: '{b}'
+                },
+                itemStyle: {
+                    color:'#8be2f3',
+                    // borderColor: 'red'
+                },
+            },
+            data: [90, 105, 84, 160],
+
+        }]
+    };
+
+    let e = echarts.init(document.getElementById('chart'));
+    e.setOption(option);
+</script>
+</html>

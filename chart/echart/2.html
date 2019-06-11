@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #chart{
+            height: 300px;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="chart"></div>
+</body>
+<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.min.js"></script>
+<script>
+
+
+    option = {
+
+        title: {
+            text: "OCTOBER 2015",
+            left: "center",
+            bottom: "5%",
+            textStyle: {
+                color: "#fff",
+                fontSize:16
+            }
+        },
+        grid: {
+            // top: '20%',
+            left: '0',
+            right: '0',
+            bottom: '0',
+            containLabel: true,
+        },
+        xAxis: {
+            // type: 'category',
+            show:false
+        },
+        yAxis: [{
+            type: 'value',
+            position: 'left',
+            lineStyle:{
+                show:false
+            },
+            splitLine: {
+                "show": false
+            },
+
+
+        }],
+        series: [{
+            name: '注册总量',
+            type: 'line',
+            show:false,
+            itemStyle: {
+                color: "#fff",
+                borderColor: "#fff",
+                borderWidth: 3
+            },
+            data: [393]
+        }]
+    };
+
+    let e = echarts.init(document.getElementById('chart'));
+    e.setOption(option);
+</script>
+</html>

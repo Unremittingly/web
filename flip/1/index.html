@@ -1,0 +1,29 @@
+
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>数字滚动动画插件</title>
+    <style>
+        .on{
+            /*display: none !im;*/
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+    <script src="flip.js"></script>
+    <style>
+        .number2,.number3{color:#C40000;font-size:60px;font-family:Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif"}
+    </style>
+</head>
+<body>
+<div class="number">6,789.00</div>
+<div class="number2">12,084.00</div>
+<div class="number3" style="margin-top: 50px">155,568.99</div>
+<script type="text/javascript">
+    $('.number').leoTextAnimate({delay:1000,autorun:true,fixed:[',',':','.'],start:'-'});
+    $('.number2').leoTextAnimate({fixed:[' ',' ',' '],start:''});
+
+    $('.number3').leoTextAnimate({delay:3000,autorun:true,fixed:[',',':','.'],start:'-'});
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>文字滚动</title>
+    <style>
+        #all{
+            width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+        li{list-style-type: none;}
+        #all .t_num i {
+            width: 33px;
+            height: 47px;
+            display: inline-block;
+            background: url(number1.png) no-repeat;
+            background-position: 0 0;
+        }
+    </style>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="flip.js"></script>
+    <script type="text/javascript">
+        var sum = 13000;
+        $(function() {
+            setInterval(function(){
+                show_num1(sum)
+            },1000);
+        });
+
+        function show_num1(n) {
+            sum=sum+5;
+            console.log(n);
+            var it = $(".t_num1 i");
+            var len = String(n).length;
+            for(var i = 0; i < len; i++) {
+                if(it.length <= i) {
+                    $(".t_num1").append("<i></i>");
+                }
+                var num = String(n).charAt(i);
+                //根据数字图片的高度设置相应的值
+                var y = -parseInt(num) * 58;
+                var obj = $(".t_num1 i").eq(i);
+                obj.animate({
+                    backgroundPosition: '(0 ' + String(y) + 'px)'
+                }, 'slow', 'swing', function() {});
+            }
+            $("#cur_num").val(n);
+        }
+
+    </script>
+</head>
+<body>
+<div id="all">
+    <div class="amount">
+        <ul>
+            <li>
+                <div class="am_num">
+                    <div id="total">
+                        <span class="t_num t_num1"></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

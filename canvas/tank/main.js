@@ -1,11 +1,8 @@
 
 // import  Tank from "./tank"
-let gameObject = null;
-let tank = null;
-let scene = null;
-let ctx = null;
+
 class Main {
-    constructor(props) {
+    constructor() {
         //初始化
         /*****
          * 1.canvas初始化
@@ -41,17 +38,20 @@ class Main {
     }
     draw(){
         // const IMG = document.getElementById('enemy');
-        let enemy = new Enemy();
-        enemy.draw();
-        tank.draw('./img/p_sprites.png');
+        // let enemy = new Enemy();//敌机
+        // enemy.draw();
 
-        let prop = new Prop(3);
-        prop.draw()
+
+        // let prop = new Prop(3);  //帽子道具
+        // prop.draw()
 
         let prop1 = new Prop(6);
         prop1.draw();
         prop1.animate();
 
+        setTimeout(function () {
+            tank.draw('./img/p_sprites.png');
+        },1000)
 
 
     }
