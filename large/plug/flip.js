@@ -9,17 +9,15 @@
         runNum: function (val, params) {
             /*初始化动画参数*/
             var valString = val || '70225800'
-            var length = params.type ? val.toString().indexOf('.')+3:valString.toString().length;
+            var length = params.type ? val.toString().indexOf('.') + 3 : valString.toString().length;
             var par = params || {};
             var runNumJson = {
                 el: $(this),
                 value: valString,
                 valueStr: valString.toString(),
-                type: par.type,//是否是小数
+                type: par.type,//是否是小数 true 小数
                 height: par.height || 50,
-                addMin: par.addMin || 10000,
-                addMax: par.addMax || 99999,
-                interval: par.interval || 3000,
+                interval: par.interval || 500,
                 speed: par.speed || 1000,
                 width: par.width || 20,
                 fontWidth: par.fontWidth || par.width || 20,
@@ -38,45 +36,48 @@
             var str = '';
             console.log('json.length', json.length);
             let index = json.value.toString().indexOf('.');
-            console.log('index',index);
+            console.log('index', index);
             for (var i = 0; i < json.length; i++) {
                 var w = json.fontWidth * i;
                 var t = json.height * parseInt(json.valueStr[i]);
+                // console.log('T',t);
                 var h = json.height * 10;
-                if(json.type && i>=index+1){
-                    w -=10;
+                if (json.type && i >= index + 1) {
+                    w -= 10;
                 }
-                
                 str += '<li style="left:' + w + 'px;top: ' + -t + 'px;height:' + h + 'px;">';
-
-                if(i===index){
+                if (i === index) {
                     str += '<div style="height:' + json.height + 'px;line-height:' + json.height + 'px;">.</div>';
-
-                }else{
-
+                } else {
                     for (var j = 0; j < 10; j++) {
                         str += '<div style="height:' + json.height + 'px;line-height:' + json.height + 'px;">' + j + '</div>';
                     }
                 }
-
-
                 str += '</li>';
             }
-            if (json.type) {
-
-            }
+            console.log('el', el);
             el.html(str);
         },
-        /*生成随即数*/
-        _random: function (json) {
-            var Range = json.addMax - json.addMin;
-            var Rand = Math.random();
-            var num = json.addMin + Math.round(Rand * Range);
-            return num;
+        _beforeAdd: function (el, json) {
+            console.log('el', el);
+            var w =  0;
+            var t = 50;
+            var h = 500;
+
+            let str = '<li style="left:' + w + 'px;top: ' + -t + 'px;height:' + h + 'px;">';
+
+            for (var j = 0; j < 10; j++) {
+                str += '<div style="height:' + json.height + 'px;line-height:' + json.height + 'px;">' + j + '</div>';
+            }
+
+            str += '</li>';
+            el.before(str);
+
+            console.log('el', el);
         },
         /*执行动画效果*/
-        _animate: function (el, value, json, val,i) {
-            let leg = json.type?value.length-2:value.length;
+        _animate: function (el, value, json, val, i) {
+            let leg = json.type ? value.length - 2 : value.length;
             // debugger
             if (leg > json.length) {
                 //重新初始化
@@ -84,30 +85,34 @@
                 json.el.runNum(val, {
                     type: json.type
                 });
-            }
-            for (var x = 0; x < json.length; x++) {
-                var topPx = value[x] * json.height;
-                console.log('x',i,x);
-                if(!i && (i-1)!==x){
-                    el.eq(x).animate({top: -topPx + 'px'}, json.speed);
+                // json.length = leg;
+                // $._runNum._beforeAdd(el, value, json);
+            } else {
+                for (var x = 0; x < json.length; x++) {
+                    var topPx = value[x] * json.height;
+                    console.log('x', i, x);
+                    if (!i && (i - 1) !== x) {
+                        el.eq(x).animate({top: -topPx + 'px'}, json.speed);
+                    }
                 }
-
             }
+
+
         },
         /*定期刷新动画列表*/
         _interval: function (el, json) {
             var val = json.value;
             json.intervalObj = setInterval(function () {
-                console.log('val',val);
-                val += 10;
-                if(json.type){
+                val += 108;
+                if (json.type) {
                     // val =
                     var i = val.toString().indexOf('.');
-                    console.log('i',i);
-                    $._runNum._animate(el, val.toString().substr(0,i+3), json, val,i);
-
+                    console.log('i', i);
+                    $._runNum._animate(el, val.toString().substr(0, i + 3), json, val, i);
+                } else {
+                    $._runNum._animate(el, val.toString(), json, val);
                 }
-                $._runNum._animate(el, val.toString(), json, val,i);
+
 
             }, json.interval);
         }
