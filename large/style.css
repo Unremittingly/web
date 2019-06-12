@@ -137,3 +137,13 @@ li{
     white-space: nowrap;
     overflow: hidden;
 }
+
+
+#per-number{
+    display: inline-block;
+    position: relative;
+    width: 140px;
+    height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+}
