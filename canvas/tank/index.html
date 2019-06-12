@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        canvas{
+            position: absolute;
+        }
+        #tank{
+            z-index: 10;
+        }
+    </style>
 </head>
 <body>
 <canvas width="800" height="600" id="tank"></canvas>
+<canvas width="800" height="600" id="scene"></canvas>
 </body>
 <script src="enum.js"></script>
 <script src="base.js"></script>
@@ -17,23 +26,31 @@
 <script src="prop.js"></script>
 <script  src="main.js"></script>
 <script>
+
     let gameObject = null;
     let tank = null;
     let scene = null;
-    let ctx = null;
+    let tankCtx = null;
+    let sceneCtx = null;
+
     (function () {
-
-
         function startGame() {
             tank = new Protagonist();
-            ctx = Main.init();
+            sceneCtx = Scene.init();
+
+            tankCtx = Main.init();
+
 
             scene = new Scene();
             gameObject = new Main();
 
             gameObject.start(1);
         }
-        startGame();
+        setTimeout(function () {
+            startGame();
+        },20)
+
+
     })()
 </script>
 </html>

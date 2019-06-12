@@ -1,13 +1,4 @@
-//道具
-const prop_enum = {
-    ADD: 1,//加盟坦克
-    BOSS_PROTECT: 2,//金砖boss保护
-    PROTECT: 3,//帽子 自己保护
-    FIRE: 4,//火力 五星
-    FIRE_MAX: 5,//火力 手枪
 
-
-}
 
 class Prop extends Base {
     constructor(type) {
@@ -15,7 +6,6 @@ class Prop extends Base {
         this.visible = true;
         this.type = type ? type : 1;
         this.setValueForType(type);
-        this.url = './img/css_sprites.png';
         this.isAnimate = true;
         this.time = new Date().getTime();
         console.log('time', this.time);
@@ -24,6 +14,10 @@ class Prop extends Base {
     stopAnimate() {
         this.isAnimate = false;
     }
+    setClip(size){
+        this.clipHeight = size.clipHeight;
+        this.clipWidth = size.clipWidth;
+    }
 
     setVisible(visible) {
         this.visible = visible;
@@ -31,8 +25,8 @@ class Prop extends Base {
 
     setValueForType(type) {
         switch (type) {
-            case prop_enum.PROTECT:
-                this.start = {x: 161, y: 10};
+            case PROP_PROJECT:
+                this.start = {x: 160, y: 96+32};
                 this.pos = {x: 50, y: 100};
                 break;
             case 6:
@@ -50,22 +44,23 @@ class Prop extends Base {
 
 
         let self = this;
-
+        let time = 500;
         //这里用settimeout 更好
         let interval = setInterval(function () {
-            if (self.type === 6) {
-                self.type = 7;
-            } else {
-                self.type = 6;
-            }
-            self.setValueForType(this.type);
-            // self.draw();
-
+            tankCtx.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+            tank.draw();
+            self.start = {
+                x:160,
+                y:(time%2)*32+96
+            };
+            // // self.setValueForType(this.type);
+            self.draw();
+            time--;
             let curTime = new Date().getTime();
-            if (curTime - self.time > 2000) {
+            if (curTime - self.time > 200000) {
                 clearInterval(interval);
             }
-        }, 500);
+        }, 300);
 
 
     }

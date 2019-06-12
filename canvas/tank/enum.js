@@ -14,6 +14,9 @@ const H_ROAD = 5;
 const ROAD = 6;
 
 const OFFSET = 10;
+const SCREEN_WIDTH =800;
+const SCREEN_HEIGHT =600;
+const RESOURCE_IMG = './img/tankAll.gif';
 //大图对象
 const IMG = new Image();
 IMG.src = '';
@@ -32,6 +35,17 @@ const mapPosToElement = {
     H_ROAD:H_ROAD_POSITION,
     ROAD:ROAD_POSITION
 };
+
+const PROP_PROJECT = 1;
+const PROP_ADD =2 ;
+const PROP_PROJECT_HOME =3 ;
+const PROP_FIRE =4 ;
+const PROP_MAX_FIRE =5 ;
+
+const GAME_STATE_INIT = 1;//初始化
+const GAME_STATE_START = 2;//已经开始
+const GAME_STATE_TAS = 3;//过关
+const GAME_STATE_OVER = 4;//结束
 
 
 const LEVEL_ONE = [

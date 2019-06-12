@@ -62,7 +62,7 @@
         _interval:function (el,json) {
             var val=json.value;
             setInterval(function () {
-                val+=$._runNum._random(json);
+                val=$._runNum._random(json);
                 $._runNum._animate(el,val.toString(10),json);
             },json.interval);
         }

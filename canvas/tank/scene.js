@@ -7,6 +7,14 @@ class Scene {
 
         // this.createScene(1);
     }
+    static init(){
+        let dom = document.getElementById('scene');
+        let ctx=dom.getContext('2d');
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0,0,SCREEN_WIDTH,SCREEN_HEIGHT);
+        ctx.save();
+        return ctx;
+    }
     getType(){
 
     }

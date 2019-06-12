@@ -5,10 +5,10 @@ class Protagonist extends Tank{
         super(props);
 
         this.start = {
-            x:8,
-            y:8
+            x:0,
+            y:0
         };
-        this.pos = {x: 101, y: 101};
+        this.pos = {x: 50, y: 98};
 
 
     }

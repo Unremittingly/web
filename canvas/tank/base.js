@@ -11,7 +11,7 @@ class Base {
         this.start = {x: 0, y: 0};//物品在img中的位置
 
         this.imageData = null;
-        this.ctx = ctx;
+        this.ctx = tankCtx;
         this.clipWidth = 28;
         this.clipHeight = 28;
         this.url = null;
@@ -56,12 +56,13 @@ class Base {
         if (this.url) {
             imgSrc = this.url;
         }
-        console.log('ctx', this.start);
-        console.log('pos', this.pos);
-        ctx.drawImage(this.getImage(imgSrc),
+        // console.log('ctx', this.start);
+        // console.log('pos', this.pos);
+       let d =tankCtx.drawImage(this.getImage(RESOURCE_IMG),
             this.start.x, this.start.y,
             this.clipWidth, this.clipHeight, this.pos.x, this.pos.y, this.clipWidth, this.clipHeight);
 
+        console.log('d=====',d);
         // ctx.drawImage(this.getImage(src), 0, 0, 28, 28, 30, 30, 30, 30);
 
     }
