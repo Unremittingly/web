@@ -5,15 +5,31 @@ class Prop extends Base {
         super();
         this.visible = true;
         this.type = type ? type : 1;
-        this.setValueForType(type);
-        this.isAnimate = true;
+
         this.time = new Date().getTime();
         console.log('time', this.time);
+        this.POS = {
+            'project':{x: 50, y: 100},
+            'project_home':{},
+            'fire':{},
+            'max_fire':{},
+            'add':{},
+            'timer':{},
+            'grenades':{}
+        };
+        this.START = {
+            'project':{x: 160, y: 96+32},
+            'project_home':{},
+            'fire':{},
+            'max_fire':{},
+            'add':{},
+            'timer':{},
+            'grenades':{}
+        };
+
+        this.setValueForType(type);
     }
 
-    stopAnimate() {
-        this.isAnimate = false;
-    }
     setClip(size){
         this.clipHeight = size.clipHeight;
         this.clipWidth = size.clipWidth;
@@ -26,17 +42,34 @@ class Prop extends Base {
     setValueForType(type) {
         switch (type) {
             case PROP_PROJECT:
-                this.start = {x: 160, y: 96+32};
-                this.pos = {x: 50, y: 100};
+                console.log('thi',this.START);
+                this.start = this.START['project'];
+                this.pos = this.POS['project'];
                 break;
-            case 6:
-                this.start = {x: 95, y: 110};
-                this.pos = {x: 100, y: 100};
+            case PROP_ADD:
+                this.start = {x: 258, y: 114};
+                this.pos = {x: 140, y: 100};
                 break;
-            case 7:
-                this.start = {x: 126, y: 141};
-                this.pos = {x: 100, y: 100};
+            case PROP_PROJECT_HOME:
+                this.start = {x: 354, y: 114};
+                this.pos = {x: 260, y: 100};
                 break;
+            case PROP_FIRE:
+                this.start = {x: 290, y: 114};
+                this.pos = {x: 180, y: 100};
+                break;
+            case PROP_MAX_FIRE:
+
+                break;
+            case PROP_TIMER:
+                this.start = {x: 322, y: 114};
+                this.pos = {x: 220, y: 100};
+                break;
+            case PROP_GRENADES:
+                this.start = {x: 386, y: 114};
+                this.pos = {x: 300, y: 100};
+                break;
+
         }
     }
 
@@ -61,7 +94,6 @@ class Prop extends Base {
                 clearInterval(interval);
             }
         }, 300);
-
 
     }
 

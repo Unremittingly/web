@@ -16,10 +16,9 @@ const ROAD = 6;
 const OFFSET = 10;
 const SCREEN_WIDTH =800;
 const SCREEN_HEIGHT =600;
-const RESOURCE_IMG = './img/tankAll.gif';
 //大图对象
-const IMG = new Image();
-IMG.src = '';
+const RESOURCE_IMG = new Image();
+RESOURCE_IMG.src = './img/tankAll.gif';
 //在大图中的位置
 const RIVER_POSITION = {x: 0, y: 0};
 const GRASS_POSITION = {x: 20, y: 0};
@@ -41,6 +40,8 @@ const PROP_ADD =2 ;
 const PROP_PROJECT_HOME =3 ;
 const PROP_FIRE =4 ;
 const PROP_MAX_FIRE =5 ;
+const PROP_TIMER = 6;
+const PROP_GRENADES = 7;
 
 const GAME_STATE_INIT = 1;//初始化
 const GAME_STATE_START = 2;//已经开始
