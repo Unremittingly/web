@@ -19,7 +19,7 @@
 
 <div class="img">
     <img id="tankAll" src="./img/tankAll.gif" alt=""/>
-    <img id="enemy" src="./img/enemy.jpg" alt=""/>
+    <!--<img id="enemy" src="./img/enemy.jpg" alt=""/>-->
 </div>
 
 <canvas width="800" height="600" id="tank"></canvas>
@@ -54,7 +54,7 @@
             scene.createScene(1);
             gameObject = new Main();
 
-            gameObject.start(1);
+            gameObject.start();
         }
         setTimeout(function () {
             startGame();

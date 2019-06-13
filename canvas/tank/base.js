@@ -52,19 +52,16 @@ class Base {
     }
 
     //绘制物品 通用
-    draw(src) {
-        let imgSrc = src;
-        if (this.url) {
-            imgSrc = this.url;
-        }
+    draw() {
+
         // console.log('ctx', this.start);
         // console.log('pos', this.pos);
-        console.log('RESOURCE_IMAGE',RESOURCE_IMG);
+
        let d =tankCtx.drawImage(RESOURCE_IMG,
             this.start.x, this.start.y,
             this.clipWidth, this.clipHeight, this.pos.x, this.pos.y, this.clipWidth, this.clipHeight);
 
-        console.log('d=====',d);
+        // console.log('d=====',d);
         // ctx.drawImage(this.getImage(src), 0, 0, 28, 28, 30, 30, 30, 30);
 
     }

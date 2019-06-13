@@ -9,7 +9,7 @@ class Prop extends Base {
         this.time = new Date().getTime();
         console.log('time', this.time);
         this.POS = {
-            'project':{x: 50, y: 100},
+            'project':{x: 0, y: 0},
             'project_home':{},
             'fire':{},
             'max_fire':{},
@@ -44,7 +44,7 @@ class Prop extends Base {
             case PROP_PROJECT:
                 console.log('thi',this.START);
                 this.start = this.START['project'];
-                this.pos = this.POS['project'];
+                this.pos = tank.getPosition();
                 break;
             case PROP_ADD:
                 this.start = {x: 258, y: 114};
@@ -90,10 +90,10 @@ class Prop extends Base {
             self.draw();
             time--;
             let curTime = new Date().getTime();
-            if (curTime - self.time > 200000) {
+            if (curTime - self.time > 10000) {
                 clearInterval(interval);
             }
-        }, 300);
+        }, 150);
 
     }
 

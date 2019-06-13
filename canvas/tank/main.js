@@ -68,7 +68,7 @@ class Main {
         prop1.draw();
         prop1.animate();
 
-        tank.draw('./img/p_sprites.png');
+        // tank.draw('./img/p_sprites.png');
 
 
     }

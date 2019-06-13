@@ -8,9 +8,14 @@ class Protagonist extends Tank{
             x:0,
             y:0
         };
-        this.pos = {x: 50, y: 98};
+        this.pos = {x: 32*4, y: 384};
 
+        this.clipWidth = 28;
+        this.clipHeight = 28;
 
+    }
+    getPosition(){
+        return this.pos;
     }
 
 }
