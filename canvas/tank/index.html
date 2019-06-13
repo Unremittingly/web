@@ -10,9 +10,18 @@
         #tank{
             z-index: 10;
         }
+        .img{
+            display: none;
+        }
     </style>
 </head>
 <body>
+
+<div class="img">
+    <img id="tankAll" src="./img/tankAll.gif" alt=""/>
+    <img id="enemy" src="./img/enemy.jpg" alt=""/>
+</div>
+
 <canvas width="800" height="600" id="tank"></canvas>
 <canvas width="800" height="600" id="scene"></canvas>
 </body>
@@ -42,6 +51,7 @@
 
 
             scene = new Scene();
+            scene.createScene(1);
             gameObject = new Main();
 
             gameObject.start(1);

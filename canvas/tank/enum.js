@@ -17,9 +17,8 @@ const OFFSET = 10;
 const SCREEN_WIDTH =800;
 const SCREEN_HEIGHT =600;
 //大图对象
-const RESOURCE_IMG = new Image();
-RESOURCE_IMG.src = './img/tankAll.gif';
-//在大图中的位置
+const RESOURCE_IMG = document.getElementById('tankAll');
+//在大精灵图中的位置
 const RIVER_POSITION = {x: 0, y: 0};
 const GRASS_POSITION = {x: 20, y: 0};
 const ADOBE_POSITION = {x: 40, y: 0};

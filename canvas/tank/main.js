@@ -11,7 +11,7 @@ class Main {
          * 3.场景背景
          */
 
-        this.gameState =  1;//游戏状态
+        this.gameState =  2;//游戏状态
         this.image = '';
         this.level = 1;
         this.enemys = 20;
@@ -41,10 +41,10 @@ class Main {
     }
     gameLoop(){
         switch (this.gameState) {
-            case 1:
-                this.draw();
+            case GAME_STATE_INIT:
                 break;
-            case 2:
+            case GAME_STATE_START:
+                this.draw();
                 break;
             default:
                 break;

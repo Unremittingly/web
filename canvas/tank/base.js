@@ -5,6 +5,7 @@
  * 3.创建
  * 4.碰撞
  */
+
 class Base {
     constructor() {
         this.pos = {x: 0, y: 0};//物品在场景中的位置
@@ -58,7 +59,8 @@ class Base {
         }
         // console.log('ctx', this.start);
         // console.log('pos', this.pos);
-       let d =tankCtx.drawImage(this.getImage(RESOURCE_IMG),
+        console.log('RESOURCE_IMAGE',RESOURCE_IMG);
+       let d =tankCtx.drawImage(RESOURCE_IMG,
             this.start.x, this.start.y,
             this.clipWidth, this.clipHeight, this.pos.x, this.pos.y, this.clipWidth, this.clipHeight);
 
