@@ -17,22 +17,15 @@ class Base {
         this.clipHeight = 28;
         this.url = null;
 
+        this.speed = 2;//速度
+
+
     }
 
     setPosition(pos) {
         this.pos = pos;
     }
 
-    setStart(start) {
-        this.start = start;
-    }
-
-    getImage(src) {
-        let img = new Image();
-        src = src ? src : './img/enemy.jpg';
-        img.src = src;
-        return img;
-    }
 
 
     move() {

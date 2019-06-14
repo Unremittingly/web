@@ -1,36 +1,34 @@
-
-
 class Prop extends Base {
     constructor(type) {
         super();
         this.visible = true;
         this.type = type ? type : 1;
+        this.projectTime = 500;
 
-        this.time = new Date().getTime();
         console.log('time', this.time);
         this.POS = {
-            'project':{x: 0, y: 0},
-            'project_home':{},
-            'fire':{},
-            'max_fire':{},
-            'add':{},
-            'timer':{},
-            'grenades':{}
+            'project': {x: 0, y: 0},
+            'project_home': {},
+            'fire': {},
+            'max_fire': {},
+            'add': {},
+            'timer': {},
+            'grenades': {}
         };
         this.START = {
-            'project':{x: 160, y: 96+32},
-            'project_home':{},
-            'fire':{},
-            'max_fire':{},
-            'add':{},
-            'timer':{},
-            'grenades':{}
+            'project': {x: 160, y: 96 + 32},
+            'project_home': {},
+            'fire': {},
+            'max_fire': {},
+            'add': {},
+            'timer': {},
+            'grenades': {}
         };
 
         this.setValueForType(type);
     }
 
-    setClip(size){
+    setClip(size) {
         this.clipHeight = size.clipHeight;
         this.clipWidth = size.clipWidth;
     }
@@ -42,7 +40,7 @@ class Prop extends Base {
     setValueForType(type) {
         switch (type) {
             case PROP_PROJECT:
-                console.log('thi',this.START);
+                console.log('thi', this.START);
                 this.start = this.START['project'];
                 this.pos = tank.getPosition();
                 break;
@@ -76,24 +74,22 @@ class Prop extends Base {
     animate() {
 
 
-        let self = this;
-        let time = 500;
-        //这里用settimeout 更好
-        let interval = setInterval(function () {
+        if (this.projectTime > 0) {
+            let self = this;
+
             tankCtx.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
             tank.draw();
             self.start = {
-                x:160,
-                y:(time%2)*32+96
+                x: 160,
+                y: (this.projectTime % 2) * 32 + 96
             };
-            // // self.setValueForType(this.type);
+            this.projectTime--;
+
             self.draw();
-            time--;
-            let curTime = new Date().getTime();
-            if (curTime - self.time > 10000) {
-                clearInterval(interval);
-            }
-        }, 150);
+        } else {
+            this.projectTime = 500;
+        }
+
 
     }
 

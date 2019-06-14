@@ -45,15 +45,18 @@
     (function () {
         function startGame() {
             tank = new Protagonist();
+            //初始化canvas
             sceneCtx = Scene.init();
-
             tankCtx = Main.init();
 
 
+            //初始化场景
             scene = new Scene();
+            //创建场景  params:关卡
             scene.createScene(1);
-            gameObject = new Main();
 
+            //游戏主逻辑类
+            gameObject = new Main();
             gameObject.start();
         }
         setTimeout(function () {

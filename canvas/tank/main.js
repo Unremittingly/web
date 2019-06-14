@@ -18,7 +18,7 @@ class Main {
         this.tanks = 3;
         this.remainingEnemys = this.enemys;
         this.remainingTanks = this.tanks;
-
+        this.time = new Date().getTime();
 
     }
     static init(){
@@ -36,21 +36,35 @@ class Main {
         //主角出现
         //敌机出现  敌机达到一定数量就不出现啦
 
+        let _this = this;
+        let prop1 = new Prop(PROP_PROJECT);
+        prop1.setClip({
+            clipHeight:32,
+            clipWidth:32
+        });
+       let interval=  setInterval(function () {
+            _this.gameLoop(prop1);
 
-        this.gameLoop();
+
+           let curTime = new Date().getTime();
+           if (curTime - self.time > 10000) {
+               clearInterval(interval);
+           }
+        },150)
+
     }
-    gameLoop(){
+    gameLoop(prop1){
         switch (this.gameState) {
             case GAME_STATE_INIT:
                 break;
             case GAME_STATE_START:
-                this.draw();
+                this.draw(prop1);
                 break;
             default:
                 break;
         }
     }
-    draw(){
+    draw(prop1){
         //绘制所有
         // const IMG = document.getElementById('enemy');
         // let enemy = new Enemy();//敌机
@@ -59,13 +73,7 @@ class Main {
 
         // let prop = new Prop(3);  //帽子道具
         // prop.draw()
-
-        let prop1 = new Prop(PROP_PROJECT);
-        prop1.setClip({
-            clipHeight:32,
-            clipWidth:32
-        });
-        prop1.draw();
+        // prop1.draw();
         prop1.animate();
 
         // tank.draw('./img/p_sprites.png');

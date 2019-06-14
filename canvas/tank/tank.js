@@ -13,8 +13,12 @@ class Tank  extends Base{
 
     }
     shooting(){
+        //发射子弹
         let bullet = new Bullet(this.ctx);
         this.bullets.push(bullet);
+    }
+    deleteBullet(){
+
     }
 }
 // export default Tank;
