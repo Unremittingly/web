@@ -43,6 +43,7 @@ class Prop extends Base {
                 console.log('thi', this.START);
                 this.start = this.START['project'];
                 this.pos = tank.getPosition();
+                this.speed = 1;
                 break;
             case PROP_ADD:
                 this.start = {x: 258, y: 114};

@@ -363,36 +363,44 @@ function clearCanvas() {
 }
 
 initCanvas();
-
+createGif();
 
 function createGif() {
     let gif = new GIF({
         workers: 2,
-        quality: 10
+        quality: 10,
+        repeat:0,
+
     });
     let imageElement = document.getElementById('firework');
 // 添加一个图片标签对象像素到当前帧
-    gif.addFrame(imageElement);
+    gif.addFrame(imageElement,{
+        delay: 20,
+        copy:true
+    });
 //或添加一个canvas对象的像素到当前帧
-    gif.addFrame(document.getElementsByTagName('canvas')[0], {
-        delay: 200
-    });
-    gif.addFrame(document.getElementsByTagName('canvas')[0], {
-        delay: 200
-    });
-    gif.addFrame(document.getElementsByTagName('canvas')[0], {
-        delay: 200
-    });
+//     gif.addFrame(document.getElementsByTagName('canvas')[0], {
+//         delay: 200
+//     });
+//     gif.addFrame(document.getElementsByTagName('canvas')[0], {
+//         delay: 200
+//     });
+//     gif.addFrame(document.getElementsByTagName('canvas')[0], {
+//         delay: 200
+//     });
 //从canvas context复制像素到当前帧
     gif.addFrame(cxt, {
-        copy: true
+        copy: true,
+        delay:20,
     });
 //合成图片成功后
     gif.on('finished', function (blob) {
-        window.open(URL.createObjectURL(blob));
+        console.log('blob',blob);
+        // window.open(URL.createObjectURL(blob));
     });
 //渲染图片
     gif.render();
 }
+
 
 

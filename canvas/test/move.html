@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+<canvas width="800" height="600" id="bullet"></canvas>
+<img src="../tank/img/css_sprites.png" id="bullet_img" alt="">
+109,147
+</body>
+<script>
+    let startPos = {
+        x:20,
+        y:420
+    };
+    let speed = 3;
+    let prePos = startPos;
+    let allTime = 60000;
+    let type = 'top';
+    let ctx = document.getElementById('bullet').getContext('2d');
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0,0,800,600);
+    let RESOURCE_IMG = document.getElementById('bullet_img');
+    ctx.drawImage(RESOURCE_IMG,
+        154,110,
+        8,8,
+        startPos.x,startPos.y,
+        8,8);
+
+    // clean();
+
+
+    if(allTime){
+        clean();
+        move();
+    }
+    drawBullet();
+    function clean() {
+        ctx.clearRect(prePos.x,prePos.y,8,8);
+        ctx.fillRect(prePos.x,prePos.y,8,8);
+    }
+    function move() {
+
+        if(type==='bottom'){
+            let y = prePos.y+speed;
+            prePos = {
+                x:prePos.x,
+                y:y
+            }
+        }else if (type==='top') {
+            let y = prePos.y-speed;
+            prePos = {
+                x:prePos.x,
+                y:y
+            }
+        }
+
+        drawBullet(prePos)
+    }
+    function drawBullet(pos) {
+        ctx.drawImage(RESOURCE_IMG,146,110,8,8,pos.x,pos.y,8,8)
+    }
+</script>
+</html>

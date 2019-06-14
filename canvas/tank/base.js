@@ -27,7 +27,6 @@ class Base {
     }
 
 
-
     move() {
 
     }
@@ -50,9 +49,11 @@ class Base {
         // console.log('ctx', this.start);
         // console.log('pos', this.pos);
 
-       let d =tankCtx.drawImage(RESOURCE_IMG,
+        tankCtx.drawImage(RESOURCE_IMG,
             this.start.x, this.start.y,
-            this.clipWidth, this.clipHeight, this.pos.x, this.pos.y, this.clipWidth, this.clipHeight);
+            this.clipWidth, this.clipHeight,
+            this.pos.x, this.pos.y,
+            this.clipWidth, this.clipHeight);
 
         // console.log('d=====',d);
         // ctx.drawImage(this.getImage(src), 0, 0, 28, 28, 30, 30, 30, 30);
