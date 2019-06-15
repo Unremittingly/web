@@ -1,13 +1,17 @@
 //tank基类
 
 class Tank extends Base {
-    constructor() {
+    constructor(direction) {
         super();
         console.log('tank');
         this.bullets = [];
         this.width = 20;
         this.height = 20;
         this.bulletsInterval = null;
+
+        this.direction =  direction?direction:'top';
+        this.moveDistance = 16;
+
     }
 
     move() {

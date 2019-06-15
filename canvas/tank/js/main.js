@@ -76,7 +76,12 @@ class Main {
         // prop.draw()
         // prop1.draw();
 
-        prop1.setAnimateState(true);
+
+        // tank.move('bottom');
+        // if(!tank.getMoveState){
+        //
+        // }
+        tank.draw();
         prop1.animate();
 
         // tank.draw('./img/p_sprites.png');

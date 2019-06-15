@@ -3,9 +3,9 @@ class Prop extends Base {
         super();
         this.visible = true;
         this.type = type ? type : 1;
-        this.projectTime = 500;
+        this.projectTime = 160;
 
-        console.log('time', this.time);
+
         this.POS = {
             'project': {x: 0, y: 0},
             'project_home': {},
@@ -26,7 +26,7 @@ class Prop extends Base {
         };
 
         this.animateSpeed = 8;
-        this.isAnimate = false;
+        this.isAnimate = true;
 
         this.setValueForType(type);
     }
@@ -43,7 +43,7 @@ class Prop extends Base {
     setValueForType(type) {
         switch (type) {
             case PROP_PROJECT:
-                console.log('thi', this.START);
+
                 this.start = this.START['project'];
                 this.pos = tank.getPosition();
                 this.speed = 1;
@@ -82,27 +82,25 @@ class Prop extends Base {
     animate() {
 
 
+
+
         if (this.isAnimate) {
             if (this.projectTime > 0) {
+
                 let self = this;
-
-                tank.draw();
-
                 //速度动画频率计算
-                let temp = parseInt((500 - this.projectTime) / this.animateSpeed) % 2;
-
+                let temp = parseInt((160 - this.projectTime) / this.animateSpeed) % 2;
                 self.start = {
                     x: 160,
                     y: 32 * temp + 96
                 };
                 this.projectTime--;
-
                 self.draw();
 
-
+                self.setValueForType(this.type);
             } else {
                 this.projectTime = 500;
-                this.isAnimate = false;
+                this.setAnimateState(false);
             }
         }
 

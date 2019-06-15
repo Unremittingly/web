@@ -38,6 +38,11 @@ const mapPosToElement = {
     "6":ROAD_POSITION
 };
 
+const TOP = 'top';
+const RIGHT = 'right';
+const BOTTOM = 'bottom';
+const LEFT = 'left';
+
 const PROP_PROJECT = 1;
 const PROP_ADD =2 ;
 const PROP_PROJECT_HOME =3 ;
