@@ -37,10 +37,13 @@
     // clean();
 
 
-    if(allTime){
-        clean();
-        move();
-    }
+    setInterval(function () {
+        if(allTime){
+            clean();
+            move();
+        }
+    },20)
+
     drawBullet();
     function clean() {
         ctx.clearRect(prePos.x,prePos.y,8,8);

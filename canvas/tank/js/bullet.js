@@ -13,15 +13,15 @@ const bulletPos = {
         y: 110
     },
     'bottom': {
-        x: 146,
+        x: 162,
         y: 110
     },
     'left': {
-        x: 146,
+        x: 170,
         y: 110
     },
     'right': {
-        x: 146,
+        x: 154,
         y: 110
     },
 };
@@ -34,21 +34,24 @@ class Bullet extends Base {
         this.direction = 'top';
         this.ctx = ctx;
         this.pos = {
-            x: tank.start.x + (tank.start.x + 32) / 2,
-            y: tank.start.y - (tank.start.y + 32) / 2
+            x: tank.pos.x ,
+            y: tank.pos.y
         };
+        console.log('tank',tank.pos);
         this.speed = 4;
 
         this.clipWidth = 8;
         this.clipHeight = 8;
+        this.isDestroyed = false;
 
 
     }
 
     destroy() {
         //销毁
-        tankCtx.clearRect(this.pos.x, this.pos.y, 8, 8);
-        tankCtx.fillRect(this.pos.x, this.pos.y, 8, 8);
+        // console.log('despss',this.pos);
+        this.ctx.clearRect(this.pos.x, this.pos.y, 8, 8);
+        this.ctx.fillRect(this.pos.x, this.pos.y, 8, 8);
     }
 
     hit() {
@@ -56,36 +59,50 @@ class Bullet extends Base {
     }
 
     move() {
+        // console.log('bullet   move');
+        this.destroy();
         let {x, y} = this.pos;
-        if (x === 0 && y === 0) {
+        if (y === 0) {
             //墙壁爆炸效果
+            // console.log('BOOM');
+            this.isDestroyed = true;
             return;
         }
-        switch (this.type) {
+        let speed = this.speed;
+        switch (this.direction) {
             case bulletBottom:
                 y += speed;
+                x = tank.pos.x + 14;
                 break;
             case bulletLeft:
                 x += speed;
+                y=tank.pos.y+14;
                 break;
             case bulletRight:
                 x -= speed;
+                y=tank.pos.y-14;
                 break;
             case bulletTop:
+                x = tank.pos.x + 14;
                 y -= speed;
                 break;
         }
+
         this.pos = {
             x,
             y
         };
-        this.clean();
+
         this.draw();
     }
 
     draw() {
         this.start = bulletPos[this.direction];
-        super.draw();
+        this.ctx.drawImage(RESOURCE_SPRITES,
+            this.start.x, this.start.y,
+            this.clipWidth, this.clipHeight,
+            this.pos.x, this.pos.y,
+            this.clipWidth, this.clipHeight);
     }
 
 }

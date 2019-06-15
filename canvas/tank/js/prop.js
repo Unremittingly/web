@@ -25,6 +25,9 @@ class Prop extends Base {
             'grenades': {}
         };
 
+        this.animateSpeed = 8;
+        this.isAnimate = false;
+
         this.setValueForType(type);
     }
 
@@ -72,23 +75,35 @@ class Prop extends Base {
         }
     }
 
+    setAnimateState(isAnimate) {
+        this.isAnimate = isAnimate;
+    }
+
     animate() {
 
 
-        if (this.projectTime > 0) {
-            let self = this;
+        if (this.isAnimate) {
+            if (this.projectTime > 0) {
+                let self = this;
 
-            tankCtx.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-            tank.draw();
-            self.start = {
-                x: 160,
-                y: (this.projectTime % 2) * 32 + 96
-            };
-            this.projectTime--;
+                tank.draw();
 
-            self.draw();
-        } else {
-            this.projectTime = 500;
+                //速度动画频率计算
+                let temp = parseInt((500 - this.projectTime) / this.animateSpeed) % 2;
+
+                self.start = {
+                    x: 160,
+                    y: 32 * temp + 96
+                };
+                this.projectTime--;
+
+                self.draw();
+
+
+            } else {
+                this.projectTime = 500;
+                this.isAnimate = false;
+            }
         }
 
 

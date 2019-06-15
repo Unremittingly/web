@@ -46,6 +46,7 @@ class Base {
     //绘制物品 通用
     draw() {
 
+        // console.log('1');
         // console.log('ctx', this.start);
         // console.log('pos', this.pos);
 

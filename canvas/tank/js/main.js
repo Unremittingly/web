@@ -42,6 +42,7 @@ class Main {
             clipHeight:32,
             clipWidth:32
         });
+        //速度为1的时候就是 150ms
        let interval=  setInterval(function () {
             _this.gameLoop(prop1);
 
@@ -50,7 +51,7 @@ class Main {
            if (curTime - self.time > 10000) {
                clearInterval(interval);
            }
-        },150)
+        },20)
 
     }
     gameLoop(prop1){
@@ -70,10 +71,12 @@ class Main {
         // let enemy = new Enemy();//敌机
         // enemy.draw();
 
-
+        tankCtx.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
         // let prop = new Prop(3);  //帽子道具
         // prop.draw()
         // prop1.draw();
+
+        prop1.setAnimateState(true);
         prop1.animate();
 
         // tank.draw('./img/p_sprites.png');

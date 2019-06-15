@@ -28,4 +28,5 @@ class Protagonist extends Tank{
         return this.pos;
     }
 
+
 }

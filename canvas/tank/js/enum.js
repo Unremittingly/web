@@ -18,6 +18,7 @@ const SCREEN_WIDTH =800;
 const SCREEN_HEIGHT =600;
 //大图对象
 const RESOURCE_IMG = document.getElementById('tankAll');
+const RESOURCE_SPRITES = document.getElementById('sprites');
 //在大精灵图中的位置
 const RIVER_POSITION = {x: 48, y: 96};
 const GRASS_POSITION = {x: 32, y: 96};

@@ -1,9 +1,9 @@
-const enemyType = {
-    normal: 1,
-    fast: 2,
-    big: 3,
-    bigB: 4
-};
+// const enemyType = {
+//     normal: 1,
+//     fast: 2,
+//     big: 3,
+//     bigB: 4
+// };
 
 //敌机
 class Enemy extends Tank {
