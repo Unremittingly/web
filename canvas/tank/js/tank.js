@@ -33,9 +33,7 @@ class Tank extends Base {
             for (let j = 0; j < col.length; j++) {
                 let po = col[j];
                 if (po === ROAD) {
-                    if (pos.x >= distance * i && pos.x <= (distance * (i + 1))) {
-                        
-                    }
+                    //判断是否是在空白路上
                 }
             }
 
