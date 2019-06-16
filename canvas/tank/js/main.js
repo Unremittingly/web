@@ -21,6 +21,7 @@ class Main {
         this.time = new Date().getTime();
 
     }
+
     static init(){
         let dom = document.getElementById('tank');
         let ctx=dom.getContext('2d');
@@ -81,7 +82,9 @@ class Main {
         // if(!tank.getMoveState){
         //
         // }
-        tank.draw();
+
+        tank.update();
+
         prop1.animate();
 
         // tank.draw('./img/p_sprites.png');

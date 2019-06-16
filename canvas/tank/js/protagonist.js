@@ -40,6 +40,7 @@ class Protagonist extends Tank {
         return this.isMove;
     }
 
+
     //direction 方向
     move(direction) {
         let _this = this;
@@ -112,6 +113,29 @@ class Protagonist extends Tank {
         }
 
 
+    }
+
+    update(){
+
+        // if(keyCode === KEY_CODE.top){
+        //     this.move('top');
+        // }else if(keyCode === KEY_CODE.left) {
+        //     this.move('left')
+        // }else if(keyCode === KEY_CODE.bottom) {
+        //     this.move('bottom')
+        // }else if(keyCode === KEY_CODE.right) {
+        //     this.move('right')
+        // }
+        if(keys.contain(KEY_CODE.top)){
+            this.move('top');
+        }else if(keys.contain(KEY_CODE.left)) {
+            this.move('left')
+        }else if(keys.contain(KEY_CODE.bottom)) {
+            this.move('bottom')
+        }else if(keys.contain(KEY_CODE.right)) {
+            this.move('right')
+        }
+        this.draw();
     }
 
 

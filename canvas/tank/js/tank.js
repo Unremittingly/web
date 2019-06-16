@@ -9,14 +9,40 @@ class Tank extends Base {
         this.height = 20;
         this.bulletsInterval = null;
 
-        this.direction =  direction?direction:'top';
+        this.direction = direction ? direction : 'top';
         this.moveDistance = 16;
+
+        this.isMove = true;
 
     }
 
     move() {
         //移动
 
+    }
+
+    //判断当前位置是否可以移动通过
+    isPass(pos) {
+        let arr = LEVEL_ALL[0];
+        let distance = 16;
+        let isMove = false;
+
+        for (let i = 0; i < arr.length; i++) {
+            //i=0
+            let col = arr[i];
+            for (let j = 0; j < col.length; j++) {
+                let po = col[j];
+                if (po === ROAD) {
+                    if (pos.x >= distance * i && pos.x <= (distance * (i + 1))) {
+                        
+                    }
+                }
+            }
+
+
+        }
+        this.isMove = isMove;
+        return this.isMove;
     }
 
     shooting() {

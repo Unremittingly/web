@@ -56,6 +56,17 @@ const GAME_STATE_START = 2;//已经开始
 const GAME_STATE_TAS = 3;//过关
 const GAME_STATE_OVER = 4;//结束
 
+//用数组保存当前键盘操作   如果不用数组保存会出现转弯卡顿的情况 todo 1
+let keys = [];
+const KEY_CODE = {
+    'top':87,
+    'left':65,
+    'bottom':83,
+    'right':68
+};
+let keyCode = 0;
+
+
 
 const LEVEL_ONE = [
     //1
