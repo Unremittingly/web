@@ -26,48 +26,38 @@
 </body>
 <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.min.js"></script>
 <script>
-    option = {
-        // backgroundColor: "#05224d",
-        tooltip: {
-            trigger: 'axis',
-            backgroundColor: 'rgba(255,255,255,0.7)',
-            textStyle: {
-                fontSize: '14px',
-                color: '#666'
-            },
-            formatter: '{b}',
-            // padding: [8, 10, 8, 10],
-            position: function (pos) {
-                return pos;
-            },
-            confine: true,
-            axisPointer: {
-                type: 'none'
-            }
-        },
+    let lineOption = {
         grid: {
             top: '0',
-            left: '0',
-            right: '0',
-            bottom: '0',
+            left: '10',
+            right: '10',
+            bottom: '10',
             // containLabel: true,
             show: false
         },
         xAxis: [{
             type: 'category',
             boundaryGap: false,
+            show: false,
             data: ['本年', '本月', '本周', '今日'],
 
         }],
         yAxis: [{
             name: 'Revenue(10k)',
             type: 'value',
-            show: false
+            show: false,
+
         },
             {
                 name: 'Growing\nRate (%)',
                 //nameLocation: 'start',
                 splitLine: {                // 网格线 y轴对应的是否显示
+                    show: false
+                },
+                axisLabel: {
+                    show: false,
+                },
+                axisTick: {
                     show: false
                 },
                 min: 0,
@@ -77,7 +67,8 @@
                 inverse: false,
                 axisLine: {
                     lineStyle: {
-                        color: '#2f4554'
+                        color: '#fff',
+                        type: 'dashed',
 
                     }
                 }
@@ -89,14 +80,14 @@
             type: 'line',
             lineStyle: {
                 normal: {
-                    color: "#8be2f3", // 线条颜色
+                    color: "#5fe6ea", // 线条颜色
                 },
             },
             yAxisIndex: 1,
             symbol: 'circle',
-            symbolSize: 5,
+            symbolSize: 8,
             itemStyle: {
-                color: "#fff",
+                color: "#e6f4ff",
                 borderColor: "#fff",
                 borderWidth: 2
             },
@@ -116,29 +107,35 @@
             },
 
             markPoint: {
-                symbol:'rect',
-                symbolSize:[50,30],
+                symbol: 'image://./img/today_bg.png',
+                symbolSize: [34, 20],
                 data: [
-                    {type: 'max', name: '今日'},
+                    {name: '今日', coord: [3, 0]},
                     //{type : 'min', name : '最小值'}
                 ],
-                symbolOffset:[-40,0],
+                symbolOffset: [-22, 0],
                 label: {
                     show: true,
-                    color: '#fff',
-                    formatter: '{b}'
-                },
-                itemStyle: {
-                    color:'#8be2f3',
-                    // borderColor: 'red'
-                },
+                    color: '#afffff',
+                    formatter: '{b}',
+                    borderRadius: 2,
+                    fontSize: 10,
+                    padding: [3, 6, 3, 3]
+                }
             },
-            data: [90, 105, 84, 160],
+            data: [0,0,0, {
+                value: 0,
+                itemStyle: {
+                    color: "#65e3ec",
+                    borderColor: "#fff",
+                    borderWidth: 1
+                }
+            }],
 
         }]
     };
 
     let e = echarts.init(document.getElementById('chart'));
-    e.setOption(option);
+    e.setOption(lineOption);
 </script>
 </html>

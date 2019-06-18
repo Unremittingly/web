@@ -21,22 +21,44 @@ class Tank extends Base {
 
     }
 
-    //判断当前位置是否可以移动通过
+    //判断当前位置是否可以移动通过 检测
     isPass(pos) {
         let arr = LEVEL_ALL[0];
         let distance = 16;
         let isMove = false;
+        let rightBottomPos = {
+            x: pos.x + 32,
+            y: pos.y + 32
+        };
 
+        //通过pos判断index
+        let xIndex = parseInt(pos.x / 16);
+        let yIndex = parseInt(pos.y / 16);
         for (let i = 0; i < arr.length; i++) {
             //i=0
+            let xMove = false;
+            let yMove = false;
             let col = arr[i];
-            for (let j = 0; j < col.length; j++) {
-                let po = col[j];
-                if (po === ROAD) {
-                    //判断是否是在空白路上
+            let col1 = arr[i+1];
+            for (let j = 0; j < col.length; j=j+1) {
+                if (xIndex === j) {
+                    if (col[j] === ROAD && col[j + 1] === ROAD) {
+                        xMove = true;
+                    }
                 }
             }
 
+            for (let j = 0; j < col1.length; j=j+1) {
+                if (yIndex === j) {
+                    if (col1[j] === ROAD && col1[j + 1] === ROAD) {
+                        yMove = true;
+                    }
+                }
+            }
+            isMove = yMove&&xMove;
+            if(isMove){
+                break;
+            }
 
         }
         this.isMove = isMove;
