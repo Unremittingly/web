@@ -1,5 +1,5 @@
 $(document).keydown(function (event) {
-    console.log('event', event.keyCode);
+    // console.log('event', event.keyCode);
     keyCode = event.keyCode;
 
 
@@ -34,6 +34,6 @@ $(document).keyup(function (e) {
     // setTimeout(function () {
     //     keyCode = 0;
     // },20);
-    console.log('11',e.keyCode);
+    // console.log('11',e.keyCode);
     keys.remove(e.keyCode);
 });

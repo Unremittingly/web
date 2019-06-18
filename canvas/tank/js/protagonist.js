@@ -59,8 +59,9 @@ class Protagonist extends Tank {
 
         if(isFirst){
             //保护道具
-            let project = scene.getProp('project');
+            let project = gameObject.getProp('project');
 
+            // console.log('project',project);
             project.animate();
         }
     }

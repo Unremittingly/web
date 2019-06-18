@@ -30,6 +30,7 @@
 <canvas width="800" height="600" id="scene"></canvas>
 </body>
 <script src="js/jquery.min.js"></script>
+<script src="js/Collision.js"></script>
 <script src="js/common.js"></script>
 <script src="js/event.js"></script>
 <script src="js/enum.js"></script>
@@ -54,8 +55,8 @@
             tank = new Protagonist();
             //初始化canvas
             sceneCtx = Scene.init();
-            tankCtx = Main.init();
 
+            tankCtx = Main.init();
 
             //初始化场景
             scene = new Scene();
