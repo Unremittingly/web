@@ -19,6 +19,7 @@ class Main {
         this.remainingEnemys = this.enemys;
         this.remainingTanks = this.tanks;
         this.time = new Date().getTime();
+        this.prop = null;//道具
 
     }
 
@@ -30,6 +31,10 @@ class Main {
         ctx.save();
         return ctx;
     }
+    //获取道具对象
+    getProp(){
+        return this.prop;
+    }
     start(){
         //主线程
         //初始化场景
@@ -38,15 +43,14 @@ class Main {
         //敌机出现  敌机达到一定数量就不出现啦
 
         let _this = this;
-        let prop1 = new Prop(PROP_PROJECT);
-        prop1.setClip({
+        this.prop= new Prop(PROP_PROJECT);
+        this.prop.setClip({
             clipHeight:32,
             clipWidth:32
         });
-        //速度为1的时候就是 150ms
-       let interval=  setInterval(function () {
-            _this.gameLoop(prop1);
 
+       let interval=  setInterval(function () {
+            _this.gameLoop();
 
            let curTime = new Date().getTime();
            if (curTime - self.time > 10000) {
@@ -55,12 +59,12 @@ class Main {
         },20)
 
     }
-    gameLoop(prop1){
+    gameLoop(){
         switch (this.gameState) {
             case GAME_STATE_INIT:
                 break;
             case GAME_STATE_START:
-                this.draw(prop1);
+                this.draw();
                 break;
             default:
                 break;
@@ -73,21 +77,9 @@ class Main {
         // enemy.draw();
 
         tankCtx.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-        // let prop = new Prop(3);  //帽子道具
-        // prop.draw()
-        // prop1.draw();
 
+        tank.update(true);
 
-        // tank.move('bottom');
-        // if(!tank.getMoveState){
-        //
-        // }
-
-        tank.update();
-
-        prop1.animate();
-
-        // tank.draw('./img/p_sprites.png');
 
 
     }

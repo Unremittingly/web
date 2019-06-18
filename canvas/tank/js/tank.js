@@ -16,8 +16,82 @@ class Tank extends Base {
 
     }
 
-    move() {
-        //移动
+    //销毁动画
+    destroyAnimate(){
+
+    }
+
+    //direction 方向 移动
+    move(direction) {
+        let _this = this;
+        if (_this.moveDistance > 0) {
+
+            switch (direction) {
+                case TOP:
+                    if (_this.pos.y > 0) {
+                        _this.pos = {
+                            x: _this.pos.x,
+                            y: _this.pos.y - 3
+                        };
+                    }
+
+                    _this.start = {
+                        x: 0,
+                        y: 0
+                    };
+                    break;
+                case RIGHT:
+                    if (_this.pos.x < 384) {
+                        _this.pos = {
+                            x: _this.pos.x + 3,
+                            y: _this.pos.y
+                        };
+                    }
+
+                    _this.start = {
+                        x: 96,
+                        y: 0
+                    };
+                    break;
+                case LEFT:
+                    if (_this.pos.x > 0) {
+                        _this.pos = {
+                            x: _this.pos.x - 3,
+                            y: _this.pos.y
+                        };
+                    }
+
+                    _this.start = {
+                        x: 64,
+                        y: 0
+                    };
+                    break;
+                case BOTTOM:
+                    if (_this.pos.y < 384) {
+                        _this.pos = {
+                            x: _this.pos.x,
+                            y: _this.pos.y + 3
+                        };
+                    }
+
+                    _this.start = {
+                        x: 32,
+                        y: 0
+                    };
+                    break;
+            }
+
+            _this.moveDistance--;
+
+        } else {
+            _this.moveDistance = 16;
+            if(_this.interval){
+                clearInterval(_this.interval);
+                _this.interval = null;
+            }
+
+        }
+
 
     }
 

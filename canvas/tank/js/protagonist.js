@@ -41,91 +41,10 @@ class Protagonist extends Tank {
     }
 
 
-    //direction 方向
-    move(direction) {
-        let _this = this;
-        if (_this.moveDistance > 0) {
-
-            switch (direction) {
-                case TOP:
-                    if (_this.pos.y > 0) {
-                        _this.pos = {
-                            x: _this.pos.x,
-                            y: _this.pos.y - 3
-                        };
-                    }
-
-                    _this.start = {
-                        x: 0,
-                        y: 0
-                    };
-                    break;
-                case RIGHT:
-                    if (_this.pos.x < 384) {
-                        _this.pos = {
-                            x: _this.pos.x + 3,
-                            y: _this.pos.y
-                        };
-                    }
-
-                    _this.start = {
-                        x: 96,
-                        y: 0
-                    };
-                    break;
-                case LEFT:
-                    if (_this.pos.x > 0) {
-                        _this.pos = {
-                            x: _this.pos.x - 3,
-                            y: _this.pos.y
-                        };
-                    }
-
-                    _this.start = {
-                        x: 64,
-                        y: 0
-                    };
-                    break;
-                case BOTTOM:
-                    if (_this.pos.y < 384) {
-                        _this.pos = {
-                            x: _this.pos.x,
-                            y: _this.pos.y + 3
-                        };
-                    }
-
-                    _this.start = {
-                        x: 32,
-                        y: 0
-                    };
-                    break;
-            }
-
-            _this.moveDistance--;
-
-        } else {
-            _this.moveDistance = 16;
-            if(_this.interval){
-                clearInterval(_this.interval);
-                _this.interval = null;
-            }
-
-        }
 
 
-    }
+    update(isFirst){
 
-    update(){
-
-        // if(keyCode === KEY_CODE.top){
-        //     this.move('top');
-        // }else if(keyCode === KEY_CODE.left) {
-        //     this.move('left')
-        // }else if(keyCode === KEY_CODE.bottom) {
-        //     this.move('bottom')
-        // }else if(keyCode === KEY_CODE.right) {
-        //     this.move('right')
-        // }
         if(keys.contain(KEY_CODE.top)){
             this.move('top');
         }else if(keys.contain(KEY_CODE.left)) {
@@ -136,6 +55,14 @@ class Protagonist extends Tank {
             this.move('right')
         }
         this.draw();
+
+
+        if(isFirst){
+            //保护道具
+            let project = scene.getProp('project');
+
+            project.animate();
+        }
     }
 
 

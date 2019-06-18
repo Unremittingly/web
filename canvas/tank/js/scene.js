@@ -20,9 +20,7 @@ class Scene {
         return ctx;
     }
 
-    getType() {
 
-    }
 
     createScene(level) {
         let arr = LEVEL_ALL[level - 1];
