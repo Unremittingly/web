@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .software {
+            width: 850px;
+        }
+
+        .software-detail {
+            width: 100%;
+            height: 280px;
+            padding: 20px 110px;
+            border-radius: 5px;
+            background: #2c275b;
+            box-sizing: border-box;
+        }
+
+        .software-detail-title {
+            color: #fff;
+            font-size: 46px;
+            text-align: center;
+        }
+
+        .software-detail-line {
+            height: 3px;
+            width: 630px;
+            /* width: 80%; */
+            margin: 10px 0;
+            border-radius: 560px/8px;
+            background: linear-gradient(to right,#2c275b 0%,#fff 50%,#2c275b 100% );
+        }
+
+        .software-detail-cont ul {
+            /*width: 80%;*/
+            margin: 0 auto;
+            padding-left: 0;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .software-detail-cont li {
+            width: 50%;
+            height: 43px;
+            float: left;
+            text-align: center;
+            list-style-position: inside;
+        }
+
+        .software-classify {
+            height: 506px;
+            margin: 25px 0;
+            padding: 80px;
+            border-radius: 5px;
+            background: #2c275b;
+        }
+
+
+
+        .tab-tit{
+            display: flex;
+            justify-content: space-between;
+        }
+        .tab-tit-item{
+            display: inline-block;
+           font-size: 18px;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+        .tab-tit-item.active{
+            padding-bottom: 5px;
+            color: red;
+            border-bottom: 1px solid red;
+        }
+
+        .tab-con-item{
+            display: none;
+        }
+        .tab-con-item.active{
+            display: block;
+        }
+
+        .tab-con{
+            position: relative;
+            color: #fff;
+            max-height: 530px;
+        }
+        .tab-con .mask{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 0;
+            box-shadow: 0 0 20px 24px #2c275b;
+        }
+
+        .tab-con .tab-con-system{
+            overflow: auto;
+            max-height: 520px;
+            padding-bottom: 40px;
+            box-sizing: border-box;
+        }
+        .tab-con .tab-con-system::-webkit-scrollbar{
+            /*display: flex;*/
+            /*justify-content: space-between;*/
+            /*flex-wrap: wrap;*/
+            display: none;
+        }
+        .tab-con .system-item{
+            display: inline-block;
+            width: 122px;
+            height: 44px;
+            line-height: 48px;
+            margin-top: 30px;
+            margin-left: 12px;
+            vertical-align: middle;
+            text-align: center;
+            border: 1px solid #fff;
+            border-radius: 24px;
+
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .tab-con .system-item.active{
+            background: red;
+            border: none;
+        }
+        .tab-con .system-item:first-child{
+            margin-left: 0;
+        }
+        .tab-con .system-item:nth-child(5n+1){
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="software">
+    <div class="software-detail">
+        <div class="software-detail-title">
+            <div>ALG</div>
+            <div>航空公司业务前端系统</div>
+        </div>
+        <div class="software-detail-line"></div>
+        <div class="software-detail-cont">
+            <ul>
+                <li>操作系统 Linux</li>
+                <li>代码规模 L（>50w）</li>
+                <li>开发语言 JAVA</li>
+                <li>上线时间 2012年6月</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="software-classify">
+        <div class="tab-tit">
+            <span class="tab-tit-item active">系统(75)</span>
+            <span class="tab-tit-item">接口(13)</span>
+            <span class="tab-tit-item">总线(3)</span>
+            <span class="tab-tit-item">框架(6)</span>
+            <span class="tab-tit-item">工具(27)</span>
+        </div>
+        <div class="tab-con">
+            <div class="mask"></div>
+            <div class="tab-con-item tab-con-system active">
+                <span class="system-item active">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+                <span class="system-item">CRS</span>
+            </div>
+            <div class="tab-con-item">2</div>
+            <div class="tab-con-item">3</div>
+            <div class="tab-con-item">4</div>
+            <div class="tab-con-item">5</div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="jquery-1.8.1.min.js"></script>
+<script>
+
+    $('.tab-tit-item').on('click',function () {
+        $('.tab-tit-item').removeClass('active');
+        $(this).addClass('active');
+        let index =$(this).index();
+        let tabCon = $('.tab-con-item');
+        tabCon.removeClass('active');
+        let conDom = $(tabCon[index]);
+        conDom.addClass('active');
+    });
+    
+    $('.system-item').on('click',function () {
+        $('.system-item').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    function animate() {
+        setInterval(function () {
+            let curIndex = $('.tab-con-system .active').index();
+            if(curIndex<0){
+                curIndex = 0;
+            }
+            if(curIndex+1>=74){
+                //下一个个table标签
+                let titIndex = $('.tab-tit .active').index();
+                $('.tab-tit .active').removeClass('active');
+                $($('.tab-tit .tab-tit-item')[titIndex+1]).click();
+            }else{
+                let curDom = $($('.system-item')[curIndex]);
+                let nextDom = $($('.system-item')[curIndex+1]);
+                curDom.removeClass('active');
+                nextDom.addClass('active');
+            }
+
+
+        },2000)
+    }
+    animate()
+</script>
+</html>
