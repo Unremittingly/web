@@ -1,5 +1,72 @@
 //碰撞检测
 
+class Rect {
+    constructor(start, size) {
+        this.start = start;
+        this.size = size;
+        return [
+            start,
+            {
+                x: start.x + size.width,
+                y: start.y + size.height
+            }
+        ]
+    }
+
+    collision(rect1) {
+        let rect = this;
+        let lt = rect[0];
+        let rt = {
+            x: rect[1].x,
+            y: rect[0].y
+        };
+        let rb = rect[1];
+        let lb = {
+            x: rect[0].x,
+            y: rect[1].y
+        };
+
+        //第二个
+        let lt1 = rect1[0];
+        let rt1 = {
+            x: rect1[1].x,
+            y: rect1[0].y
+        };
+        let rb1 = rect1[1];
+        let lb1 = {
+            x: rect1[0].x,
+            y: rect1[1].y
+        };
+
+        let rectInOther = false;
+        if (rect1.contains(lt) || rect1.contains(rt) || rect1.contains(rb) || rect1.contains(lb)) {
+            rectInOther = true;
+        }
+
+        let rect1InOther = false;
+        if (rect.contains(lt1) || rect.contains(rt1) || rect.contains(rb1) || rect.contains(lb1)) {
+            rect1InOther = true;
+        }
+        return rect1InOther || rectInOther;
+    }
+
+    contains(point) {
+        let rect = this;
+        let isContains = false;
+        let minX = rect[0].x;
+        let minY = rect[0].y;
+        let maxX = rect[1].x;
+        let maxY = rect[1].y;
+
+        if (point.x >= minX && point.x <= maxX && point.y >= minY && point.y <= maxY) {
+            isContains = true;
+        }
+
+        return isContains
+    }
+
+}
+
 //rect 格式 [{x:0,y:0},{x:50,y:50}]  矩形碰撞
 function collision(rect, rect1) {
     let lt = rect[0];

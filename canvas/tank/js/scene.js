@@ -5,6 +5,7 @@ class Scene {
         this.ctx = ctx;
         this.elementArr = [ROAD, RIVER, H_ROAD, GRASS, ADOBE, STEEL];
         this.hasBoss = false;
+        this.sceneElementPos = [];
         // this.createScene(1);
     }
 
@@ -20,10 +21,14 @@ class Scene {
         return ctx;
     }
 
+    getElementPos(){
+        return this.sceneElementPos;
+    }
 
 
     createScene(level) {
         let arr = LEVEL_ALL[level - 1];
+        this.sceneElementPos = initElementPos(arr);
 
         for (let i = 0; i < arr.length; i++) {
             let cross = arr[i];

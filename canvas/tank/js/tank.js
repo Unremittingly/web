@@ -98,6 +98,25 @@ class Tank extends Base {
 
     }
 
+    isPass1(pos){
+
+        let isPass = true;
+        let rightBottomPos = {
+            x: pos.x + 28,
+            y: pos.y + 28
+        };
+        let rect = [pos,rightBottomPos];
+        let posArr = scene.getElementPos();
+        for (let i = 0; i < posArr.length; i++) {
+            let rect1 = posArr[i];
+            if(rect.collision(rect1)){
+                isPass = false;
+                break;
+            }
+        }
+        return isPass;
+    }
+
     //判断当前位置是否可以移动通过 检测
     isPass(pos, direction) {
         let arr = LEVEL_ALL[0];

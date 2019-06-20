@@ -24,3 +24,47 @@ Array.prototype.remove = function (arg) {
         this.length = n;
     }
 };
+
+
+function initElementPos(arr) {
+    let posArr = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        let yPoss = arr[i];
+        // let yArr = [];
+        let startY = i*size;
+        for (let j = 0; j < yPoss.length; j++) {
+            let startX = j*size;
+            let rect = new Rect({
+                x:startX,
+                y:startY
+            },rectSize);
+            posArr.push(rect)
+        }
+        // posArr.push(yArr);
+    }
+
+    return posArr;
+}
+
+class Tool{
+
+    static contains(point,rect){
+        let isContains = false;
+        let minX = rect[0].x;
+        let minY = rect[0].y;
+        let maxX = rect[1].x;
+        let maxY = rect[1].y;
+
+
+        if (point.x >= minX && point.x <= maxX && point.y >= minY && point.y <= maxY) {
+            isContains = true;
+        }
+
+        return isContains
+    }
+
+    
+
+
+}
