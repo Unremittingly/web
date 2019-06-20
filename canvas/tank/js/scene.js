@@ -3,7 +3,6 @@ class Scene {
     constructor(ctx) {
         console.log('scene');
         this.ctx = ctx;
-        this.elementArr = [ROAD, RIVER, H_ROAD, GRASS, ADOBE, STEEL];
         this.hasBoss = false;
         this.sceneElementPos = [];
         // this.createScene(1);
@@ -21,7 +20,7 @@ class Scene {
         return ctx;
     }
 
-    getElementPos(){
+    getElementPos() {
         return this.sceneElementPos;
     }
 
@@ -42,13 +41,11 @@ class Scene {
 
                 if (vertical === 0 && !this.hasBoss) {
                     this.draw(vertical, pos);
-                    console.log('111');
                 } else {
                     if (vertical < 5) {
                         this.draw(vertical, pos);
                     }
                 }
-
             }
         }
         //h绘制一条线到416 416
@@ -66,12 +63,14 @@ class Scene {
         let position = mapPosToElement[type];
         let width = 16;
         if (type !== 0) {
-            sceneCtx.drawImage(RESOURCE_IMG, position.x, position.y, 16, 16, pos.x, pos.y, 16, 16);
+            //绘制其他元素
+            sceneCtx.drawImage(RESOURCE_IMG, position.x, position.y,
+                width, width, pos.x, pos.y, width, width);
         } else if (!this.hasBoss) {
             //绘制boss
             this.hasBoss = true;
-            console.log('width', width);
-            sceneCtx.drawImage(RESOURCE_IMG, position.x, position.y, 32, 32, pos.x, pos.y, 32, 32);
+            sceneCtx.drawImage(RESOURCE_IMG, position.x, position.y,
+                width * 2, width * 2, pos.x, pos.y, width * 2, width * 2);
         }
 
 

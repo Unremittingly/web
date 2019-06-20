@@ -5,7 +5,6 @@ class Prop extends Base {
         this.type = type ? type : 1;
         this.projectTime = 160;
 
-
         this.POS = {
             'project': {x: 0, y: 0},
             'project_home': {},
@@ -43,7 +42,7 @@ class Prop extends Base {
     setValueForType(type) {
         switch (type) {
             case PROP_PROJECT:
-
+                //这里的是保护动画的位置 并不是帽子的位置
                 this.start = this.START['project'];
                 this.pos = tank.getPosition();
                 this.speed = 1;
@@ -81,9 +80,6 @@ class Prop extends Base {
 
     animate() {
 
-
-
-
         if (this.isAnimate) {
             if (this.projectTime > 0) {
 
@@ -103,7 +99,6 @@ class Prop extends Base {
                 this.setAnimateState(false);
             }
         }
-
 
     }
 
