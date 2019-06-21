@@ -11,7 +11,6 @@ Array.prototype.contain = function(val)
     return false;
 };
 
-
 Array.prototype.remove = function (arg) {
     var i = 0, n = 0;
     var arrSize = this.length;
@@ -25,13 +24,24 @@ Array.prototype.remove = function (arg) {
     }
 };
 
+Array.prototype.inArray=function (val) {
+    let arr = this;
+    let isIn = false;
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i] === val){
+            isIn = true;
+            break;
+        }
+    }
+    return isIn
+};
 
-function initElementPos(arr) {
+
+function initElementPos(arr,size) {
     let posArr = [];
 
     for (let i = 0; i < arr.length; i++) {
         let yPoss = arr[i];
-        // let yArr = [];
         let startY = i*size;
         for (let j = 0; j < yPoss.length; j++) {
             let startX = j*size;
@@ -41,9 +51,7 @@ function initElementPos(arr) {
             },rectSize);
             posArr.push(rect)
         }
-        // posArr.push(yArr);
     }
-
     return posArr;
 }
 
@@ -55,16 +63,10 @@ class Tool{
         let minY = rect[0].y;
         let maxX = rect[1].x;
         let maxY = rect[1].y;
-
-
         if (point.x >= minX && point.x <= maxX && point.y >= minY && point.y <= maxY) {
             isContains = true;
         }
 
         return isContains
     }
-
-    
-
-
 }
