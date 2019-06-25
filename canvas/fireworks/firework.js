@@ -210,13 +210,15 @@ class Spark {
         cxt.strokeStyle = 'hsla(' + this.color + ',100%,' + rand(50, 100) + '%,1)';
         cxt.lineWidth = this.lineWidth;
         cxt.globalAlpha = this.sparksPaths[this.percent - 1].opacity;
-        cxt.moveTo(this.sparksPaths[this.percent].x, this.sparksPaths[this.percent].y);
+        // cxt.moveTo(this.sparksPaths[this.percent].x, this.sparksPaths[this.percent].y);
         //这里用这么多次循环是为了动画  percent 只是为了拿取数组   操作都是拿去数组中的东西 试一下二次曲线
         for (let i = 0; i < 1 / this.pathPosLength; i = i + 0.001) {
             let x = quadraticBezierOne(this.sparksPaths[this.percent - 1].x, this.sparksPaths[this.percent].x, i);
             let y = quadraticBezierOne(this.sparksPaths[this.percent - 1].y, this.sparksPaths[this.percent].y, i);
-            cxt.lineTo(x, y);
-
+            // cxt.lineTo(x, y);
+            cxt.quadraticCurveTo(this.sparksPaths[this.percent].x, this.sparksPaths[this.percent].y,
+                x,y
+                );
         }
 
         cxt.closePath();

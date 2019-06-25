@@ -1,0 +1,1358 @@
+{
+  "msg": "success",
+  "code": 0,
+  "info": {
+      "系统": [
+        {
+          "deptName": "系统维护与主机开发部",
+          "deptShort": "AMM",
+          "softwareChineseName": "代理人预订系统\n（主机）",
+          "language": "Fortran",
+          "codeSize": "无",
+          "onlineTime": "1996",
+          "operationSystem": "OS2200 CP17",
+          "softwareName": "CRS"
+        },
+        {
+          "deptName": "系统维护与主机开发部",
+          "deptShort": "AMM",
+          "softwareChineseName": "离港系统（主机）",
+          "language": "Fortran",
+          "codeSize": "无",
+          "onlineTime": "1988",
+          "operationSystem": "OS2200 CP16",
+          "softwareName": "DCS"
+        },
+        {
+          "deptName": "系统维护与主机开发部",
+          "deptShort": "AMM",
+          "softwareChineseName": "订座系统（主机）",
+          "language": "Fortran",
+          "codeSize": "无",
+          "onlineTime": "1985",
+          "operationSystem": "OS2200 CP17",
+          "softwareName": "ICS"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "航空公司业务前端系统",
+          "language": "Java",
+          "codeSize": "L(>500000)",
+          "onlineTime": "2012.12",
+          "operationSystem": "Linux",
+          "softwareName": "ALG"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "航空公司机场业务前端系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2015.12",
+          "operationSystem": "window XP/win7/RedHat",
+          "softwareName": "APG"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "仿真终端接入系统",
+          "language": "VC++",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2000.0",
+          "operationSystem": "Windows",
+          "softwareName": "eTerm"
+        },
+        {
+          "deptName": "运价系统开发部",
+          "deptShort": "PSD",
+          "softwareChineseName": "国际附加服务运价处理系统",
+          "language": "Java/C++",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2012.0",
+          "operationSystem": "RedHat 6.5",
+          "softwareName": "ASPRIC"
+        },
+        {
+          "deptName": "运价系统开发部",
+          "deptShort": "PSD",
+          "softwareChineseName": "航班状态查询系统",
+          "language": "C++",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2006 openav CRSav 投产\n2011.7 Unix转linux投产\n2012.6 转TODE投产\n2016.7 嘉兴投产\n2016.10 后沙峪投产",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.5 (Santiago)\nRed Hat Enterprise Linux Server release 6.7 (Santiago)\nNeoKylin Linux Advanced Server release 6.5 (Beryllium)",
+          "softwareName": "AV"
+        },
+        {
+          "deptName": "航空公司销售系统开发部",
+          "deptShort": "RTD",
+          "softwareChineseName": "预订管理系统",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "OR:2016年10月\nOM附加服务:2017年6月\nOE:2017年6月",
+          "operationSystem": "OR订单查询:Red Hat Enterprise Linux Server release 6.5/6.7\nOM附加服务订单管理：Red Hat Enterprise Linux Server release 6.3\nOE订单交互:Red Hat Enterprise Linux Server release 6.3 (Santiago)",
+          "softwareName": "BKG"
+        },
+        {
+          "deptName": "运价系统开发部",
+          "deptShort": "PSD",
+          "softwareChineseName": "产品目录管理系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "无",
+          "operationSystem": "Linux",
+          "softwareName": "CATL"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "旅客信息管理系统",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2015/12/24（CSM技术投产）",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.5\nRed Hat Enterprise Linux Server release 6.7\nRed Hat Enterprise Linux Server release 6.3",
+          "softwareName": "CSM"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "离港控制系统",
+          "language": "Java",
+          "codeSize": "L(>500000)",
+          "onlineTime": "DC:2017.6.8/UBS:2017.8.10/BMM:2018.5.17",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.7",
+          "softwareName": "DEP"
+        },
+        {
+          "deptName": "航空公司销售系统开发部",
+          "deptShort": "RTD",
+          "softwareChineseName": "票证管理系统",
+          "language": "Java/C++",
+          "codeSize": "L(>500000)",
+          "onlineTime": "2009年",
+          "operationSystem": "RedHat、麒麟",
+          "softwareName": "DOC"
+        },
+        {
+          "deptName": "运价系统开发部",
+          "deptShort": "PSD",
+          "softwareChineseName": "国内运价计算系统",
+          "language": "Java/C++",
+          "codeSize": "L(>500000)",
+          "onlineTime": "2005.0",
+          "operationSystem": "RedHat 5.5",
+          "softwareName": "DPRIC"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "航班管理系统",
+          "language": "Java",
+          "codeSize": "L(>500000)",
+          "onlineTime": "2015.09",
+          "operationSystem": "Linux",
+          "softwareName": "FLT"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "库存控制系统",
+          "language": "Java/C++",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2014.12/2011/2014.7",
+          "operationSystem": "Linux",
+          "softwareName": "INV"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "配载控制系统",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2013.07",
+          "operationSystem": "Linux",
+          "softwareName": "LDP"
+        },
+        {
+          "deptName": "航空公司销售系统开发部",
+          "deptShort": "RTD",
+          "softwareChineseName": "主数据服务系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2014.0",
+          "operationSystem": "Linux version 2.6.32-279.46.1.el6.x86_64",
+          "softwareName": "MD"
+        },
+        {
+          "deptName": "数据服务部",
+          "deptShort": "BDA",
+          "softwareChineseName": "运营数据整合系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2017.6",
+          "operationSystem": "RedHat Linux 6.5",
+          "softwareName": "ODS"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "旅客保护系统",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2015.9",
+          "operationSystem": "Linux",
+          "softwareName": "RCT"
+        },
+        {
+          "deptName": "航空公司销售系统开发部",
+          "deptShort": "RTD",
+          "softwareChineseName": "行程单打印系统",
+          "language": "C++",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2012.0",
+          "operationSystem": " Windows Server 2003",
+          "softwareName": "RPT"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "座位管理系统",
+          "language": "C++",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "订座座位图模块：2017.1/离港座位图模块：2017.6",
+          "operationSystem": "Linux&AIX",
+          "softwareName": "SEAT"
+        },
+        {
+          "deptName": "航空公司销售系统开发部",
+          "deptShort": "RTD",
+          "softwareChineseName": "共享服务管理系统",
+          "language": "C++",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2014.0",
+          "operationSystem": "OPFQ:Linux version 2.6.32-431.69.1.el6.x86_64 \nWF:Linux version 2.6.32-358.el6.x86_64",
+          "softwareName": "SRVC"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "库存查询系统",
+          "language": "C++",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2013.08",
+          "operationSystem": "linux",
+          "softwareName": "SS"
+        },
+        {
+          "deptName": "运价系统开发部",
+          "deptShort": "PSD",
+          "softwareChineseName": "国内运价搜索系统",
+          "language": "C++",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2009.0",
+          "operationSystem": "RedHat 6.5",
+          "softwareName": "DSHOP"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "边检安全网关管理系统",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "GAPP:2018.7.3/GPNR:2018.7.3",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.7",
+          "softwareName": "GBS"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "不正常航班处理系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2014.7",
+          "operationSystem": "Linux",
+          "softwareName": "IROP"
+        },
+        {
+          "deptName": "运价系统开发部",
+          "deptShort": "PSD",
+          "softwareChineseName": "国际运价搜索系统",
+          "language": "C++",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2014.0",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.5 (Santiago)",
+          "softwareName": "ISHOP"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": " 收益管理系统",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "linux",
+          "softwareName": "RMS"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "服务缺陷检查系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2015.12",
+          "operationSystem": "Linux",
+          "softwareName": "SFC"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "机场精准旅客服务系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2017.0",
+          "operationSystem": "Rethat 6.7",
+          "softwareName": "AAPS"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "自动化航班创建系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2015.0",
+          "operationSystem": "linux",
+          "softwareName": "ACT"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "机场市场资源数据报告系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "ADR"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "航空公司智能云系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "Linux",
+          "softwareName": "AIC"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "机场旅客及行李信息处理系统",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "机场端：2011/中心端：2013",
+          "operationSystem": "机场端：Windows Server 2008及以上/中心：Rethat 6.7",
+          "softwareName": "AMB"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "机场运营管理系统",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2018.6",
+          "operationSystem": "linux",
+          "softwareName": "AOC"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "航空公司海外离港前端",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "Windows",
+          "softwareName": "APO"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "机场共用旅客处理系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "ASCII"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "航空公司柜机自助服务系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2006.0",
+          "operationSystem": "WinXp/win7",
+          "softwareName": "Airline kiosk"
+        },
+        {
+          "deptName": "数据服务部",
+          "deptShort": "BDA",
+          "softwareChineseName": "公司财务开账系统",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2010.0",
+          "operationSystem": "Linux",
+          "softwareName": "Billing"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "航空公司直连销售系统",
+          "language": "Java",
+          "codeSize": "L(>500000)",
+          "onlineTime": "2012.0",
+          "operationSystem": "Linux",
+          "softwareName": "CDP"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "企业客户忠诚度分析系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2016.0",
+          "operationSystem": "linux",
+          "softwareName": "CLAS"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "旅客机场自助值机系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2015.0",
+          "operationSystem": "Win XP\nWin7",
+          "softwareName": "CUSS"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "民航局CRS许可证管理系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "Linux",
+          "softwareName": "CaacCrs"
+        },
+        {
+          "deptName": "数据服务部",
+          "deptShort": "BDA",
+          "softwareChineseName": "数据服务产品系统",
+          "language": "Java/Perl",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2017.6.1",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.X",
+          "softwareName": "DSS"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "远东航销售前端系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "FE GUI"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "枢纽机场中转服务系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "windows",
+          "softwareName": "HATSS"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "海外图形化销售前端系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "ICS IGUI"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "东航休息室旅客验证系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2012.0",
+          "operationSystem": "linux",
+          "softwareName": "LAMS"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "旅客准实时防护系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2016.4",
+          "operationSystem": "redhat 6.3",
+          "softwareName": "NRTM"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "机场业务前端系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2011.0",
+          "operationSystem": "Windows Server 2008及以上/AIX6.1 （大型机场数据库服务器）",
+          "softwareName": "Newapp"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "对外连接监控前端系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "Linux",
+          "softwareName": "PLIG"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "打包产品订单管理前端系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2014.5",
+          "operationSystem": "Linux",
+          "softwareName": "PPOMG"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "航空公司互看权限管控前端系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2013.0",
+          "operationSystem": "linux",
+          "softwareName": "PSS Auth"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "收益漏洞管理系统",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "Linux",
+          "softwareName": "RI"
+        },
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "收益数据处理系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2014.05",
+          "operationSystem": "Linux",
+          "softwareName": "RMDL"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "智慧机场引擎系统",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "2018.0",
+          "operationSystem": "Linux Redhat 7.3",
+          "softwareName": "SAE"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "旅客机场自助行李托运系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "SBD"
+        },
+        {
+          "deptName": "机场产品开发与交付部",
+          "deptShort": "APD",
+          "softwareChineseName": "旅客机场自助登机系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "SBG"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "标准旅客服务系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2013.04.29",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.5 (Santiago)",
+          "softwareName": "SPS"
+        },
+        {
+          "deptName": "数据服务部",
+          "deptShort": "BDA",
+          "softwareChineseName": "实验室科研课题系统",
+          "language": "无",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "SRT"
+        },
+        {
+          "deptName": "数据服务部",
+          "deptShort": "BDA",
+          "softwareChineseName": "航指数系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2015.0",
+          "operationSystem": "Linux",
+          "softwareName": "TCAI"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "网上值机系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.5",
+          "softwareName": "WEBCKI"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "收益辅助系统",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2014.0",
+          "operationSystem": "linux",
+          "softwareName": "nRise"
+        },
+        {
+          "deptName": "系统维护与主机开发部",
+          "deptShort": "AMM",
+          "softwareChineseName": "应用监控系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2014.06",
+          "operationSystem": "Linux 6.5",
+          "softwareName": "AMS"
+        },
+        {
+          "deptName": "系统维护与主机开发部",
+          "deptShort": "AMM",
+          "softwareChineseName": "应用运维系统",
+          "language": "Java/Python",
+          "codeSize": "S(<100000)",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "AOS"
+        },
+        {
+          "deptName": "数据服务部",
+          "deptShort": "BDA",
+          "softwareChineseName": "大数据整合系统",
+          "language": "Java/Perl/Python",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2016.12",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.7 / 7.3 ",
+          "softwareName": "BDP"
+        },
+        {
+          "deptName": "数据服务部",
+          "deptShort": "BDA",
+          "softwareChineseName": "文件传输系统",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2016.3",
+          "operationSystem": "linux",
+          "softwareName": "FTI"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "用户认证与管理系统",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2014.12",
+          "operationSystem": "RedHat Linux 6.3",
+          "softwareName": "IAM"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "微服务分布式控制系统",
+          "language": "Lua",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "rhel7.x",
+          "softwareName": "MDCS"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "微服务消息系统",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "Linux",
+          "softwareName": "MES"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "航信账号管理系统",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "2014.12.25",
+          "operationSystem": "linux",
+          "softwareName": "TAMS"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "容器调度与管理系统V1",
+          "language": "Go",
+          "codeSize": "未投产",
+          "onlineTime": "2019.0",
+          "operationSystem": "Red Hat Enterprise Linux Server release 7.5",
+          "softwareName": "TCSM"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "交付部署系统",
+          "language": "Python",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "Linux",
+          "softwareName": "TOD"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "用户行为分析系统",
+          "language": "Java/Scala/Python/JavaScript/HTML/CSS",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "Red Hat Enterprise Linux Server release 7.3",
+          "softwareName": "TUBA"
+        }
+      ],
+      "接口": [
+        {
+          "deptName": "航空公司销售系统开发部",
+          "deptShort": "RTD",
+          "softwareChineseName": "互联网预订业务接口",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2016.09",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.3 (Santiago)",
+          "softwareName": "EBD"
+        },
+        {
+          "deptName": "航空公司销售系统开发部",
+          "deptShort": "RTD",
+          "softwareChineseName": "航空公司统一支付接口",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2007.2",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.3 (Santiago)",
+          "softwareName": "Easypay"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "核心系统仿真接入接口",
+          "language": "C++",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2018.05",
+          "operationSystem": "NeoKylin Linux Advanced Server release 6.4 (Lithium)",
+          "softwareName": "MCSS"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "旅客服务业务接口",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "JBoss/WAS:2016.08/TUXEDO:2006/Oracle DB：2006",
+          "operationSystem": "JBoss/WAS：\nRedHat Enterprise Linux Server 6.5/5.3\nTUXEDO:\nUNIX_Solaris 9\nOracle DB：\nIBM\t AIX5.3\n",
+          "softwareName": "PE"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "收益业务接口",
+          "language": "Java",
+          "codeSize": "S(<100000)",
+          "onlineTime": "2014.0",
+          "operationSystem": "linux",
+          "softwareName": "RE"
+        },
+        {
+          "deptName": "航空公司销售系统开发部",
+          "deptShort": "RTD",
+          "softwareChineseName": "托管服务接口",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "2017.12",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.3 (Santiago)",
+          "softwareName": "SAT"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "核心系统对外连接接口",
+          "language": "C++",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2013.12",
+          "operationSystem": "RedHat Linux 6.3/6.7",
+          "softwareName": "TLH"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "统一旅客连接接口",
+          "language": "C++",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "Solaris 5.9\nRHL 6.3",
+          "softwareName": "UCL"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "航空公司商务数据接口",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "linux",
+          "softwareName": "ABDI"
+        },
+        {
+          "deptName": "航空公司销售系统开发部",
+          "deptShort": "RTD",
+          "softwareChineseName": "航空公司票额控制接口",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "2018.0",
+          "operationSystem": "RedHat",
+          "softwareName": "ACNI"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "航空公司标准数据接口",
+          "language": "Perl",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2004.0",
+          "operationSystem": "linux",
+          "softwareName": "ASTD"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "PNR全解析数据接口",
+          "language": "Perl",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2009.0",
+          "operationSystem": "linux",
+          "softwareName": "DFP"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "市场商务数据接口",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "linux",
+          "softwareName": "MBDI"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "市场信息数据接口",
+          "language": "Perl",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2005.0",
+          "operationSystem": "linux",
+          "softwareName": "MIDT"
+        }
+      ],
+      "工具": [
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "自动化测试服务化工具",
+          "language": "Java/Python",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "Windows Server 2008 R2 Enterprise/Red Hat Enterprise Linux Server release 6.5 (Santiago)\nRed Hat Enterprise Linux Server release 6.7 (Santiago)\nNeoKylin Linux Advanced Server release 6.5 (Beryllium)",
+          "softwareName": "ATM"
+        },
+        {
+          "deptName": "计划管理部",
+          "deptShort": "PMD",
+          "softwareChineseName": "合约管理工具",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2013.12",
+          "operationSystem": "Linux",
+          "softwareName": "CMT"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "测试度量工具",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "2018.10",
+          "operationSystem": "Linux",
+          "softwareName": "CSDL"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "测试统一管理工具",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "待定",
+          "operationSystem": "待定",
+          "softwareName": "CSGL"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "数据脱敏工具",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2015.0",
+          "operationSystem": "Linux和少量Unix",
+          "softwareName": "DMT"
+        },
+        {
+          "deptName": "计划管理部",
+          "deptShort": "PMD",
+          "softwareChineseName": "资源任务管理工具",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "2018.9",
+          "operationSystem": "Linux",
+          "softwareName": "LIX"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "微服务测试工具",
+          "language": "Java/Python",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "Windows Server 2008 R2 Enterprise/Red Hat Enterprise Linux Server release 6.5 (Santiago)\nRed Hat Enterprise Linux Server release 6.7 (Santiago)\nNeoKylin Linux Advanced Server release 6.5 (Beryllium)",
+          "softwareName": "MSTS"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "集成接口测试工具",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "Mosa"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "性能测试工具",
+          "language": "Java/Python/JavaScript",
+          "codeSize": "未投产",
+          "onlineTime": "未投产",
+          "operationSystem": "rhel",
+          "softwareName": "PTM"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "安全测试工具",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "RHL6",
+          "softwareName": "STT"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "持续交付工具",
+          "language": "Python",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "Linux",
+          "softwareName": "TCD"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "持续集成工具",
+          "language": "Python",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "Linux",
+          "softwareName": "TCI"
+        },
+        {
+          "deptName": "系统维护与主机开发部",
+          "deptShort": "AMM",
+          "softwareChineseName": "票证结算数据备份工具",
+          "language": "无",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2016.3.17",
+          "operationSystem": "Red hat Enterprise Linux Server release 6.3 (Santiago)",
+          "softwareName": "TDB"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "测试数据管理工具",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "Redhat 6.5",
+          "softwareName": "TDM"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "测试环境管理工具",
+          "language": "Python",
+          "codeSize": "未投产",
+          "onlineTime": "2018.12",
+          "operationSystem": "无",
+          "softwareName": "TEM"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "接口管理工具",
+          "language": "Python",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "Linux",
+          "softwareName": "TIM"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "开发交付流水线工具",
+          "language": "Python",
+          "codeSize": "未投产",
+          "onlineTime": "2019.0",
+          "operationSystem": "Red Hat Enterprise Linux Server release 7.3",
+          "softwareName": "TPL"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "eTerm单机版培训演示工具",
+          "language": "C++/Python",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2017.6",
+          "operationSystem": "Windows 7",
+          "softwareName": "eTerm single"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "交付管理工具",
+          "language": "NodeJS",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "无",
+          "operationSystem": "Linux7.3",
+          "softwareName": "DM"
+        },
+        {
+          "deptName": "质量控制与管理部",
+          "deptShort": "QCM",
+          "softwareChineseName": "千毫数据管理工具",
+          "language": "未投产",
+          "codeSize": "无（外购）",
+          "onlineTime": "无",
+          "operationSystem": "Windows",
+          "softwareName": "Eagle"
+        },
+        {
+          "deptName": "质量控制与管理部",
+          "deptShort": "QCM",
+          "softwareChineseName": "配置管理工具",
+          "language": "Ruby/Go",
+          "codeSize": "无（外购）",
+          "onlineTime": "2017.4",
+          "operationSystem": "Linux",
+          "softwareName": "GIT"
+        },
+        {
+          "deptName": "质量控制与管理部",
+          "deptShort": "QCM",
+          "softwareChineseName": "开发协同工具",
+          "language": "Java",
+          "codeSize": "无（外购）",
+          "onlineTime": "2015.5",
+          "operationSystem": "Linux",
+          "softwareName": "JIRA"
+        },
+        {
+          "deptName": "质量控制与管理部",
+          "deptShort": "QCM",
+          "softwareChineseName": "千寻量化管理工具",
+          "language": "未投产",
+          "codeSize": "无（外购）",
+          "onlineTime": "无",
+          "operationSystem": "Windows",
+          "softwareName": "QMS"
+        },
+        {
+          "deptName": "党群工作部",
+          "deptShort": "CMM",
+          "softwareChineseName": "研发中心内网",
+          "language": "Java",
+          "codeSize": "无（外购）",
+          "onlineTime": "2009.0",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.3 (Santiago) 64位系统",
+          "softwareName": "RDIW"
+        },
+        {
+          "deptName": "质量控制与管理部",
+          "deptShort": "QCM",
+          "softwareChineseName": "研发桌面云工具",
+          "language": "Java",
+          "codeSize": "无（外购）",
+          "onlineTime": "2018.12",
+          "operationSystem": "Linux",
+          "softwareName": "Rterm"
+        },
+        {
+          "deptName": "质量控制与管理部",
+          "deptShort": "QCM",
+          "softwareChineseName": "静态代码扫描工具",
+          "language": "Java",
+          "codeSize": "无（外购）",
+          "onlineTime": "2013.6",
+          "operationSystem": "Linux",
+          "softwareName": "SONAR"
+        },
+        {
+          "deptName": "人力资源部",
+          "deptShort": "HRD",
+          "softwareChineseName": "“智慧星”在线学习管理工具",
+          "language": "PHP",
+          "codeSize": "无（外购）",
+          "onlineTime": "2018.6",
+          "operationSystem": "Linux",
+          "softwareName": "WST"
+        }
+      ],
+      "环境": [
+        {
+          "deptName": "旅客服务系统开发部",
+          "deptShort": "IDD",
+          "softwareChineseName": "开发环境",
+          "language": "无",
+          "codeSize": "无",
+          "onlineTime": "2016.0",
+          "operationSystem": "rhel",
+          "softwareName": "D环境"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "集成开发环境",
+          "language": "无",
+          "codeSize": "无",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "E环境"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "系统集成测试环境",
+          "language": "无",
+          "codeSize": "无",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "M环境"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "功能测试环境",
+          "language": "无",
+          "codeSize": "无",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "N环境"
+        },
+        {
+          "deptName": "系统维护与主机开发部",
+          "deptShort": "AMM",
+          "softwareChineseName": "预投产环境",
+          "language": "无",
+          "codeSize": "无",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "P环境"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "研发IT系统环境V1",
+          "language": "无",
+          "codeSize": "无",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "U环境"
+        },
+        {
+          "deptName": "数据服务部",
+          "deptShort": "BDA",
+          "softwareChineseName": "大数据科研环境",
+          "language": "未投产",
+          "codeSize": "无",
+          "onlineTime": "未投产",
+          "operationSystem": "未投产",
+          "softwareName": "BDR"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "用户环境",
+          "language": "无",
+          "codeSize": "无",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "L环境"
+        },
+        {
+          "deptName": "系统测试部",
+          "deptShort": "STD",
+          "softwareChineseName": "外部客户测试和市场推广环境",
+          "language": "无",
+          "codeSize": "无",
+          "onlineTime": "无",
+          "operationSystem": "无",
+          "softwareName": "R环境"
+        }
+      ],
+      "框架": [
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "JAVA运行中间件框架",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2013.12",
+          "operationSystem": "Linux\nRedhat 6.5以上",
+          "softwareName": "JCF"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "Java应用容器框架",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "docker",
+          "softwareName": "JCFC"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "公共安全组件库框架",
+          "language": "Java",
+          "codeSize": "未投产",
+          "onlineTime": "2017.1",
+          "operationSystem": "依赖于使用组件的系统",
+          "softwareName": "PSCL"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "C/C++运行中间件框架",
+          "language": "C++",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2012.12",
+          "operationSystem": "Linux\nRedhat 6.x/\nRedhat 7.x",
+          "softwareName": "TODE"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "C++应用容器框架",
+          "language": "C++",
+          "codeSize": "未投产",
+          "onlineTime": "无",
+          "operationSystem": "rhel7.x",
+          "softwareName": "TOSFC"
+        },
+        {
+          "deptName": "航空产品开发与交付部",
+          "deptShort": "ALD",
+          "softwareChineseName": "航空公司B2C零售框架",
+          "language": "Java",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2014.8",
+          "operationSystem": "redhat",
+          "softwareName": "TRP"
+        }
+      ],
+      "总线": [
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "主机扩展接入总线",
+          "language": "Java",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2015.08",
+          "operationSystem": "Linux Redhat 6.3",
+          "softwareName": "MUSE"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "交易总线",
+          "language": "C++",
+          "codeSize": "M(100000-500000)",
+          "onlineTime": "2016.10",
+          "operationSystem": "Red Hat Enterprise Linux Server release 6.7 ",
+          "softwareName": "SIH"
+        },
+        {
+          "deptName": "基础平台开发部",
+          "deptShort": "BPD",
+          "softwareChineseName": "消息总线",
+          "language": "C++",
+          "codeSize": "无（未扫描）",
+          "onlineTime": "2016.12",
+          "operationSystem": "Linux_Red Hat Enterprise Linux 6.7\nLinux_中标麒麟 6.4",
+          "softwareName": "TUMS"
+        }
+      ]
+    }
+}

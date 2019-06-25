@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* center */
+        .software {
+            /*width: calc(100% - 1030px);*/
+        }
+
+        .software .software-detail {
+            width: 100%;
+            height: 280px;
+            padding: 20px 110px;
+            border-radius: 5px;
+            background: #2c275b;
+            box-sizing: border-box;
+        }
+
+        .software .software-detail-title {
+            color: #fff;
+            font-size: 46px;
+            text-align: center;
+        }
+
+        .software .software-detail-line {
+            height: 3px;
+            width: 630px;
+            /* width: 80%; */
+            margin: 10px 0;
+            border-radius: 560px/8px;
+            background: linear-gradient(to right, #2c275b 0%, #fff 50%, #2c275b 100%);
+        }
+
+        .software .software-detail-cont ul {
+            /*width: 80%;*/
+            margin: 0 auto;
+            padding-left: 0;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .software .software-detail-cont li {
+            width: 50%;
+            height: 43px;
+            float: left;
+            text-align: center;
+            list-style-position: inside;
+        }
+
+        .software .software-classify {
+            height: 506px;
+            margin: 25px 0;
+            padding: 80px;
+            border-radius: 5px;
+            background: #2c275b;
+        }
+
+
+        .software .tab-tit {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .software .tab-tit-item {
+            display: inline-block;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+
+        .software .tab-tit-item.active {
+            padding-bottom: 5px;
+            color: red;
+            border-bottom: 1px solid red;
+        }
+
+        .software .tab-con-item {
+            display: none;
+        }
+
+        .software .tab-con-item.active {
+            display: block;
+        }
+
+        .software .tab-con {
+            position: relative;
+            color: #fff;
+            max-height: 530px;
+        }
+
+        .software .tab-con .mask {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 0;
+            box-shadow: 0 0 20px 24px #2c275b;
+        }
+
+        .software .tab-con .tab-con-item {
+            overflow: auto;
+            max-height: 480px;
+            padding-bottom: 40px;
+            box-sizing: border-box;
+
+
+        }
+
+        .software .tab-con .tab-con-item::-webkit-scrollbar {
+            /*display: flex;*/
+            /*justify-content: space-between;*/
+            /*flex-wrap: wrap;*/
+            display: none;
+        }
+
+        .software .tab-con .system-item {
+            display: inline-block;
+            width: 120px;
+            height: 44px;
+            line-height: 48px;
+            margin-top: 30px;
+            margin-left: 12px;
+            vertical-align: middle;
+            text-align: center;
+            border: 1px solid #fff;
+            border-radius: 24px;
+
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .software .tab-con .system-item.active {
+            background: red;
+            border: none;
+        }
+
+        .software .tab-con .system-item:first-child {
+            margin-left: 0;
+        }
+
+        .software .tab-con .system-item:nth-child(5n+1) {
+            margin-left: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="software">
+    <div class="software-classify">
+        <div class="tab-tit">
+            <span class="tab-tit-item active">系统(75)</span>
+            <span class="tab-tit-item">接口(13)</span>
+            <span class="tab-tit-item">总线(3)</span>
+            <span class="tab-tit-item">框架(6)</span>
+            <span class="tab-tit-item">工具(27)</span>
+        </div>
+        <div class="tab-con">
+            <div class="mask"></div>
+            <div class="tab-con-item tab-con-system active">
+
+            </div>
+            <div class="tab-con-item">2</div>
+            <div class="tab-con-item">3</div>
+            <div class="tab-con-item">4</div>
+            <div class="tab-con-item">5</div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="../../screen/Software/jquery-1.8.1.min.js"></script>
+<script>
+
+    let software_system = {
+
+    };
+
+    //中间的动画切换
+    var softwareAnimate = {
+
+        interval: null,
+        selectIndex: 0,
+        titIndex: 0,
+        tabNum: 5,
+        selectObj: {},
+        data: [],
+        init() {
+            if (software_system) {
+                this.clear();
+                this.initEvent();
+                this.initSoftwareHtml();
+                this.start();
+            }
+        },
+
+        start() {
+            let _this = this;
+            this.interval = setInterval(function () {
+
+                // console.log('_this.titIndex',_this.titIndex,_this.selectIndex);
+                if (_this.titIndex >= _this.data.length) {
+                    _this.titIndex = 0;
+                    $($('.tab-tit .tab-tit-item')[_this.titIndex]).click();
+                }
+                if (_this.selectIndex < 0) {
+                    _this.selectIndex = 0;
+                }
+                let length = _this.data[_this.titIndex].con.length;
+                // console.log('length', length);
+
+                if (_this.selectIndex >= length) {
+                    _this.selectIndex = 0;
+                    _this.titIndex++;
+
+                    $('.tab-tit .active').removeClass('active');
+                    // console.log('_this.titIndex', _this.titIndex);
+                    $($('.tab-tit .tab-tit-item')[_this.titIndex]).click();
+                }
+
+                // let curDom = $($('.system-item')[_this.selectIndex]);
+                let nextDom = $($('.tab-con-item:eq(' + _this.titIndex + ') .system-item')[_this.selectIndex]);
+                nextDom.click();
+
+                _this.selectIndex += 1;
+            }, 2000);
+        },
+
+        initEvent() {
+            var _this = this;
+            $(document).on('click', '.tab-tit-item', function () {
+                $('.tab-tit-item').removeClass('active');
+                $(this).addClass('active');
+                let index = $(this).index();
+                let tabCon = $('.tab-con-item');
+                tabCon.removeClass('active');
+                // console.log('index', index);
+                let conDom = $(tabCon[index]);
+                conDom.addClass('active');
+                _this.titIndex = index;
+
+                $($('.tab-con-item:eq(' + index + ') .system-item')[0]).click();
+            });
+            $(document).on('click', '.system-item', function () {
+                $('.system-item').removeClass('active');
+                $(this).addClass('active');
+
+                // console.log('111',$(this).text());
+                _this.selectIndex = $(this).index();
+                //唯一出口  更新两侧视图
+                // updateHtml($(this).text());
+
+                _this.clear();
+                _this.start();
+            });
+        },
+        initSoftwareHtml() {
+            var titHtml = '';
+            var conHtml = '';
+            var num = 0;
+            for (let key in software_system) {
+                var item = software_system[key];
+                num++;
+                titHtml += '<span class="tab-tit-item ">' + key + '(' + item.length + ')</span>';
+                conHtml += this.initTabConHtml(item);
+                this.data.push({
+                    tit: key,
+                    con: item
+                })
+            }
+            this.tabNum = num;
+            $('.tab-tit').html(titHtml);
+            $('.tab-con').html(' <div class="mask"></div>' + conHtml);
+
+            $('.tab-tit-item:eq(0)').addClass('active');
+            $('.tab-con-item:eq(0)').addClass('active');
+            $('.system-item:eq(0)').addClass('active');
+        },
+        initTabConHtml(data) {
+            var html = ' <div class="tab-con-item">';
+
+            for (let i = 0; i < data.length; i++) {
+                let item = data[i];
+                html += '<span class="system-item">' + item.softwareName + '</span>';
+            }
+            return html + '</div>';
+        },
+
+        clear() {
+            clearInterval(this.interval);
+            this.interval = null;
+        }
+
+    };
+    $.getJSON('../mock.json',function (data) {
+        console.log('data',data);
+        software_system = data.info;
+        softwareAnimate.init();
+    });
+
+</script>
+</html>
