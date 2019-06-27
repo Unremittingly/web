@@ -14,16 +14,20 @@ class Tank extends Base {
 
         this.isMove = true;
 
+        //tank被摧毁
+        this.isDestroyed = false;
+
     }
 
     //销毁动画
     destroyAnimate() {
-
+        let boomStart = BOOM_POSITION;
+        tankCtx.drawImage(RESOURCE_IMG,boomStart.x,boomStart.y,32,32,this.pos.x,this.pos.y);
     }
 
     //direction 方向 移动
     move(direction) {
-        if (this.isPass(this.pos, direction)) {
+        if (this.isPass(direction)) {
 
 
             let _this = this;
@@ -98,27 +102,10 @@ class Tank extends Base {
 
     }
 
-    isPass1(pos){
-
-        let isPass = true;
-        let rightBottomPos = {
-            x: pos.x + 28,
-            y: pos.y + 28
-        };
-        let rect = [pos,rightBottomPos];
-        let posArr = scene.getElementPos();
-        for (let i = 0; i < posArr.length; i++) {
-            let rect1 = posArr[i];
-            if(rect.collision(rect1)){
-                isPass = false;
-                break;
-            }
-        }
-        return isPass;
-    }
 
     //判断当前位置是否可以移动通过 检测
-    isPass(pos, direction) {
+    isPass(direction) {
+        let pos = this.pos;
         let arr = LEVEL_ALL[0];
         let distance = 16;
         let isMove = false;
@@ -130,7 +117,7 @@ class Tank extends Base {
         //通过pos判断index
         let xIndex = Math.ceil(pos.x / 16);
         let yIndex = Math.ceil(pos.y / 16);
-        console.log('xIndex',xIndex,yIndex,pos);
+        console.log('xIndex', xIndex, yIndex, pos);
         for (let i = 0; i < arr.length; i++) {
             //i=0
 
@@ -144,36 +131,41 @@ class Tank extends Base {
 
             if (direction === TOP) {
                 //定点是否可移动
+                yIndex = Math.ceil((pos.y-1) / 16);
                 if (yIndex >= 1) {
-                    lt = arr[yIndex - 1][xIndex];
-                    rt = arr[yIndex - 1][xIndex + 1];
+                    lt = arr[yIndex][xIndex];
+                    rt = arr[yIndex][xIndex + 1];
                 }
-                console.log('lt,RT',lt,rt);
-                if (lt === ROAD && rt === ROAD ) {
+                console.log('lt,RT', lt, rt);
+                if (lt === ROAD && rt === ROAD) {
                     isMove = true;
                 }
                 // if(contains(lt,))
             } else if (direction === LEFT) {
-                lt = arr[yIndex][xIndex - 1];
-                lb = arr[yIndex + 1][xIndex - 1];
-                console.log('lt,lb',lt,lb);
-                if (lt === ROAD && lb === ROAD ) {
+                xIndex = Math.ceil((pos.x-1) / 16);
+
+                lt = arr[yIndex][xIndex];
+                lb = arr[yIndex + 1][xIndex];
+                console.log('lt,lb', lt, lb);
+                if (lt === ROAD && lb === ROAD) {
                     isMove = true;
                 }
             } else if (direction === RIGHT) {
-                rt = arr[yIndex][xIndex + 2];
-                rb = arr[yIndex + 1][xIndex + 2];
+                xIndex = Math.ceil((pos.x+17) / 16);
+                rt = arr[yIndex][xIndex];
+                rb = arr[yIndex + 1][xIndex];
 
-                console.log('rt,rb',rt,rb);
-                if (rt === ROAD && rb === ROAD ) {
+                console.log('rt,rb', rt, rb);
+                if (rt === ROAD && rb === ROAD) {
                     isMove = true;
                 }
             } else if (direction === BOTTOM) {
+                yIndex = Math.ceil((pos.y+17) / 16);
                 if (yIndex <= 13) {
-                    lb = arr[yIndex + 2][xIndex];
-                    rb = arr[yIndex + 2][xIndex + 1];
+                    lb = arr[yIndex][xIndex];
+                    rb = arr[yIndex][xIndex + 1];
                 }
-                console.log('lb,rb',lb,rb);
+                console.log('lb,rb', lb, rb);
                 if (lb === ROAD && rb === ROAD) {
                     isMove = true;
                 }
@@ -181,7 +173,6 @@ class Tank extends Base {
 
             // console.log('col1',col1);
             // console.log('col[j]', col[xIndex]);
-
 
 
             // console.log('xmove,ymove', xMove, yMove);
@@ -226,6 +217,7 @@ class Tank extends Base {
 
             //停止子弹发射动画
             if (isEnd) {
+                _this.bullets = [];
                 clearInterval(_this.bulletsInterval);
             }
         }, 20);

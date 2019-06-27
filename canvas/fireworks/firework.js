@@ -217,8 +217,8 @@ class Spark {
             let y = quadraticBezierOne(this.sparksPaths[this.percent - 1].y, this.sparksPaths[this.percent].y, i);
             // cxt.lineTo(x, y);
             cxt.quadraticCurveTo(this.sparksPaths[this.percent].x, this.sparksPaths[this.percent].y,
-                x,y
-                );
+                x, y
+            );
         }
 
         cxt.closePath();
@@ -313,7 +313,7 @@ function getRandomEndPoint(center, type) {
 }
 
 function sparkAnimation() {
-
+    // addFrameToGif();
     for (let i = 0; i < sparks.length; i++) {
         let spark = sparks[i];
         spark.percent = (spark.percent + 1) % 18;
@@ -339,6 +339,8 @@ function sparkAnimation() {
     if (sparkEndLength > sparks.length) {
         clearCanvas();
     } else {
+        // addFrameToGif();
+        gifObj.addFrame();
         requestAnimFrame(function () {
             animateLength++;
             //这里给个变量进行中途清除  然动画的视觉效果看起来是向外扩散的  不清除的话会看见一整条线  清除了就只有单独的某几段啦
@@ -346,6 +348,8 @@ function sparkAnimation() {
                 cxt.fillRect(0, 0, 800, 500);
             }
             sparkAnimation();
+
+
         });
     }
 
@@ -364,22 +368,51 @@ function clearCanvas() {
     // createGif();
 }
 
+
+let imageElement = document.getElementById('firework');
+
+
+let gifObj = new CanvasToGif(imageElement);
+gifObj.onFinish(function (url) {
+    console.log('url',url);
+});
+
 initCanvas();
-createGif();
+
+
+
+
+
+
+
+
+
+function addFrameToGif() {
+
+    console.log('gif.frames',gif.frames);
+    if (gif.frames.length < 17) {
+        gif.addFrame(imageElement, {
+            delay: 20,
+            copy: true
+        });
+    } else if (!isFinish) {
+
+        console.log('1');
+        gif.render();
+        isFinish = true;
+    }
+}
 
 function createGif() {
-    let gif = new GIF({
+     gif = new GIF({
         workers: 2,
         quality: 10,
-        repeat:0,
+        repeat: 0,
 
     });
-    let imageElement = document.getElementById('firework');
+
 // 添加一个图片标签对象像素到当前帧
-    gif.addFrame(imageElement,{
-        delay: 20,
-        copy:true
-    });
+
 //或添加一个canvas对象的像素到当前帧
 //     gif.addFrame(document.getElementsByTagName('canvas')[0], {
 //         delay: 200
@@ -391,17 +424,17 @@ function createGif() {
 //         delay: 200
 //     });
 //从canvas context复制像素到当前帧
-    gif.addFrame(cxt, {
-        copy: true,
-        delay:20,
-    });
 //合成图片成功后
     gif.on('finished', function (blob) {
-        console.log('blob',blob);
+        console.log('blob', blob);
+
+        let url = URL.createObjectURL(blob);
+
+        document.getElementById('gif').src = url;
         // window.open(URL.createObjectURL(blob));
     });
 //渲染图片
-    gif.render();
+
 }
 
 

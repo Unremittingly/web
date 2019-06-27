@@ -28,6 +28,7 @@ const BOSS_POSITION = {x:256,y:0};
 
 const H_ROAD_POSITION = {x: 80, y: 0};
 const ROAD_POSITION = {x: 100, y: 0};
+const BOOM_POSITION = {x:164,y:0};
 const mapPosToElement = {
     '0':BOSS_POSITION,
     '1':RIVER_POSITION,

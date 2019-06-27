@@ -34,10 +34,10 @@ class Bullet extends Base {
         this.direction = 'top';
         this.ctx = ctx;
         this.pos = {
-            x: tank.pos.x ,
+            x: tank.pos.x,
             y: tank.pos.y
         };
-        console.log('tank',tank.pos);
+        console.log('tank', tank.pos);
         this.speed = 4;
 
         this.clipWidth = 8;
@@ -62,7 +62,7 @@ class Bullet extends Base {
         // console.log('bullet   move');
         this.destroy();
         let {x, y} = this.pos;
-        if (y === 0) {
+        if (y <= 0 || y>=416 || x<=0 || x>=416) {
             //墙壁爆炸效果
             // console.log('BOOM');
             this.isDestroyed = true;
@@ -72,26 +72,23 @@ class Bullet extends Base {
         switch (this.direction) {
             case bulletBottom:
                 y += speed;
-                x = tank.pos.x + 14;
+                x = this.pos.x + 14;
                 break;
             case bulletLeft:
                 x += speed;
-                y=tank.pos.y+14;
+                y = this.pos.y + 14;
                 break;
             case bulletRight:
                 x -= speed;
-                y=tank.pos.y-14;
+                y = this.pos.y - 14;
                 break;
             case bulletTop:
-                x = tank.pos.x + 14;
+                x = this.pos.x + 14;
                 y -= speed;
                 break;
         }
 
-        this.pos = {
-            x,
-            y
-        };
+        this.pos = {x, y};
 
         this.draw();
     }
