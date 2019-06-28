@@ -93,7 +93,7 @@ class PathForSmall {
     }
 
     animation(resolve) {
-
+        gifObj.addFrame();
         this.drawPath();
         this.percent = (this.percent + 1) % this.pathPosLength;
         if (this.percent != 0) {
@@ -372,9 +372,9 @@ function clearCanvas() {
 let imageElement = document.getElementById('firework');
 
 
-let gifObj = new CanvasToGif(imageElement);
-gifObj.onFinish(function (url) {
+let gifObj = new CanvasToGif(imageElement,function (url) {
     console.log('url',url);
+    document.getElementById('gif').src=url;
 });
 
 initCanvas();

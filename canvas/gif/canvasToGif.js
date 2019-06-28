@@ -2,15 +2,17 @@
 
 class CanvasToGif {
 
-    constructor(element){
+    constructor(element,cb){
         this.Element = element;
         this.gifObj = null;
         this.ifFinish = false;
         this.url = '';
+        this.cb = cb;
         this.init();
     }
 
     onFinish(cb){
+        console.log('111',cb);
         if(cb){
             cb(this.url);
         }
@@ -26,8 +28,9 @@ class CanvasToGif {
 
         //合成图片成功后
         this.gifObj.on('finished', function (blob) {
-            console.log('blob', blob);
+            // console.log('blob', blob);
             _this.url = URL.createObjectURL(blob);
+            _this.cb(_this.url)
             // window.open(URL.createObjectURL(blob));
         });
     }
@@ -36,9 +39,9 @@ class CanvasToGif {
 
     }
     addFrame(){
-        console.log('this.Element,this.Element',this.Element);
+        // console.log('this.Element,this.Element',this.Element);
         console.log('gif.frames',this.gifObj.frames);
-        if ( this.gifObj.frames.length < 17) {
+        if ( this.gifObj.frames.length < 45) {
             this.gifObj.addFrame(this.Element, {
                 delay: 20,
                 copy: true
