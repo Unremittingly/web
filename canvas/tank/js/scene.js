@@ -28,18 +28,17 @@ class Scene {
     createScene(level) {
         let arr = LEVEL_ALL[level - 1];
         this.sceneElementPos = initElementPos(arr, {
-            width: 16,
-            height: 16
+            width: ELEMENT_WIDTH,
+            height: ELEMENT_HEIGHT
         });
 
         for (let i = 0; i < arr.length; i++) {
             let cross = arr[i];
-            console.log('i', i);
             for (let j = 0; j < cross.length; j++) {
                 let vertical = cross[j];
                 let pos = {
-                    x: j * 16,
-                    y: i * 16
+                    x: j * ELEMENT_WIDTH,
+                    y: i * ELEMENT_HEIGHT
                 };
 
                 if (vertical === 0 && !this.hasBoss) {
@@ -64,7 +63,7 @@ class Scene {
     draw(type, pos) {
         // console.log('type',type);
         let position = mapPosToElement[type];
-        let width = 16;
+        let width = ELEMENT_WIDTH;
         if (type !== 0) {
             //绘制其他元素
             sceneCtx.drawImage(RESOURCE_IMG, position.x, position.y,

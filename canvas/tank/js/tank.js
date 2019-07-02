@@ -22,7 +22,7 @@ class Tank extends Base {
     //销毁动画
     destroyAnimate() {
         let boomStart = BOOM_POSITION;
-        tankCtx.drawImage(RESOURCE_IMG,boomStart.x,boomStart.y,32,32,this.pos.x,this.pos.y);
+        tankCtx.drawImage(RESOURCE_IMG, boomStart.x, boomStart.y, 32, 32, this.pos.x, this.pos.y);
     }
 
     //direction 方向 移动
@@ -107,7 +107,6 @@ class Tank extends Base {
     isPass(direction) {
         let pos = this.pos;
         let arr = LEVEL_ALL[0];
-        let distance = 16;
         let isMove = false;
         let rightBottomPos = {
             x: pos.x + 32,
@@ -115,73 +114,26 @@ class Tank extends Base {
         };
 
         //通过pos判断index
-        let xIndex = Math.ceil(pos.x / 16);
-        let yIndex = Math.ceil(pos.y / 16);
-        console.log('xIndex', xIndex, yIndex, pos);
-        for (let i = 0; i < arr.length; i++) {
-            //i=0
+        let rowIndex = 0;
+        let colIndex = 0;
+        let overlap = 2;
+        let size = ELEMENT_WIDTH;
 
-            // let yMove = true;
+        if(direction === TOP){
+            rowIndex = (this.pos.x+overlap) /size;
+            colIndex = (this.pos.y+overlap) /size;
+        }else if(direction === BOTTOM){
 
-            let lt = arr[yIndex][xIndex];
-            let rt = arr[yIndex][xIndex + 1];
+        }else if(direction === RIGHT){
 
-            let lb = arr[yIndex + 1][xIndex];
-            let rb = arr[yIndex + 1][xIndex + 1];
-
-            if (direction === TOP) {
-                //定点是否可移动
-                yIndex = Math.ceil((pos.y-1) / 16);
-                if (yIndex >= 1) {
-                    lt = arr[yIndex][xIndex];
-                    rt = arr[yIndex][xIndex + 1];
-                }
-                console.log('lt,RT', lt, rt);
-                if (lt === ROAD && rt === ROAD) {
-                    isMove = true;
-                }
-                // if(contains(lt,))
-            } else if (direction === LEFT) {
-                xIndex = Math.ceil((pos.x-1) / 16);
-
-                lt = arr[yIndex][xIndex];
-                lb = arr[yIndex + 1][xIndex];
-                console.log('lt,lb', lt, lb);
-                if (lt === ROAD && lb === ROAD) {
-                    isMove = true;
-                }
-            } else if (direction === RIGHT) {
-                xIndex = Math.ceil((pos.x+17) / 16);
-                rt = arr[yIndex][xIndex];
-                rb = arr[yIndex + 1][xIndex];
-
-                console.log('rt,rb', rt, rb);
-                if (rt === ROAD && rb === ROAD) {
-                    isMove = true;
-                }
-            } else if (direction === BOTTOM) {
-                yIndex = Math.ceil((pos.y+17) / 16);
-                if (yIndex <= 13) {
-                    lb = arr[yIndex][xIndex];
-                    rb = arr[yIndex][xIndex + 1];
-                }
-                console.log('lb,rb', lb, rb);
-                if (lb === ROAD && rb === ROAD) {
-                    isMove = true;
-                }
-            }
-
-            // console.log('col1',col1);
-            // console.log('col[j]', col[xIndex]);
-
-
-            // console.log('xmove,ymove', xMove, yMove);
-
-            if (isMove) {
-                break;
-            }
+        }else if(direction === LEFT){
 
         }
+
+
+        // arr[colIndex][rowIndex];
+
+
 
         return isMove;
     }

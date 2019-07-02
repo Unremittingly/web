@@ -38,6 +38,8 @@ const mapPosToElement = {
     "5":H_ROAD_POSITION,
     "6":ROAD_POSITION
 };
+const ELEMENT_WIDTH = 16;
+const ELEMENT_HEIGHT = 16;
 
 const TOP = 'top';
 const RIGHT = 'right';
