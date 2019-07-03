@@ -1,23 +1,21 @@
-
-
+// document.write('')
 class CanvasToGif {
 
-    constructor(element,cb){
+    constructor(element, cb, opt) {
         this.Element = element;
+        this.defultFrames = opt.frames ? opt.frames : 45;//默认取45帧
         this.gifObj = null;
-        this.ifFinish = false;
+        this.isFinish = false;
         this.url = '';
         this.cb = cb;
         this.init();
     }
 
-    onFinish(cb){
-        console.log('111',cb);
-        if(cb){
-            cb(this.url);
-        }
+    getIsFinish() {
+        return this.isFinish;
     }
-    init(){
+
+    init() {
         let _this = this;
         this.gifObj = new GIF({
             workers: 2,
@@ -34,21 +32,23 @@ class CanvasToGif {
             // window.open(URL.createObjectURL(blob));
         });
     }
-    clear(){
+
+    clear() {
         this.gifObj = null;
 
     }
-    addFrame(){
+
+    addFrame() {
         // console.log('this.Element,this.Element',this.Element);
-        console.log('gif.frames',this.gifObj.frames);
-        if ( this.gifObj.frames.length < 45) {
+        // console.log('gif.frames',this.gifObj.frames);
+        if (this.gifObj.frames.length < this.defultFrames) {
             this.gifObj.addFrame(this.Element, {
                 delay: 20,
                 copy: true
             });
         } else if (!this.isFinish) {
 
-            console.log('1');
+            console.log('finish');
             this.gifObj.render();
             this.isFinish = true;
         }

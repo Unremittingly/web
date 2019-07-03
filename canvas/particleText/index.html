@@ -10,16 +10,22 @@
     </style>
 </head>
 <body>
-<canvas height="300" width="500" id="PT"></canvas>
+<canvas height="120" width="500" id="PT"></canvas>
+<img src="" id="gif" alt="image"/>
+<script src="../../gif/gif.js"></script>
+<script src="../gif/canvasToGif.js"></script>
 </body>
 <script>
 
     let ptDom = document.getElementById('PT');
+
     let ctx = ptDom.getContext('2d');
     let imageData = {};
     ctx.fillStyle= '#000';
     ctx.fillRect(0,0,ptDom.width,ptDom.height);
-
+    let gif = new CanvasToGif(ptDom,function (data) {
+       document.getElementById('gif').src = data;
+    });
     function drawText() {
         ctx.fillStyle = '#000';
         ctx.strokeStyle = '#fff';
@@ -48,9 +54,15 @@
         ctx.putImageData(imageData,0,0);
     }
 
+
+    gif.init();
     drawText();
     imageData= getData();
     setInterval(function () {
+
+        if(!gif.isFinish){
+            gif.addFrame();
+        }
         drawParticle();
     },100)
 
