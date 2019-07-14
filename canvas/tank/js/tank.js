@@ -107,12 +107,13 @@ class Tank extends Base {
     isPass(direction) {
         let pos = this.pos;
         let arr = LEVEL_ALL[0];
-        let isMove = false;
+        let isMove = true;
         let rightBottomPos = {
             x: pos.x + 32,
             y: pos.y + 32
         };
 
+        let eArr = [];
         //通过pos判断index
         let rowIndex = 0;
         let colIndex = 0;
@@ -120,8 +121,19 @@ class Tank extends Base {
         let size = ELEMENT_WIDTH;
 
         if(direction === TOP){
-            rowIndex = (this.pos.x+overlap) /size;
-            colIndex = (this.pos.y+overlap) /size;
+            rowIndex = (this.pos.x) /size;
+            colIndex = (this.pos.y-overlap) /size;
+            let lt = arr[Math.floor((this.pos.x+14) /size)][Math.floor(colIndex)];
+            let lt1 = arr[Math.floor((this.pos.x+14) /size)][Math.ceil(colIndex)];
+
+            let rt = arr[Math.floor(rowIndex)][Math.floor(colIndex)];
+            let rt1 = arr[Math.floor(rowIndex)][Math.ceil(colIndex)];
+
+            eArr.push(lt);
+            eArr.push(lt1);
+            eArr.push(rt);
+            eArr.push(rt1);
+
         }else if(direction === BOTTOM){
 
         }else if(direction === RIGHT){
@@ -131,6 +143,7 @@ class Tank extends Base {
         }
 
 
+        console.log('rowIndex',rowIndex,colIndex);
         // arr[colIndex][rowIndex];
 
 

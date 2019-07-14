@@ -4,7 +4,7 @@ class Rect {
     constructor(start, size) {
         this.start = start;
         this.size = size;
-        return [
+        this.R = [
             start,
             {
                 x: start.x + size.width,
@@ -14,28 +14,31 @@ class Rect {
     }
 
     collision(rect1) {
+        // console.log('rect1',rect1);
+        let bounds = this.R;
+        let bounds1 = rect1.R;
         let rect = this;
-        let lt = rect[0];
+        let lt = bounds[0];
         let rt = {
-            x: rect[1].x,
-            y: rect[0].y
+            x: bounds[1].x,
+            y: bounds[0].y
         };
-        let rb = rect[1];
+        let rb = bounds[1];
         let lb = {
-            x: rect[0].x,
-            y: rect[1].y
+            x: bounds[0].x,
+            y: bounds[1].y
         };
 
         //第二个
-        let lt1 = rect1[0];
+        let lt1 = bounds1[0];
         let rt1 = {
-            x: rect1[1].x,
-            y: rect1[0].y
+            x: bounds1[1].x,
+            y: bounds1[0].y
         };
-        let rb1 = rect1[1];
+        let rb1 = bounds1[1];
         let lb1 = {
-            x: rect1[0].x,
-            y: rect1[1].y
+            x: bounds1[0].x,
+            y: bounds1[1].y
         };
 
         let rectInOther = false;
@@ -47,18 +50,19 @@ class Rect {
         if (rect.contains(lt1) || rect.contains(rt1) || rect.contains(rb1) || rect.contains(lb1)) {
             rect1InOther = true;
         }
+        console.log('rect1InOther',rect1InOther,rectInOther);
         return rect1InOther || rectInOther;
     }
 
     contains(point) {
-        let rect = this;
+        let rect = this.R;
         let isContains = false;
         let minX = rect[0].x;
         let minY = rect[0].y;
         let maxX = rect[1].x;
         let maxY = rect[1].y;
 
-        if (point.x >= minX && point.x <= maxX && point.y >= minY && point.y <= maxY) {
+        if (point.x > minX && point.x < maxX && point.y > minY && point.y < maxY) {
             isContains = true;
         }
 

@@ -37,23 +37,6 @@ Array.prototype.inArray=function (val) {
 };
 
 
-function initElementPos(arr,size) {
-    let posArr = [];
-
-    for (let i = 0; i < arr.length; i++) {
-        let yPoss = arr[i];
-        let startY = i*size;
-        for (let j = 0; j < yPoss.length; j++) {
-            let startX = j*size;
-            let rect = new Rect({
-                x:startX,
-                y:startY
-            },rectSize);
-            posArr.push(rect)
-        }
-    }
-    return posArr;
-}
 
 class Tool{
 
