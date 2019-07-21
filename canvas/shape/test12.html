@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="test/js/jquery.js"></script>
+<body>
+<div class="" id="test">
+    ceshi zhege  <br>
+    这是第二段话这是第二段话这是第二段话这是第二段话<span>tttt</span>
+</div>
+</body>
+
+<script>
+    (function (a) {
+        a.fn.typewriter = function () {
+            this.each(function () {
+                console.log('a',a);
+                let d = a(this), c = d.html(), b = 0;
+                d.html("");
+                //每一行的
+                let e = setInterval(function () {
+                    let f = c.substr(b, 1);
+                    if (f == "<") {
+                        b = c.indexOf(">", b) + 1
+                    } else {
+                        b++
+                    }
+                    d.html(c.substring(0, b) + (b & 1 ? "_" : ""));
+                    if (b >= c.length) {
+                        clearInterval(e)
+                    }
+                }, 75)
+            });
+            return this
+        }
+    })(jQuery);
+
+    $('#test').typewriter();
+
+
+</script>
+</html>

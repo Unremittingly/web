@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
 <body οnbefοreunlοad="close()">
+<style>
+    .opt{
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        width: 500px;
+        text-align: center;
+        top: 500px;
+        left: 0;
+    }
+
+    .opt-item{
+        display: inline-block;
+        width: 50px;
+        padding: 5px 20px;
+        background: blue;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        color: #fff;
+        /*margin-left: 200px;*/
+
+    }
+</style>
 
 <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
     Your browser does not support the HTML5 canvas tag.
 </canvas>
+
+<div class="content"></div>
+<div class="opt"><span class="cancel opt-item">不</span><span class="opt-item">愿意</span></div>
 
 <script>
 
@@ -92,25 +126,25 @@
     console.log('x', arr);
 
 
-    window.onbeforeunload = function(e)
-    {
-
-        e = e || window.event;
-
-        // 兼容IE8和Firefox 4之前的版本
-        if (e) {
-            e.returnValue = '关闭提示';
-        }
-
-
-//  这是用来设定一个时间, 时间到了, 就会执行一个指定的 method。
-        setTimeout(onunloadcancel, 10);
-        return "really?";
-    }
-    window.onunloadcancel = function()
-    {
-        alert("level");
-    }
+//     window.onbeforeunload = function(e)
+//     {
+//
+//         e = e || window.event;
+//
+//         // 兼容IE8和Firefox 4之前的版本
+//         if (e) {
+//             e.returnValue = '关闭提示';
+//         }
+//
+//
+// //  这是用来设定一个时间, 时间到了, 就会执行一个指定的 method。
+//         setTimeout(onunloadcancel, 10);
+//         return "really?";
+//     }
+//     window.onunloadcancel = function()
+//     {
+//         alert("level");
+//     }
 
 </script>
 
