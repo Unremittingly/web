@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        #heart{
-            height: 500px;
-            width: 500px;
-        }
+
     </style>
 </head>
 <body>
-<canvas id="heart">
+<canvas id="heart" width="500" height="500">
 
 </canvas>
 
@@ -20,13 +17,22 @@
     let dom = document.getElementById('heart');
     let ctx = dom.getContext('2d');
 
+    const topC = {
+        x:150,
+        y:50
+    };
+
+    const bottomC ={
+        x:150,
+        y:200,
+    };
 
 
     ctx.fillStyle = '#000';
     ctx.fillRect(0,0,500,500);
 
 
-    class heart{
+    class Heart{
         constructor(props) {
 
             this.radidus = 100;
@@ -36,11 +42,40 @@
             };
             this.points= [];
 
+            this.drawLine();
             this.initPoint();
         }
 
 
 
+        drawLine(){
+
+            let y = bottomC.y-40;
+            let offsetX = 30;
+            ctx.strokeStyle = 'red';
+
+            ctx.beginPath();
+            ctx.moveTo(bottomC.x,bottomC.y);
+            ctx.lineTo(bottomC.x-offsetX,y);
+            ctx.stroke();
+            // ctx.save();
+
+            ctx.beginPath();
+            ctx.moveTo(bottomC.x,bottomC.y);
+            ctx.lineTo(bottomC.x+offsetX,y);
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.moveTo(80,100);//起始点
+            ctx.quadraticCurveTo(0,50,80,160);//参数是控制点和结束点
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(80,100);//起始点
+            ctx.quadraticCurveTo(160,50,80,160);//参数是控制点和结束点
+            ctx.stroke();
+        }
         initPoint() {
 
         }
@@ -49,8 +84,13 @@
         }
 
     }
+    function quadraticBezier(p0, p1, p2, t) {
+        let k = 1 - t;
+        return k * k * p0 + 2 * k * t * p1 + t * t * p2;
+    }
 
-    draw();
-    
+    let heart=  new  Heart();
+
+
 </script>
 </html>

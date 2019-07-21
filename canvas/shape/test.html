@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<body οnbefοreunlοad="close()">
+
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    function drawHeart() {
+        ctx.beginPath();
+        ctx.moveTo(140, 120);
+        ctx.bezierCurveTo(0, 40, 130, 210, 140, 210);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(140, 120);
+        ctx.bezierCurveTo(280, 40, 150, 210, 140, 210);
+        ctx.stroke();
+    }
+
+
+    let t = 0;
+
+
+    let arr = [];
+    // for (let i = 0; i < 180; i++) {
+    //     t=i;
+    //     let x = 16 * (Math.sin(t)) ^ 3;
+    //
+    //     let y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+    //     x=50*(2*Math.cos(t)-Math.cos(2*t));y=50*(2*Math.sin(t)-Math.sin(2*t))
+    //     arr.push({
+    //         x:x+50,
+    //         y:y+50
+    //     })
+    //
+    // }
+
+    let i = 0;
+    let curIndex= 0;
+    function heartShape(r, dx, dy) {//r:大小;dx:水平偏移;dy:垂直偏移;c:颜色
+        var m, n, x, y, i;
+        for (i = 0; i <= 200; i += 0.04) {
+            m = i;
+            n = -r * (((Math.sin(i) * Math.sqrt(Math.abs(Math.cos(i)))) / (Math.sin(i) + 1.4)) - 2 * Math.sin(i) + 2);
+            x = n * Math.cos(m) + dx;
+            y = n * Math.sin(m) + dy;
+            if(curIndex%180===0){
+                dx+=1.5;
+                dy+=1.5;
+            }
+            //     dx++;
+            //     dy++;
+            arr.push({
+                x,
+                y
+            });
+            curIndex++;
+        }
+    }
+
+    heartShape(80, 250, 100);
+
+
+    function animate() {
+        let c = arr[i];
+        ctx.lineTo(c.x, c.y);
+        ctx.stroke();
+        i++;
+        if (i < 1800) {
+            setTimeout(function () {
+                animate();
+            }, 10)
+        }
+
+    }
+
+    function draw() {
+        ctx.strokeStyle = 'red';
+        ctx.beginPath();
+        ctx.moveTo(arr[0].x, arr[0].y);
+        animate();
+
+    }
+
+    draw();
+    console.log('x', arr);
+
+
+    window.onbeforeunload = function(e)
+    {
+
+        e = e || window.event;
+
+        // 兼容IE8和Firefox 4之前的版本
+        if (e) {
+            e.returnValue = '关闭提示';
+        }
+
+
+//  这是用来设定一个时间, 时间到了, 就会执行一个指定的 method。
+        setTimeout(onunloadcancel, 10);
+        return "really?";
+    }
+    window.onunloadcancel = function()
+    {
+        alert("level");
+    }
+
+</script>
+
+</body>
+</html>
