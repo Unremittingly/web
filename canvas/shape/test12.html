@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<script src="test/js/jquery.js"></script>
+<script src="home/js/jquery.js"></script>
 <body>
 <div class="" id="test">
     ceshi zhege  <br>
-    这是第二段话这是第二段话这是第二段话这是第二段话<span>tttt</span>
+    这是第二段话这是第二段话这是第二段话这是第二段话<span>tttt</span><br>
+    这是第二段话这是第二段话这是第二段话这是第二段话
 </div>
 </body>
 
@@ -16,22 +17,21 @@
     (function (a) {
         a.fn.typewriter = function () {
             this.each(function () {
-                console.log('a',a);
                 let d = a(this), c = d.html(), b = 0;
+                //d是当前这个元素的dom
                 d.html("");
-                //每一行的
                 let e = setInterval(function () {
                     let f = c.substr(b, 1);
                     if (f == "<") {
-                        b = c.indexOf(">", b) + 1
+                        b = c.indexOf(">", b) + 1;
                     } else {
-                        b++
+                        b++;
                     }
                     d.html(c.substring(0, b) + (b & 1 ? "_" : ""));
                     if (b >= c.length) {
-                        clearInterval(e)
+                        clearInterval(e);
                     }
-                }, 75)
+                }, 175)
             });
             return this
         }
