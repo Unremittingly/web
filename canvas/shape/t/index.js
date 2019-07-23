@@ -86,7 +86,7 @@ S.UI = (function () {
     function performAction() {
         var action, value, current;
         // overlay.classList.remove('overlay--visible');
-        sequence = ['test','just to you','wait for me'];
+        sequence = ['test','just to you','wait for you'];
         // input.value = '';
         // checkInputWidth();
         timedAction(function (index) {
@@ -236,7 +236,7 @@ S.Dot.prototype = {
     }
 }
 S.ShapeBuilder = (function () {
-    let gap = 13, shapeCanvas = document.createElement('canvas'), shapeContext = shapeCanvas.getContext('2d'), fontSize = 500,
+    let gap = 12, shapeCanvas = document.createElement('canvas'), shapeContext = shapeCanvas.getContext('2d'), fontSize = 500,
         fontFamily = 'Avenir, Helvetica Neue, Helvetica, Arial, sans-serif';
 
     function fit() {
