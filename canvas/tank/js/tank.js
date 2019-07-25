@@ -38,7 +38,7 @@ class Tank extends Base {
                         if (_this.pos.y > 0) {
                             _this.pos = {
                                 x: _this.pos.x,
-                                y: _this.pos.y - 3
+                                y: _this.pos.y - 2
                             };
                         }
 
@@ -50,7 +50,7 @@ class Tank extends Base {
                     case RIGHT:
                         if (_this.pos.x < 384) {
                             _this.pos = {
-                                x: _this.pos.x + 3,
+                                x: _this.pos.x + 2,
                                 y: _this.pos.y
                             };
                         }
@@ -63,7 +63,7 @@ class Tank extends Base {
                     case LEFT:
                         if (_this.pos.x > 0) {
                             _this.pos = {
-                                x: _this.pos.x - 3,
+                                x: _this.pos.x - 2,
                                 y: _this.pos.y
                             };
                         }
@@ -77,7 +77,7 @@ class Tank extends Base {
                         if (_this.pos.y < 384) {
                             _this.pos = {
                                 x: _this.pos.x,
-                                y: _this.pos.y + 3
+                                y: _this.pos.y + 2
                             };
                         }
 
@@ -107,7 +107,7 @@ class Tank extends Base {
     isPass(direction) {
         let pos = this.pos;
         let arr = LEVEL_ALL[0];
-        let isMove = true;
+        let isMove = false;
         let rightBottomPos = {
             x: pos.x + 32,
             y: pos.y + 32
@@ -121,25 +121,35 @@ class Tank extends Base {
         let size = ELEMENT_WIDTH;
 
         if(direction === TOP){
-            rowIndex = (this.pos.x) /size;
-            colIndex = (this.pos.y-overlap) /size;
-            let lt = arr[Math.floor((this.pos.x+14) /size)][Math.floor(colIndex)];
-            let lt1 = arr[Math.floor((this.pos.x+14) /size)][Math.ceil(colIndex)];
+            colIndex = (this.pos.x) /size;
+            let xflag = this.pos.x % size;
+            rowIndex = (this.pos.y) /size;
+            rowIndex = Math.floor(rowIndex);
+            colIndex = Math.floor(colIndex);
 
-            let rt = arr[Math.floor(rowIndex)][Math.floor(colIndex)];
-            let rt1 = arr[Math.floor(rowIndex)][Math.ceil(colIndex)];
+            console.log(this.pos.x,this.pos.y);
+            console.log(rowIndex,colIndex);
 
-            eArr.push(lt);
-            eArr.push(lt1);
-            eArr.push(rt);
-            eArr.push(rt1);
+            if(xflag>4){
+                console.log("tank占了:",colIndex,colIndex+1,colIndex+2);
+                //可能会横跨三个
+                if(arr[rowIndex][colIndex] === 6 && arr[rowIndex][colIndex+1]===6 && arr[rowIndex][colIndex+2]===6){
+                    isMove = true;
+                }
+            }else{
+                console.log("tank占了:",colIndex,colIndex+1);
+                if(arr[rowIndex][colIndex] === 6 && arr[rowIndex][colIndex+1]===6){
+                    isMove = true;
+                }
+            }
+
 
         }else if(direction === BOTTOM){
-
+            isMove = true;
         }else if(direction === RIGHT){
-
+            isMove = true;
         }else if(direction === LEFT){
-
+            isMove = true;
         }
 
 
