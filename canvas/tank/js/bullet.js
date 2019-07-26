@@ -83,7 +83,7 @@ class Bullet extends Base {
                 y = this.pos.y - 14;
                 break;
             case bulletTop:
-                x = this.pos.x + 14;
+                x = this.pos.x;
                 y -= speed;
                 break;
         }
