@@ -117,13 +117,13 @@ class Tank extends Base {
         //通过pos判断index
         let rowIndex = 0;
         let colIndex = 0;
-        let overlap = 2;
         let size = ELEMENT_WIDTH;
 
         if(direction === TOP){
             colIndex = (this.pos.x) /size;
             let xflag = this.pos.x % size;
             rowIndex = (this.pos.y) /size;
+            //这里向下取整 取得x轴第一个所占的元素块
             rowIndex = Math.floor(rowIndex);
             colIndex = Math.floor(colIndex);
 
@@ -145,9 +145,53 @@ class Tank extends Base {
 
 
         }else if(direction === BOTTOM){
-            isMove = true;
+            colIndex = (this.pos.x) /size;
+            let xflag = this.pos.x % size;
+            rowIndex = (this.pos.y+28) /size;
+
+            rowIndex = Math.floor(rowIndex);
+            colIndex = Math.floor(colIndex);
+
+            console.log(this.pos.x,this.pos.y);
+            console.log(rowIndex,colIndex);
+
+            if(xflag>4){
+                console.log("tank占了:",colIndex,colIndex+1,colIndex+2);
+                //可能会横跨三个
+                if(arr[rowIndex][colIndex] === 6 && arr[rowIndex][colIndex+1]===6 && arr[rowIndex][colIndex+2]===6){
+                    isMove = true;
+                }
+            }else{
+                console.log("tank占了:",colIndex,colIndex+1);
+                if(arr[rowIndex][colIndex] === 6 && arr[rowIndex][colIndex+1]===6){
+                    isMove = true;
+                }
+            }
         }else if(direction === RIGHT){
-            isMove = true;
+            colIndex = (this.pos.x+28) /size;
+            let xflag = this.pos.x % size;
+            rowIndex = (this.pos.y) /size;
+
+            rowIndex = Math.floor(rowIndex);
+            colIndex = Math.floor(colIndex);
+
+            console.log(this.pos.x,this.pos.y);
+            console.log(rowIndex,colIndex);
+
+            if(xflag>4){
+                console.log("tank占了:",rowIndex,rowIndex+1,rowIndex+2);
+                //可能会横跨三个
+                if(arr[rowIndex][colIndex] === 6 && arr[rowIndex+1][colIndex]===6 && arr[rowIndex+2][colIndex]===6){
+                    isMove = true;
+                }
+            }else{
+                console.log("tank占了:",colIndex,colIndex+1);
+                if(arr[rowIndex][colIndex] === 6 && arr[rowIndex+1][colIndex]===6){
+                    isMove = true;
+                }
+            }
+
+            // isMove = true;
         }else if(direction === LEFT){
             isMove = true;
         }
