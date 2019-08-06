@@ -169,7 +169,7 @@ class Tank extends Base {
             }
         }else if(direction === RIGHT){
             colIndex = (this.pos.x+28) /size;
-            let xflag = this.pos.x % size;
+            let xflag = this.pos.y % size;
             rowIndex = (this.pos.y) /size;
 
             rowIndex = Math.floor(rowIndex);
