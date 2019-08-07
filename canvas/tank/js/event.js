@@ -10,6 +10,10 @@ $(document).keydown(function (event) {
     if (!keys.contain(keyCode)) {
         keys.push(keyCode);
     }
+
+    if(keyCode === 74){
+        tank.shooting();
+    }
     // switch (keyCode) {
     //     case 87:
     //         //top
