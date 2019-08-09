@@ -33,10 +33,7 @@ class Bullet extends Base {
         this.type = tankType;
         this.direction = 'top';
         this.ctx = ctx;
-        this.pos = {
-            x: tank.pos.x,
-            y: tank.pos.y
-        };
+        this.pos = this.getPos();
         console.log('tank', tank.pos);
         this.speed = 4;
 
@@ -45,6 +42,25 @@ class Bullet extends Base {
         this.isDestroyed = false;
 
 
+    }
+    getPos(){
+        let x = tank.pos.x;
+        let y = tank.pos.y;
+        switch (this.direction) {
+            case bulletTop:
+            case bulletBottom:
+                x = 14+tank.pos.x;
+                break;
+
+            case bulletLeft:
+            case bulletRight:
+                y = 14+tank.pos.y;
+                break;
+        }
+        return {
+            x,
+            y
+        }
     }
 
     destroy() {
@@ -56,36 +72,76 @@ class Bullet extends Base {
 
     hit() {
         //碰撞
+        let hit = false;
+        let point = this.pos;
+        switch (this.direction) {
+            case bulletTop:
+                point = {
+                    x:this.pos.x,
+                    y:this.pos.y
+                };
+                break;
+
+            case bulletBottom:
+                point = {
+                    x:this.pos.x,
+                    y:this.pos.y+this.clipHeight
+                };
+                break;
+
+            case bulletLeft:
+                point = {
+                    x:this.pos.x,
+                    y:this.pos.y
+                };
+                break;
+
+            case bulletRight:
+                point = {
+                    x:this.pos.x+this.clipWidth,
+                    y:this.pos.y
+                };
+                break;
+        }
+
+        return hit;
     }
 
     move() {
         // console.log('bullet   move');
         this.destroy();
         let {x, y} = this.pos;
-        if (y <= 0 || y>=416 || x<=0 || x>=416) {
+        if (y <= 0 || y>=MAP_WIDTH || x<=0 || x>=MAP_WIDTH) {
             //墙壁爆炸效果
             // console.log('BOOM');
             this.isDestroyed = true;
             return;
         }
+        //遇到地图元素的反应
+        let isHit = this.hit();
+        if(isHit){
+            return;
+        }
+
         let speed = this.speed;
         switch (this.direction) {
             case bulletBottom:
+                x = this.pos.x;
                 y += speed;
-                x = this.pos.x + 14;
-                break;
-            case bulletLeft:
-                x += speed;
-                y = this.pos.y + 14;
-                break;
-            case bulletRight:
-                x -= speed;
-                y = this.pos.y - 14;
                 break;
             case bulletTop:
                 x = this.pos.x;
                 y -= speed;
                 break;
+            case bulletLeft:
+                x -= speed;
+                y = this.pos.y;
+                break;
+            case bulletRight:
+                x +=speed ;
+                y = this.pos.y;
+                break;
+
         }
 
         this.pos = {x, y};

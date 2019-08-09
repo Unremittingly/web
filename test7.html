@@ -5,7 +5,20 @@
     <title>Title</title>
 </head>
 <body>
+<!DOCTYPE HTML>
 
+
+<audio src="http://dl.stream.qqmusic.qq.com/M500000rMbtC13tl8y.mp3?guid=BZQLL&vkey=90C1DCD8AB9B621739449E6673CD75AFD72B59F44AF8546DBC607749ADA1B34DC31D2D5B73FD9C116F3E26D2BB0D21114B4FA77D93F0ECBB&uin=0&fromtag=8" controls="controls">
+    Your browser does not support the audio element.
+</audio>
+
+<audio src="https://v1.itooi.cn/tencent/url?id=000rMbtC13tl8y&quality=128">
+
+</audio>
+<a onclick="" href="/i/w3school_logo_white.gif" download="w3logo">
+    t
+</a>
+<span style="background: #eee;padding: 5px 20px ; display: inline-block"  id="download">downLoad</span>
 </body>
 <script>
     let as = [];
@@ -49,6 +62,19 @@
     console.log('a',arr.filter((item)=>{
         return item===2;
     }));
+
+    document.getElementById('download').addEventListener('click',function () {
+        console.log('1');
+        download();
+    })
+    function download() {
+        const ele = document.createElement('a');
+        //如果写成全路径  绝对路径 那么浏览器会认为是一个url  而不会下载
+        ele.setAttribute('href','http://dl.stream.qqmusic.qq.com/M800002TUBbZ4dYMyq.mp3?guid=BZQLL&vkey=10EFF942A042E4193426990A7E41A5A87CE8A810547FE8FACFC3C2676F5C24D5C040361CF23B344BDE97D8747A83BEFF9C01DDF837F9A3FF&uin=0&fromtag=143'); //设置下载文件的url地址
+        ele.setAttribute('download' , 'text');//用于设置下载文件的文件名
+
+        ele.click();
+    }
 
 
 </script>

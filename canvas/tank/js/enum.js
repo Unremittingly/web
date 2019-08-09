@@ -16,6 +16,9 @@ const ROAD = 6;
 const OFFSET = 10;
 const SCREEN_WIDTH =800;
 const SCREEN_HEIGHT =600;
+
+const MAP_WIDTH = 416;//地图宽度和高度
+
 //大图对象
 const RESOURCE_IMG = document.getElementById('tankAll');
 const RESOURCE_SPRITES = document.getElementById('sprites');

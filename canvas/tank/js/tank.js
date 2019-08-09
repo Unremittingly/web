@@ -193,7 +193,29 @@ class Tank extends Base {
 
             // isMove = true;
         }else if(direction === LEFT){
-            isMove = true;
+            colIndex = (this.pos.x) /size;
+            let xflag = this.pos.y % size;
+            rowIndex = (this.pos.y) /size;
+
+            rowIndex = Math.floor(rowIndex);
+            colIndex = Math.floor(colIndex);
+
+            console.log(this.pos.x,this.pos.y);
+            console.log(rowIndex,colIndex);
+
+            if(xflag>4){
+                console.log("tank占了:",rowIndex,rowIndex+1,rowIndex+2);
+                //可能会横跨三个
+                if(arr[rowIndex][colIndex] === 6 && arr[rowIndex+1][colIndex]===6 && arr[rowIndex+2][colIndex]===6){
+                    isMove = true;
+                }
+            }else{
+                console.log("tank占了:",colIndex,colIndex+1);
+                if(arr[rowIndex][colIndex] === 6 && arr[rowIndex+1][colIndex]===6){
+                    isMove = true;
+                }
+            }
+
         }
 
 
