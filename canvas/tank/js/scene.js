@@ -61,6 +61,16 @@ class Scene {
         // sceneCtx.stroke();
     }
 
+    /*****
+     *
+     * @param pos   坐标
+     * @param direction   方向  上下左右
+     */
+    clearElement(pos,direction){
+        //消除一层元素
+
+    }
+
     draw(type, pos) {
         // console.log('type',type);
         let position = mapPosToElement[type];

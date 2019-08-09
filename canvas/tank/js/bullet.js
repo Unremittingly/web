@@ -43,18 +43,19 @@ class Bullet extends Base {
 
 
     }
-    getPos(){
+
+    getPos() {
         let x = tank.pos.x;
         let y = tank.pos.y;
         switch (this.direction) {
             case bulletTop:
             case bulletBottom:
-                x = 14+tank.pos.x;
+                x = 14 + tank.pos.x;
                 break;
 
             case bulletLeft:
             case bulletRight:
-                y = 14+tank.pos.y;
+                y = 14 + tank.pos.y;
                 break;
         }
         return {
@@ -77,32 +78,57 @@ class Bullet extends Base {
         switch (this.direction) {
             case bulletTop:
                 point = {
-                    x:this.pos.x,
-                    y:this.pos.y
+                    x: this.pos.x,
+                    y: this.pos.y
                 };
                 break;
 
             case bulletBottom:
                 point = {
-                    x:this.pos.x,
-                    y:this.pos.y+this.clipHeight
+                    x: this.pos.x,
+                    y: this.pos.y + this.clipHeight
                 };
                 break;
 
             case bulletLeft:
                 point = {
-                    x:this.pos.x,
-                    y:this.pos.y
+                    x: this.pos.x,
+                    y: this.pos.y
                 };
                 break;
 
             case bulletRight:
                 point = {
-                    x:this.pos.x+this.clipWidth,
-                    y:this.pos.y
+                    x: this.pos.x + this.clipWidth,
+                    y: this.pos.y
                 };
                 break;
         }
+        //判断点是否在障碍物上面
+        let colIndex = point.x / 16;
+        let rowIndex = point.y / 16;
+
+        let arr = LEVEL_ALL[0];
+        let cur = arr[colIndex][rowIndex];
+        if (cur === ROAD) {
+            return false;
+        } else if (cur === RIVER) {
+            //河道  略过
+
+        }else if (cur === GRASS) {
+            //草丛  略过  如果有去草丛道具 可以清除一层元素
+
+        } else if (cur === ADOBE) {
+            //泥砖    消除一层泥砖
+            scene.clearElement(this.pos,this.direction);
+        } else if (cur === STEEL) {
+            //刚砖
+            //如果是最大火力可以消除一层刚砖
+        } else if (cur === H_ROAD) {
+            //高速路  略过
+
+        }
+
 
         return hit;
     }
@@ -111,7 +137,7 @@ class Bullet extends Base {
         // console.log('bullet   move');
         this.destroy();
         let {x, y} = this.pos;
-        if (y <= 0 || y>=MAP_WIDTH || x<=0 || x>=MAP_WIDTH) {
+        if (y <= 0 || y >= MAP_WIDTH || x <= 0 || x >= MAP_WIDTH) {
             //墙壁爆炸效果
             // console.log('BOOM');
             this.isDestroyed = true;
@@ -119,7 +145,7 @@ class Bullet extends Base {
         }
         //遇到地图元素的反应
         let isHit = this.hit();
-        if(isHit){
+        if (isHit) {
             return;
         }
 
@@ -138,7 +164,7 @@ class Bullet extends Base {
                 y = this.pos.y;
                 break;
             case bulletRight:
-                x +=speed ;
+                x += speed;
                 y = this.pos.y;
                 break;
 
