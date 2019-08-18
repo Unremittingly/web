@@ -15,8 +15,8 @@ $(function () {
     garden = new Garden(gardenCtx, gardenCanvas);
     $("#content").css("width", $loveHeart.width() + $("#code").width());
     $("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
-    $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
-    $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+    // $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
+    // $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
     setInterval(function () {
         garden.render()
     }, Garden.options.growSpeed)
@@ -37,7 +37,7 @@ function getHeartPoint(c) {
     return new Array(offsetX + a, offsetY + d)
 }
 
-function startHeartAnimation() {
+function startHeartAnimation(callback) {
     let c = 50;
     let d = 10;
     let b = new Array();
@@ -58,7 +58,11 @@ function startHeartAnimation() {
         }
         if (d >= 30) {
             clearInterval(a);
-            showMessages()
+            showMessages();
+
+            if(callback){
+                callback();
+            }
         } else {
             d += 0.2
         }
@@ -66,7 +70,7 @@ function startHeartAnimation() {
 }
 
 (function (a) {
-    a.fn.typewriter = function () {
+    a.fn.typewriter = function (callback) {
         this.each(function () {
             let d = a(this), c = d.html(), b = 0;
             d.html("");
@@ -79,7 +83,11 @@ function startHeartAnimation() {
                 }
                 d.html(c.substring(0, b) + (b & 1 ? "_" : ""));
                 if (b >= c.length) {
-                    clearInterval(e)
+                    clearInterval(e);
+                    if(callback){
+                        console.log('1');
+                        callback();
+                    }
                 }
             }, 75)
         });
