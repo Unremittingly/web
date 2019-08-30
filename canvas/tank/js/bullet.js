@@ -81,6 +81,8 @@ class Bullet extends Base {
                     x: this.pos.x,
                     y: this.pos.y
                 };
+                //todo 获取当前位置是什么元素  如果是6泥土 就消除  如果是刚砖就判断火力是最大就消除
+
                 break;
 
             case bulletBottom:
