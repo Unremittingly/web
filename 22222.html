@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    let url = 'https://apis.map.qq.com/ws/place/v1/suggestion';
+    let params = {key: '7UJBZ-BYPKU-FKLVS-B4MIF-UHGET-GAF4K',
+        keyword:' 春熙路',
+        region: '成都'};
+    axios({
+        method: 'get',
+        headers:{
+            'Content-Type':  'application/json; charset=utf-8'
+        },
+        url: 'https://apis.map.qq.com/ws/place/v1/suggestion',
+        data: params
+    });
+
+    axios.get(url, {
+        headers:{
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        params: params
+    })
+
+    fetch('https://apis.map.qq.com/ws/place/v1/suggestion?key=7UJBZ-BYPKU-FKLVS-B4MIF-UHGET-GAF4K&keyword=+%E6%98%A5%E7%86%99%E8%B7%AF&region=%E6%88%90%E9%83%BD');
+
+    $.ajax({url:"https://apis.map.qq.com/ws/place/v1/suggestion?key=7UJBZ-BYPKU-FKLVS-B4MIF-UHGET-GAF4K&keyword=+%E6%98%A5%E7%86%99%E8%B7%AF&region=%E6%88%90%E9%83%BD",async:false});
+
+</script>
+</html>
