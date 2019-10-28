@@ -27,10 +27,6 @@ class Scene {
 
     createScene(level) {
         let arr = LEVEL_ALL[level - 1];
-        // this.sceneElementPos = initElementPos(arr, {
-        //     width: 16,
-        //     height: 16
-        // });
 
         for (let i = 0; i < arr.length; i++) {
             let cross = arr[i];
