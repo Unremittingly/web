@@ -241,7 +241,6 @@ class Tank extends Base {
                     if (!bullet.isDestroyed) {
                         isEnd = false;
                     }
-
                 }
                 for (let i = 0; i < _this.bullets.length; i++) {
                     let bullet = _this.bullets[i];
