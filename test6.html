@@ -47,25 +47,8 @@
 </script>
 <script>
 
-    let arrts = [];
-    $('#a').each(function () {
-        let _this = this;
-        console.log('_this',_this);
-        $.each(this.attributes, function () {
-// this.attributes is not a plain object, but an array
-// of attribute nodes, which contain both the name and value
-            if (this.specified) {
-                console.log(this.name, this.value);
-                arrts.push(this.name);
-
-            }
-        });
-        for (let i = 0; i < arrts.length; i++) {
-            let this1 = arrts[i];
-            $(_this).removeAttr(this1)
-        }
-
-    });
-
+     const a = 1;
+     const b=1;
+     console.log('23',1);
 </script>
 </html>
