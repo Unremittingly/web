@@ -50,12 +50,12 @@ class Bullet extends Base {
         switch (this.direction) {
             case bulletTop:
             case bulletBottom:
-                x = 14 + tank.pos.x;
+                x = 16 + tank.pos.x;
                 break;
 
             case bulletLeft:
             case bulletRight:
-                y = 14 + tank.pos.y;
+                y = 16 + tank.pos.y;
                 break;
         }
         return {
@@ -107,8 +107,8 @@ class Bullet extends Base {
                 break;
         }
         //判断点是否在障碍物上面
-        let colIndex = point.x / 16;
-        let rowIndex = point.y / 16;
+        let colIndex =  parseInt(point.x / 16);
+        let rowIndex =parseInt( point.y / 16);
 
         let arr = LEVEL_ALL[0];
         let cur = arr[colIndex][rowIndex];

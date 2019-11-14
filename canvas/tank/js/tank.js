@@ -232,35 +232,39 @@ class Tank extends Base {
         let isEnd = false;
 
         let _this = this;
-
-        this.bulletsInterval = setInterval(function () {
-            if (_this.bullets.length) {
-                isEnd = true;
-                for (let i = 0; i < _this.bullets.length; i++) {
-                    let bullet = _this.bullets[i];
-                    if (!bullet.isDestroyed) {
-                        isEnd = false;
+        if(!_this.isMove){
+            this.bulletsInterval = setInterval(function () {
+                if (_this.bullets.length) {
+                    isEnd = true;
+                    _this.isMove=true;
+                    for (let i = 0; i < _this.bullets.length; i++) {
+                        let bullet = _this.bullets[i];
+                        if (!bullet.isDestroyed) {
+                            isEnd = false;
+                        }
                     }
-                }
-                for (let i = 0; i < _this.bullets.length; i++) {
-                    let bullet = _this.bullets[i];
+                    for (let i = 0; i < _this.bullets.length; i++) {
+                        let bullet = _this.bullets[i];
 
-                    if (!bullet.isDestroyed) {
-                        bullet.move();
+                        if (!bullet.isDestroyed) {
+                            bullet.move();
+                        }
+
                     }
-
+                } else {
+                    let bullet = new Bullet(sceneCtx);
+                    _this.bullets.push(bullet);
                 }
-            } else {
-                let bullet = new Bullet(sceneCtx);
-                _this.bullets.push(bullet);
-            }
 
-            //停止子弹发射动画
-            if (isEnd) {
-                _this.bullets = [];
-                clearInterval(_this.bulletsInterval);
-            }
-        }, 20);
+                //停止子弹发射动画
+                if (isEnd) {
+                    _this.bullets = [];
+                    clearInterval(_this.bulletsInterval);
+                    _this.isMove = false;
+                }
+            }, 20);
+        }
+
 
 
     }
