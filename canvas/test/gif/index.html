@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src='./gif.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>生成gif数字雨头像</title>
+  <style>
+    canvas {
+      left: 10px;
+      top: 10px;
+      background: tansparent;
+    }
+
+    body {
+      background: #222;
+      color: #fff;
+    }
+
+    #uploadPreview {
+      display: none;
+    }
+
+    input {
+      top: 500px;
+    }
+
+    .fileLabel {
+      color: #fff;
+      line-height: 2em;
+      border: 1px solid #eee;
+      border-radius: 3px;
+      cursor: pointer;
+      padding: 0 5px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    #msg{
+      color: #f45b36;
+    }
+  </style>
+</head>
+
+<body>
+  <img src='' id='uploadPreview'>
+  <canvas width='200' height='200' id='canvas'></canvas>
+  <div>
+    <label class="fileLabel" for="file"> 选择图片</label>
+    <input type='file' style="display: none" id="file">
+  </div>
+  <div>
+    <label style='color:#fff'> 选择字符颜色</label>
+    <input type='color' id='color'>
+  </div>
+  <p style='color:#fff'>使用正方形图片效果比较好,默认生成20帧,生成图片后右键另存为即可</p>
+  <p id='msg'></p>
+  <img src='' id='output'>
+  <script>
+    // 数字雨
+    let gifData;
+    class Cell {
+      constructor(x, y, speed, color) {
+        this.x = x;
+        this.y = y + Math.random() * 6;
+        this.speed = speed;
+        this.color = color;
+        this.text = this.getNumber();
+        this.opacity = 1;
+        this.disappered = Math.random() * 30;
+      }
+      getNumber() {
+        // 用到哪些数字
+        const arr = [1, 0, 2, 4];
+        let index = parseInt(Math.random() * 4);
+        return arr[index];
+      }
+    }
+
+    class Pic {
+      constructor(width, height, col, row) {
+        this.width = width;
+        this.height = height;
+        this.cols = col || 15;
+        this.rows = row || 30;
+        this.cells = this.initCells();
+      }
+      rnd(){
+        return 1 + Math.ceil(2 * Math.random())
+      }
+      initCells() {
+        let cols = this.cols;
+        let colDist = this.width / this.cols;
+        let rowDist = this.height / this.rows;
+        let cells = [];
+
+        for (let i = 0; i < this.cols; i++) {
+          let colCells = [], 
+              dist = colDist * i, 
+              speed = this.rnd();
+
+          for (let j = 0; j < this.rows; j++) {
+            let cell = new Cell(dist, rowDist * j, speed);
+            colCells.push(cell);
+          }
+          cells.push(colCells);
+        }
+        return cells;
+      }
+      static draw(pic, cb) {
+        let cells = pic.cells;
+        let canvas = document.querySelector('canvas');
+        let ctx = canvas.getContext('2d');
+        let img = document.querySelector('img');
+        ctx.fillStyle = "#fff";
+        ctx.font = "8px yahei";
+        function draw() {
+          ctx.clearRect(0, 0, pic.width, pic.height);
+          // 画底图
+          if (img.src) {
+            ctx.drawImage(img, 0, 0, 200, 200 * img.height / img.width);
+          }
+          // 画数字        
+          ctx.shadowBlur = 10;
+
+          for (let col of cells) {
+            for (let cell of col) {
+              let color = `rgba(${Pic.fontColor.join(',')},${(cell.y) / 200})`;
+              ctx.fillStyle = color;
+              ctx.shadowColor = color;
+              ctx.fillText(cell.text, cell.x, cell.y);
+              cell.y = cell.y > pic.height - cell.disappered 
+                      ? 0 
+                      : cell.y + cell.speed;
+            }
+          }
+
+          //画完之后保存frame到gif中
+          cb && cb(canvas)
+          requestAnimationFrame(draw);
+        }
+        requestAnimationFrame(draw);
+      }
+    }
+    Pic.fontColor = [255, 255, 255];
+    // 初始化
+    let fileInput = document.getElementById('file');
+    let colorInput = document.getElementById('color');
+    let imgLoaded = false;
+
+    fileInput.onchange = function(){
+        if (this.files.length === 0) { return; }
+
+        let oFile = this.files[0];
+        let oFReader = new FileReader();
+        const rFilter = /^(?:image\/bmp|image\/webp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+        console.log(oFile.type)
+        if (!rFilter.test(oFile.type)) { 
+          alert("You must select a valid image file!"); return; 
+        }
+        oFReader.readAsDataURL(oFile);
+
+        oFReader.onload = function (oFREvent) {
+          let uploadImg = document.getElementById("uploadPreview");
+          uploadImg.src = oFREvent.target.result;
+          uploadImg.onload = setTimeout(gifRender, 500);
+        };
+    }
+
+    colorInput.onchange = function () {
+      Pic.fontColor = /#(\w{2})(\w{2})(\w{2})/.exec(this.value).slice(1).map(c => parseInt('0x' + c));
+      setTimeout(gifRender, 500);
+    }
+    let isWorking = false;
+    function gifRender() {
+      if (isWorking) return;
+      isWorking = true;
+      let gif = new GIF({
+        workers: 2,
+        quality: 10,
+        workerScript: './gif.worker.js'
+      });
+      let msgEl = document.getElementById('msg');
+      let canvas = document.getElementById('canvas');
+      msgEl.innerHTML = '开始生成gif,稍等';
+
+      gif.on('finished', function (blob) {
+        isWorking = false;
+        let url = URL.createObjectURL(blob);
+        gifData = blob;
+
+        msgEl.innerHTML = `
+        <a download href=${url} style="color:#fff">下载</a>
+        <span onclick="save()" style="margin-left:10px;font-size:12px;color:#e5e5e5">下载失败?点这里</span>`;
+        // 这里是blob
+        document.getElementById('output').src = url;
+        // 
+      });
+
+      let pic = new Pic(200, 200, 20, 10);
+      let renderFinished = false;
+      function addFrame(canvas) {
+        if (renderFinished) return;
+
+        if (gif.frames.length < 50) {
+          gif.addFrame(canvas, {delay: 20});
+        } else {
+          gif.render();
+          renderFinished = true
+          addFrame = null
+        }
+      }
+      Pic.draw(pic, addFrame);
+    }
+    // 使用fileSaver.js保存
+    function save() {
+      saveAs(gifData, 'image/gif');
+    }
+  </script>
+</body>
+
+</html>

@@ -36,11 +36,9 @@ class Bullet extends Base {
         this.pos = this.getPos();
         console.log('tank', tank.pos);
         this.speed = 4;
-
         this.clipWidth = 8;
         this.clipHeight = 8;
         this.isDestroyed = false;
-
 
     }
 
@@ -58,10 +56,7 @@ class Bullet extends Base {
                 y = 16 + tank.pos.y;
                 break;
         }
-        return {
-            x,
-            y
-        }
+        return {x, y}
     }
 
     destroy() {
@@ -126,6 +121,7 @@ class Bullet extends Base {
         } else if (cur === STEEL) {
             //刚砖
             //如果是最大火力可以消除一层刚砖
+            hit = true;
         } else if (cur === H_ROAD) {
             //高速路  略过
 

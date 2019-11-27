@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+
+    <meta charset="utf-8"><link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body,.result_content {
+            background: #000!important;
+        }
+    </style>
+    <script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/modules/solid-gauge.js"></script>
+
+</head>
+<body>
+<div id="container" style="width: 400px; height: 400px; margin: 0 auto">
+</div>
+<script>
+    // 去掉这里的注释就是类似 Apple Watch 上的效果了
+    if (!Highcharts.theme) {
+        Highcharts.setOptions({
+            chart: {
+                backgroundColor: 'black'
+            },
+            colors: ['#F62366', '#9DFF02', '#0CCDD6'],
+            title: {
+                style: {
+                    color: 'silver'
+                }
+            },
+            tooltip: {
+                style: {
+                    color: 'silver'
+                }
+            }
+        });
+    }
+    Highcharts.chart('container',
+        {
+            chart: {
+                type: 'solidgauge',
+                marginTop: 50
+            },
+            title: {
+                floating:true,
+                text: '圆心显示的标题',
+                name:'50%',
+                style: {
+                    fontSize: '24px'
+                }
+            },
+            tooltip: {
+                borderWidth: 1,
+                backgroundColor: 'none',
+                shadow: false,
+                style: {
+                    fontSize: '16px'
+                },
+                pointFormat: '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
+                positioner: function (labelWidth) {
+                    return {
+                        x: 200 - labelWidth / 2,
+                        y: 180
+                    };
+                }
+            },
+            pane: {
+                startAngle: 0,
+                endAngle: 360,
+                background: [ { // Track for Stand
+                    outerRadius: '62%',
+                    innerRadius: '38%',
+                    backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0.3).get(),
+                    borderWidth: 0
+                }]
+            },
+            yAxis: {
+                min: 0,
+                max: 100,
+                lineWidth: 0,
+                tickPositions: []
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                },
+                solidgauge: {
+                    borderWidth: '34px',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    linecap: 'round',
+                    stickyTracking: false
+                }
+            },
+            series: [ {
+                name: 'Stand',
+                borderColor: Highcharts.getOptions().colors[2],
+                data: [{
+                    color: Highcharts.getOptions().colors[2],
+                    radius: '50%',
+                    innerRadius: '50%',
+                    y: 50,
+
+                },
+
+                ]
+            }]
+        },
+        /**
+         * In the chart load callback, add icons on top of the circular shapes
+         */
+       );
+</script>
+
+</body>
+</html>

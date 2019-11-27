@@ -74,13 +74,13 @@ class Prop extends Base {
         }
     }
 
-    setAnimateState(isAnimate) {
+    _setAnimateState(isAnimate) {
         this.isAnimate = isAnimate;
     }
 
     animate() {
-
         if (this.isAnimate) {
+            //保护道具
             if (this.projectTime > 0) {
 
                 let self = this;
@@ -96,7 +96,7 @@ class Prop extends Base {
                 self.setValueForType(this.type);
             } else {
                 this.projectTime = 500;
-                this.setAnimateState(false);
+                this._setAnimateState(false);
             }
         }
 
