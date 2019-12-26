@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .main{
+            height: 600px;
+            color: #fff;
+        }
+        .down{
+            height: 300px;
+            transform: scaleY(0);
+            transition: transform 0.8s;
+            transform-origin: bottom center;
+            background: #2c275b;
+        }
+        .active {
+            height: 300px;
+            transform: scaleY(1);
+            transition: transform 0.8s;
+            transform-origin: bottom center;
+        }
+        .btn{
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 3px 10px;
+            border-radius: 5px;
+            background: #999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+    <span class="btn" id="btn">测试</span>
+    <div class="down">
+        contentcontentcontentcontentcontentcontent
+    </div>
+</div>
+<script>
+    document.getElementById('btn').addEventListener('click',()=>{
+        let element = document.getElementsByClassName('down')[0];
+        addClass(element,'active');
+    });
+    function addClass (element,className) {
+        element.className = element.className.indexOf(className)===-1 ? element.className+' '+className : element.className.replace(' active','') ;
+    }
+</script>
+</body>
+</html>
