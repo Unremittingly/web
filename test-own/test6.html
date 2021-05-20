@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table border="1" width="300">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+</table>
+</br>
+<table border="1" width="300">
+    <tr>
+        <td colspan=3>合并第一行的三列</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+</table>
+</br>
+<table border="1" width="300">
+    <tr>
+        <td rowspan="2">合并第一列的两行</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+</table>
+</body>
+
+<div id="down">down</div>
+
+<script>
+    const a = 1;
+    const b = 1;
+    console.log('23', 1);
+</script>
+
+<script src="http://danml.com/js/download2.js"></script>
+<script>
+
+    const downloadMp3 = (filePath) => {
+        fetch(filePath).then(res => res.blob()).then(blob => {
+            const a = document.createElement('a');
+            document.body.appendChild(a);
+            a.style.display = 'none';
+            // 使用获取到的blob对象创建的url
+            const url = window.URL.createObjectURL(blob);
+            a.href = url;
+            // 指定下载的文件名
+            a.download = '语音音频.mp3';
+            a.click();
+            document.body.removeChild(a);
+            // 移除blob对象的url
+            window.URL.revokeObjectURL(url);
+        });
+    };
+    document.getElementById('down').onclick = ()=>{
+        // 下载服务器的MP3文件
+        downloadMp3('http://m7.music.126.net/20200119103536/86a7327219cd314f00a52f2cfe2ce09b/ymusic/5208/0e5c/075a/eb3eaf469396f56f2a8c00b581f4d2a7.mp3');
+    }
+
+</script>
+</html>

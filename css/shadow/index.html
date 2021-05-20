@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .a {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background: #999;
+
+            background-image: radial-gradient(transparent 0, transparent 5px, #333 5px);
+            background-size: 15px 15px;
+            background-position: 8px 3px;
+
+        }
+
+        a:after {
+            content: ' ';
+            display: block;
+            /* 用相同的颜色覆盖 */
+            background-color:#333;
+            /* 绝对定位，遮住中间所有的洞，只保留边角的锯齿 */
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            /* 为锯齿保留的距离 */
+            right: 10px;
+            z-index: -1;
+        }
+
+        .a-shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100% - 10px);
+            height: 100%;
+            background: #999;
+            box-shadow: 0px 4px 8px 0px rgba(27, 27, 27, 0.02), 0px 1px 3px 0px rgba(27, 27, 27, 0.02);
+        }
+    </style>
+</head>
+<body>
+<div class="a">
+    {/*阴影和波浪边框无法一起共存 需要外面兼容阴影*/}
+    <div class="a-shadow">
+
+    </div>
+</div>
+</body>
+</html>

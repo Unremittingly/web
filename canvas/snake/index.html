@@ -19,8 +19,12 @@
 <div class="score">分数:
     <span id="score"></span>
 </div>
+<span id="start">start</span>
 </body>
 <script>
+    document.getElementById('start').addEventListener('click',()=>{
+       init();
+    });
     const WIDTH = 20;
     let cxt;//canvas上下文对象
     let snakes = [];//蛇数组
@@ -361,6 +365,6 @@
         }
     };
 
-    init();
+    // init();
 </script>
 </html>

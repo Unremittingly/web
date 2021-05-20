@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {padding: 0; margin: 0}
+    </style>
+</head>
+<script src="../js/pixi.min4.5.js"></script>
+<script src="./js/keyboard.js"></script>
+<script src="./js/index.js" ></script>
+<body>
+<!--<canvas >-->
+<!--</canvas>-->
+</body>
+
+<script type="text/javascript">
+    //Create a Pixi Application
+    let app = new PIXI.Application({
+            width: 400,
+            height: 400,
+            antialias: true,
+            transparent: false,
+            resolution: 1
+        }
+    );
+
+    //Add the canvas that Pixi automatically created for you to the HTML document
+    document.body.appendChild(app.view);
+
+    
+    console.log(' PIXI.loader',PIXI, PIXI.loader);
+    //load an image and run the `setup` function when it's done  预加载
+    PIXI.loader
+        .add(["img/enemy2.png",'img/enemy1.png'])
+        .load(setup);
+
+
+
+
+
+    // createSprite();
+</script>
+</html>
