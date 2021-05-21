@@ -156,6 +156,7 @@ function drawRect() {
 
 }
 
+
 //碰撞检测 如果bump不能使用了 那么就用这个
 function hitTestRectangle(r1, r2) {
 //Define the variables we'll need to calculate
