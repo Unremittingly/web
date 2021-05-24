@@ -1,4 +1,7 @@
 
+//重力
+let gravity = 3;
+
 //碰撞检测的插件Bump
 let b = new Bump(PIXI);
 //补间动画插件Charm
@@ -8,7 +11,7 @@ function  setup(){
     let cat = new PIXI.Sprite(PIXI.loader.resources["img/enemy2.png"].texture);
     // let cat1 = new PIXI.Sprite(PIXI.loader.resources["img/enemy1.png"].texture);
     //Add the cat to the stage
-    cat.position.set(30,20);
+    cat.position.set(30,200);
     // cat1.x = 100;
     // cat1.y = 100;
     cat.vx = 0;
@@ -28,9 +31,11 @@ function  setup(){
     bindDirectionKeyBoard(cat);
     
     const box = drawRect();
-    app.stage.addChild(box);
-    app.ticker.add(delta => gameLoop(cat,box,delta));
-
+    // const road = drawRoad();
+    // app.stage.addChild(road);
+    // app.stage.addChild(box);
+    app.ticker.add(delta => gameLoop(cat,box));
+    // jump(cat);
 }
 
 //绑定上下左右键
@@ -59,8 +64,9 @@ function bindDirectionKeyBoard(cat) {
 
     //Up
     up.press = () => {
-        cat.vy = -2;
-        cat.vx = 0;
+        // cat.vy = -2;
+        // cat.vx = 0;
+        jump(cat);
     };
     up.release = () => {
         if (!down.isDown && cat.vx === 0) {
@@ -91,15 +97,26 @@ function bindDirectionKeyBoard(cat) {
     };
 }
 
+function jump(sprite) {
+    c.slide(sprite, 180, 180, 120);
+}
 
-function gameLoop(cat,box,delta) {
-
+function gameLoop(cat,box,road,delta) {
     //Apply the velocity values to the cat's
     //position to make it move
     moveAnimate(cat);
 
     if(b.hit(box,cat)){
         box.tint = 0xff3300;
+    }
+
+    if(road){
+        if(!b.hit(road, cat)){
+            cat.vy = gravity;
+        }else{
+            cat.vy = 0;
+        }
+
     }
     const collision = b.contain(cat,{x:0,y:0,width:400,height:400});
     if(collision){
@@ -154,6 +171,17 @@ function drawRect() {
     rectangle.y = 170;
     return rectangle;
 
+}
+
+function drawRoad() {
+    let rectangle = new PIXI.Graphics();
+    rectangle.lineStyle(1, 0xFF3300, 1);
+    rectangle.beginFill(0x66CCFF);
+    rectangle.drawRect(0, 0, 400, 10);
+    rectangle.endFill();
+    rectangle.x = 0;
+    rectangle.y = 300;
+    return rectangle;
 }
 
 //碰撞检测 如果bump不能使用了 那么就用这个
