@@ -10,6 +10,7 @@
 <script src="../js/pixi.min4.5.js"></script>
 <script src="../js/bump.js"></script>
 <script src="../js/charm.js"></script>
+
 <script src="./js/keyboard.js"></script>
 <script src="./js/index.js" ></script>
 <body>
@@ -27,12 +28,14 @@
             resolution: 1
         }
     );
+    let stage = app.stage;
+    let renderer = app.renderer;
 
     //Add the canvas that Pixi automatically created for you to the HTML document
-    document.body.appendChild(app.view);
+    document.body.appendChild(renderer.view);
 
     
-    console.log(' PIXI.loader',PIXI, PIXI.loader);
+    // console.log(' PIXI.loader',PIXI, PIXI.loader);
     //load an image and run the `setup` function when it's done  预加载
     PIXI.loader
         .add(["img/enemy2.png",'img/enemy1.png'])

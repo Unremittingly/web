@@ -31,10 +31,10 @@ function  setup(){
     bindDirectionKeyBoard(cat);
     
     const box = drawRect();
-    // const road = drawRoad();
-    // app.stage.addChild(road);
+    const road = drawRoad();
+    app.stage.addChild(road);
     // app.stage.addChild(box);
-    app.ticker.add(delta => gameLoop(cat,box));
+    app.ticker.add(delta => gameLoop(cat,box,road));
     // jump(cat);
 }
 
@@ -64,9 +64,9 @@ function bindDirectionKeyBoard(cat) {
 
     //Up
     up.press = () => {
-        // cat.vy = -2;
-        // cat.vx = 0;
-        jump(cat);
+        cat.vy = -2;
+        cat.vx = 0;
+        // jump(cat);
     };
     up.release = () => {
         if (!down.isDown && cat.vx === 0) {
@@ -111,12 +111,9 @@ function gameLoop(cat,box,road,delta) {
     }
 
     if(road){
-        if(!b.hit(road, cat)){
-            cat.vy = gravity;
-        }else{
+        if(b.hit(road, cat)){
             cat.vy = 0;
         }
-
     }
     const collision = b.contain(cat,{x:0,y:0,width:400,height:400});
     if(collision){
