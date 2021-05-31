@@ -7,22 +7,30 @@
         * {padding: 0; margin: 0}
     </style>
 </head>
-<script src="../js/pixi.min4.5.js"></script>
-<script src="../js/bump.js"></script>
-<script src="../js/charm.js"></script>
-
-<script src="./js/keyboard.js"></script>
-<script src="./js/index.js" ></script>
+<script src="common/pixi.min4.5.js"></script>
+<script src="common/bump.js"></script>
+<script src="common/charm.js"></script>
+<!--<script src="../js/util.js"></script>-->
+<script src="js/map.js"></script>
+<script src="js/keyboard.js"></script>
+<script src="js/index.js" ></script>
 <body>
 <!--<canvas >-->
 <!--</canvas>-->
 </body>
 
 <script type="text/javascript">
+
+    const bgWidth = 600;//整个游戏场景的宽度
+    const bgHeight = 600;//整个游戏场景的高度
+    const menuWidth = 90;//游戏菜单的宽度
+    const wallHeight = wallWidth = bgWidth-menuWidth;//游戏主角能活动的范围
+    const tileWidth = 30;
+    const tileHeight = 30;
     //Create a Pixi Application
     let app = new PIXI.Application({
-            width: 400,
-            height: 400,
+            width: bgWidth,
+            height: wallHeight,
             antialias: true,
             transparent: false,
             resolution: 1
@@ -34,15 +42,9 @@
     //Add the canvas that Pixi automatically created for you to the HTML document
     document.body.appendChild(renderer.view);
 
-    
     // console.log(' PIXI.loader',PIXI, PIXI.loader);
     //load an image and run the `setup` function when it's done  预加载
-    PIXI.loader
-        .add(["img/enemy2.png",'img/enemy1.png'])
-        .load(setup);
-
-
-
+    load()
 
 
     // createSprite();
