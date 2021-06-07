@@ -2,6 +2,18 @@
 let b = new Bump(PIXI);
 // //补间动画插件Charm
 // let c = new Charm(PIXI);
+
+const DIRECTION = {
+    RIGHT:'right',
+    TOP:'top',
+    LEFT:'left',
+    DOWN:'down',
+    DEFAULT:''
+};
+
+let direction = '';
+
+const obstacles = [];//障碍物
 function load(app) {
     PIXI.loader
         .add(["img/enemy2.png",'img/enemy1.png','img/t.png'])
@@ -31,10 +43,12 @@ function  setup(){
 
     app.stage.addChild(animals);
     //为cat绑定方向键的监听
-    bindDirectionKeyBoard(cat);
+    bindDirectionKeyBoard(cat,obstacles);
     
     const box = drawRect();
     const road = drawRoad();
+
+    obstacles.push(road);
     app.stage.addChild(road);
     // app.stage.addChild(box);
 
@@ -54,8 +68,10 @@ function gameLoop(cat,box,road,delta) {
     }
 
     if(road){
-        if(b.hit(road, cat)){
+        //遇见了墙或者障碍物  让速度变成0
+        if(b.hit(cat, road, true)){
             cat.vy = 0;
+            cat.vx = 0;
         }
     }
     //边界
