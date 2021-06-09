@@ -27,7 +27,7 @@ class Layer {
 class Border {
     constructor(x,y,width,type){
         const group = new PIXI.Container();
-        console.log('group',group);
+        // console.log('group',group);
         if(type === 'c'){
             //横边 上下
             //bottom

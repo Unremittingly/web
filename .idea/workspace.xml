@@ -1,429 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="585ef34c-5f03-4f37-997a-c39077542f10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/createjs/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/createjs/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pixi/test/js/menu/index.js" afterDir="false" />
+    <list default="true" id="585ef34c-5f03-4f37-997a-c39077542f10" name="Default Changelist" comment="test  pixi add  插件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/bit-twiddle/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/bit-twiddle/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/bit-twiddle/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/bit-twiddle/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/bit-twiddle/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/bit-twiddle/test/interleave2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/bit-twiddle/test/interleave3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/bit-twiddle/test/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/bit-twiddle/twiddle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/earcut/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/earcut/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/earcut/dist/earcut.dev.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/earcut/dist/earcut.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/earcut/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/earcut/src/earcut.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/.eslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/CONTRIBUTORS.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/__tests__/amazon.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/__tests__/android.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/__tests__/apple.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/__tests__/desktop.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/__tests__/other.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/__tests__/windows.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/dist/isMobile.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/ismobilejs/src/isMobile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/browser.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/lib/mini-signals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/src/mini-signals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/mini-signals/typings/mini-signals.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/parse-uri/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/parse-uri/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/parse-uri/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/parse-uri/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/parse-uri/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/bin/pixi-gl-core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/bin/pixi-gl-core.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/bin/pixi-gl-core.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/bin/pixi-gl-core.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/GLBuffer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/GLFramebuffer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/GLShader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/GLTexture.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/VertexArrayObject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/createContext.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/setVertexAttribArrays.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/shader/compileProgram.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/shader/defaultValue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/shader/extractAttributes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/shader/extractUniforms.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/shader/generateUniformAccessObject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/shader/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/shader/mapSize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/shader/mapType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi-gl-core/src/shader/setPrecision.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/dist/pixi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/dist/pixi.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/dist/pixi.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/dist/pixi.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/accessibility/AccessibilityManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/accessibility/AccessibilityManager.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/accessibility/accessibleTarget.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/accessibility/accessibleTarget.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/accessibility/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/accessibility/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/Application.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/Application.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/Shader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/Shader.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/autoDetectRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/autoDetectRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/const.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/const.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/Bounds.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/Bounds.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/Container.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/Container.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/DisplayObject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/DisplayObject.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/Transform.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/Transform.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/TransformBase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/TransformBase.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/TransformStatic.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/display/TransformStatic.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/Graphics.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/Graphics.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/GraphicsData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/GraphicsData.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/canvas/CanvasGraphicsRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/canvas/CanvasGraphicsRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/utils/bezierCurveTo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/utils/bezierCurveTo.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/GraphicsRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/GraphicsRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/WebGLGraphicsData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/WebGLGraphicsData.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/shaders/PrimitiveShader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/shaders/PrimitiveShader.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildCircle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildCircle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildComplexPoly.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildComplexPoly.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildLine.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildLine.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildPoly.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildPoly.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildRectangle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildRectangle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildRoundedRectangle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/graphics/webgl/utils/buildRoundedRectangle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/GroupD8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/GroupD8.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/Matrix.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/Matrix.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/ObservablePoint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/ObservablePoint.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/Point.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/Point.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/shapes/Circle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/shapes/Circle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/shapes/Ellipse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/shapes/Ellipse.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/shapes/Polygon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/shapes/Polygon.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/shapes/Rectangle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/shapes/Rectangle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/shapes/RoundedRectangle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/math/shapes/RoundedRectangle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/SystemRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/SystemRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/canvas/CanvasRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/canvas/CanvasRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/canvas/utils/CanvasMaskManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/canvas/utils/CanvasMaskManager.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/canvas/utils/CanvasRenderTarget.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/canvas/utils/CanvasRenderTarget.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/canvas/utils/canUseNewCanvasBlendModes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/canvas/utils/canUseNewCanvasBlendModes.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/canvas/utils/mapCanvasBlendModesToPixi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/canvas/utils/mapCanvasBlendModesToPixi.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/TextureGarbageCollector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/TextureGarbageCollector.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/TextureManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/TextureManager.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/WebGLRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/WebGLRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/WebGLState.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/WebGLState.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/filters/Filter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/filters/Filter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/filters/extractUniformsFromSrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/filters/extractUniformsFromSrc.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/filters/filterTransforms.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/filters/filterTransforms.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/filters/spriteMask/SpriteMaskFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/filters/spriteMask/SpriteMaskFilter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/managers/BlendModeManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/managers/BlendModeManager.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/managers/FilterManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/managers/FilterManager.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/managers/MaskManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/managers/MaskManager.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/managers/StencilManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/managers/StencilManager.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/managers/WebGLManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/managers/WebGLManager.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/ObjectRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/ObjectRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/Quad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/Quad.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/RenderTarget.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/RenderTarget.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/checkMaxIfStatmentsInShader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/checkMaxIfStatmentsInShader.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/mapWebGLBlendModesToPixi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/mapWebGLBlendModesToPixi.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/mapWebGLDrawModesToPixi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/mapWebGLDrawModesToPixi.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/validateContext.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/renderers/webgl/utils/validateContext.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/settings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/settings.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/Sprite.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/Sprite.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/canvas/CanvasSpriteRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/canvas/CanvasSpriteRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/canvas/CanvasTinter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/canvas/CanvasTinter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/webgl/BatchBuffer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/webgl/BatchBuffer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/webgl/SpriteRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/webgl/SpriteRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/webgl/generateMultiTextureShader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/sprites/webgl/generateMultiTextureShader.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/text/Text.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/text/Text.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/text/TextMetrics.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/text/TextMetrics.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/text/TextStyle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/text/TextStyle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/BaseRenderTexture.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/BaseRenderTexture.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/BaseTexture.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/BaseTexture.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/RenderTexture.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/RenderTexture.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/Spritesheet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/Spritesheet.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/Texture.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/Texture.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/TextureMatrix.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/TextureMatrix.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/TextureUvs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/TextureUvs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/VideoBaseTexture.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/textures/VideoBaseTexture.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/ticker/Ticker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/ticker/Ticker.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/ticker/TickerListener.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/ticker/TickerListener.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/ticker/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/ticker/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/canUploadSameBuffer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/canUploadSameBuffer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/createIndicesForQuads.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/createIndicesForQuads.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/determineCrossOrigin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/determineCrossOrigin.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/mapPremultipliedBlendModes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/mapPremultipliedBlendModes.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/maxRecommendedTextures.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/maxRecommendedTextures.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/mixin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/mixin.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/pluginTarget.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/pluginTarget.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/trimCanvas.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/core/utils/trimCanvas.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/deprecation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/deprecation.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extract/canvas/CanvasExtract.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extract/canvas/CanvasExtract.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extract/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extract/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extract/webgl/WebGLExtract.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extract/webgl/WebGLExtract.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/AnimatedSprite.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/AnimatedSprite.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/BitmapText.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/BitmapText.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/TilingSprite.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/TilingSprite.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/cacheAsBitmap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/cacheAsBitmap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/getChildByName.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/getChildByName.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/getGlobalPosition.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/getGlobalPosition.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/webgl/TilingSpriteRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/extras/webgl/TilingSpriteRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/alpha/AlphaFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/alpha/AlphaFilter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/BlurFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/BlurFilter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/BlurXFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/BlurXFilter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/BlurYFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/BlurYFilter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/generateBlurFragSource.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/generateBlurFragSource.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/generateBlurVertSource.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/generateBlurVertSource.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/getMaxBlurKernelSize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/blur/getMaxBlurKernelSize.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/colormatrix/ColorMatrixFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/colormatrix/ColorMatrixFilter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/displacement/DisplacementFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/displacement/DisplacementFilter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/fxaa/FXAAFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/fxaa/FXAAFilter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/noise/NoiseFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/filters/noise/NoiseFilter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/InteractionData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/InteractionData.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/InteractionEvent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/InteractionEvent.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/InteractionManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/InteractionManager.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/InteractionTrackingData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/InteractionTrackingData.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/interactiveTarget.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/interaction/interactiveTarget.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/loaders/bitmapFontParser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/loaders/bitmapFontParser.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/loaders/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/loaders/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/loaders/loader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/loaders/loader.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/loaders/spritesheetParser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/loaders/spritesheetParser.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/loaders/textureParser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/loaders/textureParser.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/Mesh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/Mesh.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/NineSlicePlane.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/NineSlicePlane.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/Plane.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/Plane.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/Rope.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/Rope.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/canvas/CanvasMeshRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/canvas/CanvasMeshRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/webgl/MeshRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/mesh/webgl/MeshRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/particles/ParticleContainer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/particles/ParticleContainer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/particles/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/particles/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/particles/webgl/ParticleBuffer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/particles/webgl/ParticleBuffer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/particles/webgl/ParticleRenderer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/particles/webgl/ParticleRenderer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/particles/webgl/ParticleShader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/particles/webgl/ParticleShader.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/polyfill/Math.sign.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/polyfill/Math.sign.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/polyfill/Number.isInteger.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/polyfill/Number.isInteger.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/polyfill/Object.assign.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/polyfill/Object.assign.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/polyfill/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/polyfill/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/polyfill/requestAnimationFrame.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/polyfill/requestAnimationFrame.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/BasePrepare.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/BasePrepare.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/canvas/CanvasPrepare.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/canvas/CanvasPrepare.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/limiters/CountLimiter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/limiters/CountLimiter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/limiters/TimeLimiter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/limiters/TimeLimiter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/webgl/WebGLPrepare.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/prepare/webgl/WebGLPrepare.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/node_modules/eventemitter3/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/node_modules/eventemitter3/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/node_modules/eventemitter3/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/node_modules/eventemitter3/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/node_modules/eventemitter3/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/node_modules/eventemitter3/umd/eventemitter3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/pixi.js/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/remove-array-items/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/remove-array-items/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/remove-array-items/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/remove-array-items/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/remove-array-items/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/remove-array-items/test/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/dist/resource-loader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/dist/resource-loader.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/Loader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/Loader.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/Resource.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/Resource.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/async.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/async.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/b64.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/b64.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/middlewares/caching/memory.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/middlewares/caching/memory.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/middlewares/parsing/blob.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/lib/middlewares/parsing/blob.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/typings/mini-signals.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/node_modules/resource-loader/typings/resource-loader.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pixi/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pixi/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pixi/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pixi/test/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pixi/test/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pixi/test/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/pixi/test/js/map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pixi/test/js/sprite/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/pixi/test/js/sprite/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pixi/test/js/sprite/bullet.js" beforeDir="false" afterPath="$PROJECT_DIR$/pixi/test/js/sprite/bullet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pixi/test/js/sprite/tank.js" beforeDir="false" afterPath="$PROJECT_DIR$/pixi/test/js/sprite/tank.js" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/pixi/node_modules/" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -432,50 +23,33 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixi/app/component.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="8" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixi/app/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixi/test/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-87">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/pixi/test/img/bullet.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pixi/test/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
+            <state relative-caret-position="128">
+              <caret line="78" column="44" lean-forward="true" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createjs/index.html">
+        <entry file="file://$PROJECT_DIR$/pixi/test/js/sprite/tank.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-              <folding>
-                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="82">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pixi/test/js/sprite/bullet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="12" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -483,42 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pixi/test/js/keyboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="100" column="22" lean-forward="true" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createjs/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixi/test/common/bump.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-50" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixi/node_modules/bump/bump.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixi/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+            <state relative-caret-position="144">
+              <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -537,7 +77,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>createScene</find>
       <find>shooting</find>
       <find>var</find>
       <find>canvas</find>
@@ -567,6 +106,7 @@
       <find>bindDirectionKeyBoard</find>
       <find>cat</find>
       <find>Bump</find>
+      <find>obstacles</find>
     </findStrings>
     <replaceStrings>
       <replace>rowIndex</replace>
@@ -595,13 +135,9 @@
         <option value="$PROJECT_DIR$/pixi/a/index.html" />
         <option value="$PROJECT_DIR$/pixi/test/js/sprite/enemy.js" />
         <option value="$PROJECT_DIR$/pixi/test/js/sprite/buillet.js" />
-        <option value="$PROJECT_DIR$/pixi/test/js/sprite/bullet.js" />
-        <option value="$PROJECT_DIR$/pixi/test/js/sprite/base.js" />
-        <option value="$PROJECT_DIR$/pixi/test/js/sprite/tank.js" />
         <option value="$PROJECT_DIR$/pixi/test/js/unit.js" />
         <option value="$PROJECT_DIR$/pixi/test/js/unitl.js" />
         <option value="$PROJECT_DIR$/pixi/test/js/event.js" />
-        <option value="$PROJECT_DIR$/pixi/test/js/map.js" />
         <option value="$PROJECT_DIR$/pixi/dist/index.html" />
         <option value="$PROJECT_DIR$/pixi/dist/main.js" />
         <option value="$PROJECT_DIR$/pixi/webpack.dev.config.js" />
@@ -625,16 +161,20 @@
         <option value="$PROJECT_DIR$/pixi/test/js/menu/index.js" />
         <option value="$PROJECT_DIR$/pixi/app/component.js" />
         <option value="$PROJECT_DIR$/pixi/public/index.html" />
-        <option value="$PROJECT_DIR$/pixi/test/index.html" />
         <option value="$PROJECT_DIR$/pixi/node_modules/bump/bump.js" />
         <option value="$PROJECT_DIR$/createjs/main.js" />
         <option value="$PROJECT_DIR$/createjs/index.html" />
         <option value="$PROJECT_DIR$/pixi/test/js/keyboard.js" />
+        <option value="$PROJECT_DIR$/pixi/test/js/sprite/base.js" />
+        <option value="$PROJECT_DIR$/pixi/test/index.html" />
+        <option value="$PROJECT_DIR$/pixi/test/js/map.js" />
+        <option value="$PROJECT_DIR$/pixi/test/js/sprite/tank.js" />
+        <option value="$PROJECT_DIR$/pixi/test/js/sprite/bullet.js" />
         <option value="$PROJECT_DIR$/pixi/test/js/index.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="823" />
@@ -648,7 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -659,7 +198,20 @@
             <path>
               <item name="Web" type="b2602c69:ProjectViewProjectNode" />
               <item name="Web" type="462c0819:PsiDirectoryNode" />
-              <item name="createjs" type="462c0819:PsiDirectoryNode" />
+              <item name="canvas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Web" type="462c0819:PsiDirectoryNode" />
+              <item name="canvas" type="462c0819:PsiDirectoryNode" />
+              <item name="tank" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Web" type="462c0819:PsiDirectoryNode" />
+              <item name="canvas" type="462c0819:PsiDirectoryNode" />
+              <item name="tank" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Web" type="b2602c69:ProjectViewProjectNode" />
@@ -677,14 +229,7 @@
               <item name="Web" type="462c0819:PsiDirectoryNode" />
               <item name="pixi" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="a" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Web" type="462c0819:PsiDirectoryNode" />
-              <item name="pixi" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Web" type="b2602c69:ProjectViewProjectNode" />
@@ -693,10 +238,19 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Web" type="462c0819:PsiDirectoryNode" />
+              <item name="pixi" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="sprite" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -777,7 +331,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f4ff2c2f-6d9e-4107-b89e-ee9ee551720e" name="Default Changelist" comment="" />
+      <changelist id="585ef34c-5f03-4f37-997a-c39077542f10" name="Default Changelist" comment="" />
       <created>1556435375471</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -949,6 +503,8 @@
       <workItem from="1622179937131" duration="5294000" />
       <workItem from="1622429572702" duration="1824000" />
       <workItem from="1622431726633" duration="3436000" />
+      <workItem from="1623116665128" duration="5118000" />
+      <workItem from="1623215718194" duration="6503000" />
     </task>
     <task id="LOCAL-00010" summary="update">
       <created>1560310224963</created>
@@ -1297,7 +853,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="543972000" />
+    <option name="totallyTimeSpent" value="557588000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1310,7 +866,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="823" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14164905" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1420,56 +975,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="test  pixi add  插件" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/canvas/tank/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/canvas/tank/js/scene.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/canvas/tank/img/p_sprites.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/img/s.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/img/p2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/img/bg.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/img/bullet.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/img/enemy0.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/img/enemy1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/img/enemy2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/img/fog.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/img/t.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/a/deer.png" />
-    <entry file="file://$PROJECT_DIR$/pixi/a/index.html" />
-    <entry file="file://$PROJECT_DIR$/pixi/dist/index.html" />
-    <entry file="file://$PROJECT_DIR$/pixi/webpack.dev.config.js" />
-    <entry file="file://$PROJECT_DIR$/pixi/webpack-config.js" />
-    <entry file="file://$PROJECT_DIR$/pixi/src/index.html" />
     <entry file="file://$PROJECT_DIR$/pixi/dist/main.js" />
     <entry file="file://$PROJECT_DIR$/pixi/src/index.js" />
     <entry file="file://$PROJECT_DIR$/pixi/package-lock.json">
@@ -1484,16 +989,7 @@
     <entry file="file://$PROJECT_DIR$/pixi/test/img/p1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/img/bomb.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/node_modules/pixi.js/lib/index.js" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1525,24 +1021,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pixi/app/test/js/event.js" />
-    <entry file="file://$PROJECT_DIR$/pixi/test/js/map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pixi/test/js/util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1552,16 +1034,6 @@
           <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/js/sprite/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/js/sprite/bullet.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/pixi/test/js/menu/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1596,31 +1068,20 @@
         <state relative-caret-position="-50" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/node_modules/bump/bump.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/test/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/lottery/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/createjs/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1630,22 +1091,126 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/createjs/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+        <state relative-caret-position="204">
+          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/node_modules/bump/bump.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/particles.js/demo/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="38" column="81" lean-forward="true" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/js/sprite/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/js/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/img/t.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/img/s.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/img/s.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/img/p2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/img/fog.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/img/enemy0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/img/bg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/img/bomb.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/img/enemy1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/img/bullet.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/tank/img/tankAll.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/tank/img/prop_sprites.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/tank/img/p_sprites.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/tank/img/label_sprites.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/tank/img/enemy.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/tank/img/css_sprites.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/js/sprite/bullet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/test/js/sprite/tank.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pixi/test/js/keyboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="100" column="22" lean-forward="true" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
+        <state relative-caret-position="144">
+          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pixi/test/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
+        <state relative-caret-position="128">
+          <caret line="78" column="44" lean-forward="true" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
         </state>
       </provider>
     </entry>
