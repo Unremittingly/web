@@ -1,8 +1,8 @@
-import {load} from '../test/js/index'
+import { a } from './test.js';
 
 const main = ()=>{
     const element = document.createElement('h1');
-    element.innerHTML = 'Hello World';
+    element.innerHTML = `Hello World ${a()}`;
 
    return  element;
 };
