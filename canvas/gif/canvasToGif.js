@@ -3,7 +3,7 @@ class CanvasToGif {
 
     constructor(element, cb, opt) {
         this.Element = element;
-        this.defultFrames = opt.frames ? opt.frames : 45;//默认取45帧
+        this.defultFrames = opt?.frames ? opt.frames : 45;//默认取45帧
         this.gifObj = null;
         this.isFinish = false;
         this.url = '';
